@@ -8,3 +8,4 @@ Added L1 Hardware verification. The PQ-Certificate is now cryptographically boun
 
 ## 2026-01-17: Temporal Jitter Detection
 Set the strict freshness window to 2.0 seconds. Simulation shows successful detection of 500ms stall injections, triggering an autonomous re-verification handshake.
+2026-01-17: Transitioned to Quad-Vector Stochastic Policy Controller.
