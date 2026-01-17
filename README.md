@@ -1,22 +1,13 @@
-# Aegis-Grid V2: High-Assurance Hive-Cell Substrate
+# Aegis-Grid: Multi-Tiered Security Substrate
 
-## Proprietary Research Notice
-This repository contains the V2 evolution of the Aegis-Grid framework. It is a **Private Research Substrate** utilizing Tri-Agent Consensus and Recursive Lattice Encapsulation.
+## v2_model (Stable)
+Adaptive 7-layer framework using Stochastic State Vectors. Focus: DDoS mitigation.
 
-## 🏗️ System Architecture
-The framework is partitioned into three specialized cognitive chambers:
-1. **Protector (Alpha)**: Executes 1000-layer recursive SHA3-256 encapsulation.
-2. **Auditor (Beta)**: Performs nanosecond-precision hardware MAC-ID pinning.
-3. **Monitor (Gamma)**: Verifies L1-L7 compliance before state-release.
+## v3_fabric (Morphic)
+Causal-AI implementation using Nanosecond Jitter analysis. Focus: Intentionality detection.
 
-## 🛡️ Core Technologies
-- **Recursive Hardening**: 1000 layers of bit-fractured encryption.
-- **Matrix Stealth**: 1:1000 Data-to-Dummy ratio in high-entropy buffers.
-- **Hive-Gate**: A consensus-based logic membrane that self-destructs on breach.
-
-## 📊 Performance & Forensics
-Plots demonstrating DDoS mitigation and CAP-score stabilization are located in `v2_model/plots/`.
-Audit logs for adversarial intent detection are stored in `v2_model/logs/`.
+## v4_hive (Hive-Cell)
+Consensus-based oversight using Protector, Auditor, and Monitor agents. Focus: Recursive 1000-layer encryption.
 
 ---
-© 2026 Burhan Abdullah. All Rights Reserved.
+© 2026 Burhan Abdullah. Private Research.
