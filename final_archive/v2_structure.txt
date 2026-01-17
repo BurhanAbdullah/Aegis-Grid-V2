@@ -1,0 +1,89 @@
+v2_model
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-312.pyc
+│   └── __init__.py
+├── actuators
+│   └── __init__.py
+├── agents
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   └── grid_agent.cpython-312.pyc
+│   ├── causal_neuron.sh
+│   ├── grid_agent.py
+│   ├── grid_node.py
+│   ├── hive
+│   │   ├── __init__.py
+│   │   ├── alpha
+│   │   ├── auditor.sh
+│   │   ├── beta
+│   │   ├── gamma
+│   │   ├── hive_gate.sh
+│   │   ├── monitor.sh
+│   │   └── protector.sh
+│   └── pq_agent.py
+├── cognitive
+│   ├── __init__.py
+│   └── agent.py
+├── core
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   └── __init__.py
+│   ├── causal
+│   │   └── __init__.py
+│   └── crypto
+│       ├── __init__.py
+│       ├── __pycache__
+│       └── pqc.py
+├── hardware
+│   ├── __init__.py
+│   └── fingerprint.py
+├── logs
+│   ├── DEVELOPMENT_LOG.md
+│   ├── RESEARCH_LOG.md
+│   └── __init__.py
+├── network
+│   └── __init__.py
+├── plots
+│   ├── __init__.py
+│   ├── audit_result.png
+│   ├── current_performance_baseline.png
+│   └── v2_audit_result.png
+├── protocol
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   └── framing.cpython-312.pyc
+│   ├── actuator.py
+│   ├── framing.py
+│   ├── matrix_stealth.sh
+│   ├── morph.sh
+│   ├── morphic
+│   │   └── __init__.py
+│   └── recursive_crypto.sh
+├── telemetry
+│   └── __init__.py
+└── tests
+    ├── __init__.py
+    ├── __pycache__
+    │   ├── __init__.cpython-312.pyc
+    │   └── __init__.py
+    ├── attack_and_plot.py
+    ├── full_security_test.py
+    ├── full_simulation_v2.py
+    ├── handshake_test.py
+    ├── integrity_test.py
+    ├── stealth_audit.py
+    ├── stress
+    │   ├── __init__.py
+    │   ├── __pycache__
+    │   └── full_audit.py
+    ├── unit
+    │   └── __init__.py
+    └── verify_v2.py
+
+28 directories, 59 files
