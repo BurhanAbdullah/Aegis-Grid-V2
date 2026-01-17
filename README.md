@@ -1,24 +1,22 @@
-# Aegis-Grid V2.0: Agentic Security for Intelligent Power Systems
+# Aegis-Grid V2: High-Assurance Hive-Cell Substrate
 
-## Project Overview
-Aegis-Grid V2.0 is a proprietary framework for high-assurance grid communication. It addresses the "Harvest Now, Decrypt Later" threat through a combination of Post-Quantum (PQ) identity roots and autonomous agent-mediated resilience.
+## Proprietary Research Notice
+This repository contains the V2 evolution of the Aegis-Grid framework. It is a **Private Research Substrate** utilizing Tri-Agent Consensus and Recursive Lattice Encapsulation.
 
-## Technical Architecture (7-Layer Stack)
-The system operates on an integrated stack where each layer informs the next:
+## 🏗️ System Architecture
+The framework is partitioned into three specialized cognitive chambers:
+1. **Protector (Alpha)**: Executes 1000-layer recursive SHA3-256 encapsulation.
+2. **Auditor (Beta)**: Performs nanosecond-precision hardware MAC-ID pinning.
+3. **Monitor (Gamma)**: Verifies L1-L7 compliance before state-release.
 
-1. **Hardware Identity**: MAC-ID pinning bound to the Lattice-Root.
-2. **Temporal Safety**: Strict 2.0s jitter monitoring to detect injection.
-3. **Adaptive Quorum**: Agent-based (n, k) thresholding.
-4. **Shannon Stealth**: Positional shuffling within high-entropy bursts.
-5. **Pressure Analysis**: Cumulative Attack Pressure (CAP) monitoring.
-6. **Fail-Secure**: Autonomous data-locking upon boundary breach.
-7. **Vault Isolation**: Physical and logical separation of V2 logic.
+## 🛡️ Core Technologies
+- **Recursive Hardening**: 1000 layers of bit-fractured encryption.
+- **Matrix Stealth**: 1:1000 Data-to-Dummy ratio in high-entropy buffers.
+- **Hive-Gate**: A consensus-based logic membrane that self-destructs on breach.
 
-## Management via Bash
-The system is managed through the central `manage.sh` controller.
-- **Initialization**: Run `./manage.sh setup` to prepare the environment.
-- **Verification**: Run `./manage.sh audit` to execute the full-scale simulation.
-- **Forensics**: Logs are stored in `v2_model/logs/` and visual metrics in `v2_model/plots/`.
+## 📊 Performance & Forensics
+Plots demonstrating DDoS mitigation and CAP-score stabilization are located in `v2_model/plots/`.
+Audit logs for adversarial intent detection are stored in `v2_model/logs/`.
 
 ---
-© 2026 Burhan Abdullah. Proprietary Research. Unauthorized distribution prohibited.
+© 2026 Burhan Abdullah. All Rights Reserved.
