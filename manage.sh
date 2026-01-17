@@ -1,34 +1,26 @@
 #!/bin/bash
-
-# Aegis-Grid V2.0 System Manager
-# Proprietary Build: Jan 2026
+# Aegis-Grid Multi-Version Controller
+export PYTHONPATH=$PYTHONPATH:.
 
 case "$1" in
-    setup)
-        echo "[INFO] Configuring system dependencies..."
-        python3 -m pip install matplotlib > /dev/null
-        mkdir -p v2_model/logs v2_model/plots v2_model/telemetry
-        export PYTHONPATH=$PYTHONPATH:.
-        echo "[SUCCESS] Environment Initialized."
-        ;;
-    audit)
-        echo "[INFO] Executing 7-Layer Adversarial Simulation..."
-        export PYTHONPATH=$PYTHONPATH:.
+    v2-audit)
+        echo "[INFO] Running V2 Master (Adaptive CAP)..."
         python3 -m v2_model.tests.stress.full_audit
         ;;
-    clean)
-        echo "[INFO] Purging cache and forensic logs..."
-        find . -name "__pycache__" -type d -exec rm -rf {} +
-        rm -rf v2_model/logs/*.log
+    v3-evolve)
+        echo "[INFO] Running V3 Morphic (Causal Logic)..."
+        ./v3_fabric/fabric.sh evolve
+        ;;
+    v4-consensus)
+        echo "[INFO] Running V4 Hive (Tri-Agent Consensus)..."
+        ./v4_hive/gate/hive_gate.sh "SECURE_DATA" "KEY_1000L"
         ;;
     push)
-        echo "[INFO] Syncing with Private Vault..."
         git add .
-        git commit -m "RESEARCH_UPDATE: Finalized 7-Layer Verified Stack"
+        git commit -m "RESEARCH_SYNC: V2 Stable with V3/V4 Experimental Substrates"
         git push origin main
         ;;
     *)
-        echo "Valid commands: setup, audit, clean, push"
-        exit 1
+        echo "Usage: ./manage.sh {v2-audit|v3-evolve|v4-consensus|push}"
         ;;
 esac
