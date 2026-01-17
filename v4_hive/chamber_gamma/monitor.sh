@@ -1,15 +1,11 @@
 #!/bin/bash
-# AGENT GAMMA: COMPLIANCE & LEVEL AUDITOR
-echo "[GAMMA] Auditing 7-Layer Integrity..."
+echo "[GAMMA] Auditing security level compliance..."
 
-# Check L1 (Hardware), L4 (Stealth), L5 (Agent State)
-L1_STATE=$(ls v3_fabric/neurons/node_identity.json | wc -l)
-L4_STATE=$(ls v3_fabric/synapses/data_matrix.bin | wc -l)
-
-if [ $L1_STATE -eq 1 ] && [ $L4_STATE -eq 1 ]; then
-    echo "[GAMMA] 7-Layer Compliance: VERIFIED."
+# Ensure L1 (Cert) and L4 (Matrix) substrates are active
+if [ -f "v3_fabric/neurons/node_identity.json" ] && [ -f "v3_fabric/synapses/data_matrix.bin" ]; then
+    echo "[GAMMA] High-Assurance Levels: COMPLIANT."
     exit 0
 else
-    echo "[GAMMA] Compliance Failure. Protocol Mismatch."
+    echo "[GAMMA] Compliance Failure: Substrate missing."
     exit 1
 fi
