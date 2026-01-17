@@ -1,38 +1,39 @@
 import time
-import numpy as np
+import os
 
-class AegisStochasticAgent:
-    def __init__(self, node_id, mac):
+class AegisAgent: # Renamed for backward compatibility with audit scripts
+    def __init__(self, node_id, cert, mac):
         self.node_id = node_id
+        self.cert = cert
         self.mac = mac
         
-        # Internal State Vectors (Initialized to Neutral)
-        self.pressure_state = 0.0  # CAP Trend
-        self.timing_state = 0.0    # Jitter Slope
-        self.entropy_state = 1.0   # Stealth Effectiveness
-        self.trust_state = 1.0     # Confidence Score
-        
-        self.policy_threshold = 0.85 # Self-tuning boundary
-        self.is_locked = False
+        # V3 State Vectors
+        self.vectors = {
+            "pressure": 0.0,
+            "timing": 0.0,
+            "trust": 1.0
+        }
+        self.cap_score = 0.0
+        self.data_locked = False
 
-    def evaluate_policy(self, metrics):
-        """
-        Continuous Policy-Based Decision:
-        R = (P * T) / (E * G)
-        """
-        # Update Vectors based on incoming metrics
-        self.pressure_state = (self.pressure_state * 0.9) + (metrics['cap_delta'] * 0.1)
-        self.timing_state = (self.timing_state * 0.8) + (metrics['jitter'] * 0.2)
+    def analyze_packet(self, packet, incoming_mac, engine=None):
+        # L1: Hardware Actuator check
+        if incoming_mac != self.mac:
+            if engine: engine.log_event("CRITICAL", self.node_id, "Hardware MAC Mismatch")
+            self.data_locked = True
+            return "TERMINAL_HARDWARE_MISMATCH"
         
-        # Calculate Risk Surface (Continuous)
-        risk_surface = (self.pressure_state + self.timing_state) / (self.trust_state + 1e-6)
-        
-        # Self-Tuning: Adjust threshold based on historical stability
-        if risk_surface < 0.2:
-            self.policy_threshold = min(0.95, self.policy_threshold + 0.01)
-        
-        if risk_surface > self.policy_threshold:
-            self.is_locked = True
-            return "POLICY_ENFORCED_ISOLATION"
+        # L2: Causal Jitter Analysis
+        delay = time.time() - packet['ts']
+        if delay > 2.0:
+            self.cap_score += 0.3
+            if engine: engine.log_event("WARNING", self.node_id, f"Temporal Deviation: {delay:.2f}s")
+        else:
+            self.cap_score = max(0, self.cap_score - 0.1)
+
+        # L6: Fail-Secure Lockout
+        if self.cap_score >= 1.0:
+            self.data_locked = True
+            return "FAIL_SECURE_LOCKED"
             
-        return "POLICY_STABLE"
+        return "VERIFIED"
