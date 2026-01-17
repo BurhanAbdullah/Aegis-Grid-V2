@@ -1,25 +1,24 @@
 #!/bin/bash
-export PYTHONPATH=$PYTHONPATH:.
+export PYTHONPATH=$(pwd)
 
 case "$1" in
-    v2-audit)
-        python3 -m v2_model.tests.stress.full_audit
+    v2.1)
+        echo "Running Aegis-Grid V2.1 Stable..."
+        python3 -m releases.v2.1_stable.core.audit
         ;;
-    v3-evolve)
-        ./v3_fabric/fabric.sh evolve
+    v2.2)
+        echo "Running Aegis-Grid V2.2 Cognitive..."
+        python3 -m releases.v2.2_cognitive.core.audit
         ;;
-    v4-consensus)
-        ./v4_hive/gate/hive_gate.sh "SECURE_DATA" "KEY_1000L"
+    v3.0)
+        echo "Running Aegis-Grid V3.0 Morphic..."
+        python3 -m releases.v3.0_morphic.core.audit
         ;;
-    compare)
-        cat research_docs/VERSION_COMPARISON.md
-        ;;
-    push)
-        git add .
-        git commit -m "RESEARCH_UPDATE: Integrated V2-V4 Comparison Matrix"
-        git push origin main
+    v4.0)
+        echo "Running Aegis-Grid V4.0 Hive-Cell..."
+        python3 -m releases.v4.0_hive_cell.core.audit
         ;;
     *)
-        echo "Usage: ./manage.sh {v2-audit|v3-evolve|v4-consensus|compare|push}"
+        echo "Usage: ./manage.sh {v2.1|v2.2|v3.0|v4.0}"
         ;;
 esac
