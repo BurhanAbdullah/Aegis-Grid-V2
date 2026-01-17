@@ -11,3 +11,7 @@ Consensus-based oversight using Protector, Auditor, and Monitor agents. Focus: R
 
 ---
 © 2026 Burhan Abdullah. Private Research.
+
+TECHNICAL DOSSIERS
+Evolution of V1/V2: research_docs/dossiers/V1_V2_EVOLUTION.md
+Evolution of V2/V3/V4: research_docs/dossiers/V2_V3_V4_EVOLUTION.md
