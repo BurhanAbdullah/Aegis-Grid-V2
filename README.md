@@ -1,20 +1,24 @@
-# Aegis-Grid V2.0: Post-Quantum Agentic Framework
+# Aegis-Grid V2.0: Agentic Security for Intelligent Power Systems
 
-![Audit Badge](https://img.shields.io/badge/Security-L7_Verified-green)
-![License](https://img.shields.io/badge/License-Proprietary-red)
+## Project Overview
+Aegis-Grid V2.0 is a proprietary framework for high-assurance grid communication. It addresses the "Harvest Now, Decrypt Later" threat through a combination of Post-Quantum (PQ) identity roots and autonomous agent-mediated resilience.
 
-Aegis-Grid is a high-assurance autonomous security framework for smart grids. It utilizes Post-Quantum (PQ) cryptography and Agentic AI to ensure grid resilience against Dolev-Yao adversaries.
+## Technical Architecture (7-Layer Stack)
+The system operates on an integrated stack where each layer informs the next:
 
-## 🛡️ Key Novelties
-- **Hardware-Pinning:** MAC ID verification bound to PQ-Certificates.
-- **Shannon Stealth:** Dynamic positional shuffling within high-entropy dummy bursts.
-- **Fail-Secure Logic:** CAP-based autonomous node isolation (Data Lock).
-- **Temporal Freshness:** Strict 2.0s jitter monitoring.
+1. **Hardware Identity**: MAC-ID pinning bound to the Lattice-Root.
+2. **Temporal Safety**: Strict 2.0s jitter monitoring to detect injection.
+3. **Adaptive Quorum**: Agent-based (n, k) thresholding.
+4. **Shannon Stealth**: Positional shuffling within high-entropy bursts.
+5. **Pressure Analysis**: Cumulative Attack Pressure (CAP) monitoring.
+6. **Fail-Secure**: Autonomous data-locking upon boundary breach.
+7. **Vault Isolation**: Physical and logical separation of V2 logic.
 
-## 🚀 Execution
-1. Install: `pip install matplotlib`
-2. Run Simulation: `python3 -m v2_model.tests.attack_and_plot`
-3. View Logs: `cat v2_model/logs/audit_trail.log`
+## Management via Bash
+The system is managed through the central `manage.sh` controller.
+- **Initialization**: Run `./manage.sh setup` to prepare the environment.
+- **Verification**: Run `./manage.sh audit` to execute the full-scale simulation.
+- **Forensics**: Logs are stored in `v2_model/logs/` and visual metrics in `v2_model/plots/`.
 
 ---
-© 2026 Burhan Abdullah. All Rights Reserved. Proprietary Research.
+© 2026 Burhan Abdullah. Proprietary Research. Unauthorized distribution prohibited.
