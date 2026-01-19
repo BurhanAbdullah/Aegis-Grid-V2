@@ -1,21 +1,26 @@
 # Aegis-Grid Release – V4.0 Hive Cell
 
-Release Type  
-Frozen research release.
+Status  
+Experimental / Frozen
 
-Contents  
-This directory contains the finalized artefacts and configuration snapshots
-associated with the V4 Hive Consensus architecture.
+Overview  
+V4.0 represents the final architectural evolution of Aegis-Grid. It replaces
+single-agent decision making with a multi-agent consensus model.
+
+Security decisions are enforced collectively by Protector, Auditor, and
+Monitor agents. A consensus lock is the terminal safe state.
+
+Intended Use  
+This release exists as the conceptual endpoint of the research.
+
+Characteristics  
+- Multi-agent consensus enforcement
+- Recursive hardening
+- Explicit terminal lock states
 
 Verification  
-This release was validated prior to repository freeze. Authoritative
-verification evidence is stored in:
+Authoritative validation artifacts are stored under:
 - final_archive/
 - security_manifests/
 
-Integrity  
-Covered by the repository-wide freeze tag:
-Aegis-Grid-V2.0-FINAL
-
-Modification Policy  
-No modifications are permitted.
+This release is permanently frozen.
