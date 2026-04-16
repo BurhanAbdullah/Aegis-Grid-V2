@@ -1,4 +1,4 @@
-from aegis_v2.core.crypto.pq_engine import PQEngine
+from aegis_v2.core.pq_crypto import LatticeRoot as PQEngine
 from aegis_v2.agents.adaptive_agent import AegisAgentV2
 from aegis_v2.attacks.simulator import Adversary
 
