@@ -1,1 +1,25 @@
-matpower/
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+
+# OS temp files
+*.save
+*.swp
+
+# Runtime artifacts
+ledger/
+
+# Matplotlib output
+*.png
+
+# Octave cache
+*.mat
+
+# Local hidden runtime aliases
+.runtime_alias/
+
+# Nested internal copies
+.aegis_v2_core
