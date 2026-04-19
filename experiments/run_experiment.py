@@ -3,48 +3,49 @@ import os
 import subprocess
 import time
 
-
-# --------------------------------------------------
-# Ensure project root is visible for imports
-# --------------------------------------------------
-
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(PROJECT_ROOT)
-
-
-# --------------------------------------------------
-# Import Aegis agent
-# --------------------------------------------------
 
 from aegis_v2.agents.adaptive_agent import AegisAgentV2
 
 
-# --------------------------------------------------
-# Detect MATPOWER directory automatically
-# --------------------------------------------------
-
 MATPOWER_PATH = os.path.join(PROJECT_ROOT, "matpower")
 
 if not os.path.exists(MATPOWER_PATH):
-    raise RuntimeError(
-        f"MATPOWER directory not found:\n{MATPOWER_PATH}"
-    )
+    raise RuntimeError("MATPOWER directory missing")
 
 
 # --------------------------------------------------
-# IEEE benchmark systems
+# Expanded IEEE validation cases
 # --------------------------------------------------
 
-CASES = ["case9", "case14", "case30"]
+CASES = ["case9", "case14", "case30", "case118"]
 
 
 # --------------------------------------------------
-# Run MATPOWER power-flow simulation
+# Attack scenarios
 # --------------------------------------------------
 
-def run_matpower_case(case, attack=False):
+ATTACK_SCENARIOS = {
 
-    if attack:
+    "remove_branch_1":
+        "mpc.branch(1, BR_STATUS) = 0;",
+
+    "remove_branch_2":
+        "mpc.branch(2, BR_STATUS) = 0;",
+
+    "remove_branch_3":
+        "mpc.branch(3, BR_STATUS) = 0;"
+}
+
+
+# --------------------------------------------------
+# MATPOWER execution
+# --------------------------------------------------
+
+def run_matpower_case(case, attack_code=None):
+
+    if attack_code:
 
         script = f"""
         addpath(genpath('{MATPOWER_PATH}'));
@@ -52,7 +53,7 @@ def run_matpower_case(case, attack=False):
         define_constants;
 
         mpc = loadcase('{case}');
-        mpc.branch(1, BR_STATUS) = 0;
+        {attack_code}
 
         results = runpf(mpc);
 
@@ -93,7 +94,6 @@ def run_matpower_case(case, attack=False):
 
     latency = time.time() - start
 
-    # Detect convergence robustly
     success = (
         "SUCCESS" in result.stdout
         or "PF successful" in result.stdout
@@ -104,49 +104,55 @@ def run_matpower_case(case, attack=False):
 
 
 # --------------------------------------------------
-# Experiment pipeline
+# Experiment runner
 # --------------------------------------------------
 
 def run_experiment():
 
     agent = AegisAgentV2()
 
-    results_table = []
+    print("\nRunning expanded topology-attack validation...\n")
 
-    print("\nRunning cyber-physical resilience experiment...\n")
+    results = []
 
     for case in CASES:
 
-        print(f"Running baseline: {case}")
+        print(f"\nBASELINE TEST → {case}")
 
-        baseline_success, baseline_latency = run_matpower_case(case)
+        baseline_success, _ = run_matpower_case(case)
 
-        print(f"Running topology attack: {case}")
+        for attack_name, attack_code in ATTACK_SCENARIOS.items():
 
-        attack_success, attack_latency = run_matpower_case(case, attack=True)
+            print(f"ATTACK TEST → {case} | {attack_name}")
 
-        mitigation_triggered = False
+            attack_success, latency = run_matpower_case(
+                case,
+                attack_code
+            )
 
-        if not attack_success:
+            mitigation_triggered = False
 
-            agent.is_locked = True
-            mitigation_triggered = True
+            if not attack_success:
 
-        results_table.append({
+                agent.is_locked = True
+                mitigation_triggered = True
 
-            "case": case,
-            "baseline": baseline_success,
-            "attack": attack_success,
-            "mitigation_triggered": mitigation_triggered,
-            "latency_seconds": round(attack_latency, 3)
+            results.append({
 
-        })
+                "case": case,
+                "attack_type": attack_name,
+                "baseline": baseline_success,
+                "attack_success": attack_success,
+                "mitigation_triggered": mitigation_triggered,
+                "latency": round(latency, 3)
 
-    return results_table
+            })
+
+    return results
 
 
 # --------------------------------------------------
-# Print results
+# Result printer
 # --------------------------------------------------
 
 def print_results(results):
@@ -157,10 +163,11 @@ def print_results(results):
 
         print(
             f"{r['case']} | "
+            f"{r['attack_type']} | "
             f"baseline={r['baseline']} | "
-            f"attack={r['attack']} | "
-            f"mitigation_triggered={r['mitigation_triggered']} | "
-            f"latency={r['latency_seconds']}s"
+            f"attack={r['attack_success']} | "
+            f"mitigation={r['mitigation_triggered']} | "
+            f"latency={r['latency']}s"
         )
 
 
