@@ -1,0 +1,12 @@
+
+======================================================================
+MACPR Full Experiment Pipeline
+======================================================================
+
+
+--- Case: case9 ---
+Traceback (most recent call last):
+  File "/workspaces/Aegis-Grid-V2/experiments/run_full_macpr_experiment.py", line 99, in <module>
+    "kalman_anomaly": kal_out["anomaly"],
+                      ~~~~~~~^^^^^^^^^^^
+KeyError: 'anomaly'

@@ -1,0 +1,17 @@
+case,attack,pf_success,delta_v,nis,kalman_anomaly,cusum_stat,cusum_alarm,jitter_z,jitter_detected,v_p,v_a,v_m,consensus,mitigation,level,threat_score,latency_pf_s,recovery_dv,n_cycles
+case9,baseline,True,0.02298,11.9118,False,0.0,False,0.5688,False,0,0,0,0,False,0,0.0,0.763,,5
+case9,branch1_out,False,,118.1702,True,6964.9156,True,8.3201,True,1,1,1,1,True,2,4.095,0.808,0.02298,5
+case9,branch2_out,True,0.024754,11.978,False,7089.5963,True,22.6938,True,0,1,1,1,True,2,4.095,0.794,0.02298,5
+case9,branch3_out,True,0.023063,11.3974,False,6855.9667,True,5.8292,True,0,1,1,1,False,0,2.629,0.923,,5
+case14,baseline,True,0.048474,12.0133,False,0.0,False,0.5688,False,0,0,0,0,False,0,0.0,0.736,,5
+case14,branch1_out,True,0.043773,11.5634,False,6964.9156,True,8.3201,True,0,1,1,1,False,0,3.285,0.787,,5
+case14,branch2_out,True,0.045954,11.8107,False,7089.5963,True,22.6938,True,0,1,1,1,True,2,4.095,0.827,0.048474,5
+case14,branch3_out,True,0.046485,11.8341,False,6855.9667,True,5.8292,True,0,1,1,1,False,0,2.629,0.744,,5
+case30,baseline,True,0.018057,11.049,False,0.0,False,0.5688,False,0,0,0,0,False,0,0.0,0.817,,5
+case30,branch1_out,True,0.018003,10.9627,False,6964.9156,True,8.3201,True,0,1,1,1,False,0,3.285,0.818,,5
+case30,branch2_out,True,0.019708,10.6896,False,7089.5963,True,22.6938,True,0,1,1,1,True,2,4.095,0.743,0.018057,5
+case30,branch3_out,True,0.019831,10.712,False,6855.9667,True,5.8292,True,0,1,1,1,False,0,2.629,0.816,,5
+case118,baseline,True,0.022935,10.6597,False,0.0,False,0.5688,False,0,0,0,0,False,0,0.0,0.876,,5
+case118,branch1_out,True,0.022854,10.7864,False,6964.9156,True,8.3201,True,0,1,1,1,False,0,3.285,0.857,,5
+case118,branch2_out,True,0.022787,11.0982,False,7089.5963,True,22.6938,True,0,1,1,1,True,2,4.095,0.777,0.022935,5
+case118,branch3_out,True,0.022973,10.6683,False,6855.9667,True,5.8292,True,0,1,1,1,False,0,2.629,0.803,,5
