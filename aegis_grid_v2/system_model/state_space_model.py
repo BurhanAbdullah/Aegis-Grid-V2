@@ -11,15 +11,15 @@ import numpy as np
 class StateSpaceModel:
 
     def __init__(self, n):
-
         self.n = n
-
         self.A = np.eye(n) * 0.98
         self.B = np.eye(n)
         self.C = np.eye(n)
 
-    def step(self, x, u):
-
-        noise = np.random.normal(0, 0.001, size=self.n)
-
+    def predict(self, x, u):
+        noise = np.random.multivariate_normal(np.zeros(self.n), np.eye(self.n))
         return self.A @ x + self.B @ u + noise
+
+    def observe(self, x):
+        noise = np.random.multivariate_normal(np.zeros(self.n), np.eye(self.n))
+        return self.C @ x + noise

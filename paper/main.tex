@@ -1,6 +1,7 @@
 \documentclass[journal]{IEEEtran}
 
-\title{AEGIS-Grid: Multi-Layer Cyber-Physical Resilience Framework for Smart-Grid Topology-Attack Detection}
+\title{AEGIS-Grid: Multi-Layer Cyber-Physical Resilience Framework
+       for Smart-Grid Topology-Attack Detection}
 
 \author{Burhan Abdullah}
 
@@ -9,30 +10,39 @@
 \maketitle
 
 \begin{abstract}
-
-This paper presents AEGIS-Grid, a multi-layer cyber-physical resilience architecture integrating stochastic monitoring,
-morphic timing integrity verification, and consensus-based mitigation with closed-loop AC power-flow validation.
-
+This paper presents AEGIS-Grid, a multi-layer cyber-physical resilience
+architecture integrating stochastic monitoring, morphic timing integrity
+verification, and consensus-based mitigation with closed-loop AC
+power-flow validation.
 \end{abstract}
 
 \section{System Model}
 
+The grid state evolves as
 \[
-x(k+1)=Ax(k)+Bu(k)+w(k)
+  x(k+1) = A\,x(k) + B\,u(k) + w(k), \quad
+  z(k)   = C\,x(k) + v(k),
 \]
+where $w(k)\sim\mathcal{N}(0,Q)$ and $v(k)\sim\mathcal{N}(0,R)$.
 
-\section{Topology Resilience}
+\section{Observability}
 
-\[
-L=D-A
-\]
+The system is observable iff $\operatorname{rank}(\mathcal{O})=n$, where
+$\mathcal{O}=[C^\top,(CA)^\top,\dots,(CA^{n-1})^\top]^\top$.
 
-\section{Consensus Mitigation}
+\section{Spectral Topology Resilience}
 
-Majority vote across tri-agent architecture.
+Algebraic connectivity $\lambda_2(L)>0$ guarantees graph connectivity
+under the Laplacian $L=D-A$.
 
-\section{Cyber-Physical Validation}
+\section{Residual-Based Attack Detection}
 
-MATPOWER AC power-flow validation loop.
+An alarm is raised when $\|z - h(\hat{x})\| > \gamma$, with adaptive
+threshold $\gamma(k+1)=\alpha\gamma(k)+(1-\alpha)\|r(k)\|$.
+
+\section{Conclusion}
+
+AEGIS-Grid provides a unified, closed-loop AC power-flow validation
+architecture for smart-grid cyber-physical resilience.
 
 \end{document}
