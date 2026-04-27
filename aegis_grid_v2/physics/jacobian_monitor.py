@@ -2,10 +2,10 @@
 Jacobian condition monitoring for voltage stability precursor detection.
 
 Tracks:
-  cond(J)      — condition number
+  cond(J)       — condition number
   lambda_min(J) — smallest singular value
 
-Used as early-warning indicator before power flow divergence.
+Used as early-warning indicator before power-flow divergence.
 """
 
 import numpy as np
@@ -13,8 +13,9 @@ import numpy as np
 
 class JacobianMonitor:
 
-    def __init__(self, cond_threshold=1e6):
+    def __init__(self, cond_threshold=1e6, lambda_threshold=1e-4):
         self.cond_threshold = cond_threshold
+        self.lambda_threshold = lambda_threshold
         self.history = []
 
     def evaluate(self, J):
@@ -25,5 +26,6 @@ class JacobianMonitor:
         return cond, lambda_min
 
     def is_unstable(self, J):
-        cond, _ = self.evaluate(J)
-        return cond > self.cond_threshold
+        cond, lambda_min = self.evaluate(J)
+        return (cond > self.cond_threshold) or (lambda_min < self.lambda_threshold)
+    
