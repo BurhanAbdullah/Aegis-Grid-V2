@@ -1,0 +1,6 @@
+Detector,Activation_Count
+CUSUM,12
+Jitter,12
+Kalman,1
+Consensus,12
+Mitigation,5

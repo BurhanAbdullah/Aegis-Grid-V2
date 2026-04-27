@@ -1,0 +1,17 @@
+case,attack,jitter_z
+case9,baseline,0.5688
+case9,branch1_out,8.3201
+case9,branch2_out,22.6938
+case9,branch3_out,5.8292
+case14,baseline,0.5688
+case14,branch1_out,8.3201
+case14,branch2_out,22.6938
+case14,branch3_out,5.8292
+case30,baseline,0.5688
+case30,branch1_out,8.3201
+case30,branch2_out,22.6938
+case30,branch3_out,5.8292
+case118,baseline,0.5688
+case118,branch1_out,8.3201
+case118,branch2_out,22.6938
+case118,branch3_out,5.8292
