@@ -1,18 +1,44 @@
 # MACPR — Multi-Signal AC Cyber-Physical Resilience
 
-MACPR is a fused multi-layer detection pipeline integrating stochastic
-monitoring, timing integrity validation, consensus arbitration, and
-AC power-flow divergence detection.
+MACPR is a multi-layer cyber-physical detection and mitigation pipeline
+integrating stochastic monitoring, timing integrity verification,
+consensus arbitration, and AC power-flow stability validation.
+
+---
 
 ## Detection Pipeline
 
-1. AC power-flow validation via MATPOWER `runpf()` → `delta_v`
-2. Kalman filter NIS statistical test → `kalman_anomaly`
-3. CUSUM sequential change detector → `cusum_alarm`
-4. PMU timing jitter anomaly detection → `jitter_detected`
-5. Hive consensus voting across agents → `consensus`
-6. Threat score fusion metric → `threat_score ∈ {0, 2.629, 4.095}`
-7. Closed-loop mitigation validation → `recovery_dv`
+MACPR fuses heterogeneous anomaly indicators:
+
+1. AC power-flow validation via MATPOWER `runpf()` → ΔV
+2. Kalman filter innovation test → NIS statistic
+3. CUSUM sequential change detection → C⁺ statistic
+4. PMU timing jitter anomaly detection → z-score
+5. Hive consensus voting → majority decision
+6. Threat-score fusion metric → θ
+7. Closed-loop mitigation validation → recovery ΔV
+
+---
+
+## Mathematical Fusion Model
+
+Threat score:
+
+θ = w₁·NIS + w₂·C⁺ + w₃·z + w₄·ΔV
+
+Mitigation trigger:
+
+M = 1 if θ ≥ θ_threshold
+
+Consensus voting rule:
+
+M = 1 if (vP + vA + vM ≥ 2)
+
+Persistence filter:
+
+Σ M(k−N:k) ≥ τ
+
+---
 
 ## Tested IEEE Benchmark Systems
 
@@ -20,18 +46,27 @@ AC power-flow divergence detection.
 - IEEE 14-bus
 - IEEE 30-bus
 
+---
+
 ## Attack Scenarios
 
-- `branch1_out`, `branch2_out`, `branch3_out`
-- Baseline false positive rate: 0% (CUSUM statistic = 0 under nominal load)
+- branch1_out
+- branch2_out
+- branch3_out
+
+---
 
 ## Key Results
 
 | Case   | Attack       | PF Success | Threat Score | Mitigation |
 |--------|-------------|-----------|-------------|-----------|
-| case9  | baseline    | True       | 0.0         | False     |
-| case9  | branch1_out | False      | 4.095       | True      |
-| case9  | branch2_out | True       | 4.095       | True      |
-| case14 | baseline    | True       | 0.0         | False     |
-| case14 | branch2_out | True       | 4.095       | True      |
-| case30 | baseline    | True       | 0.0         | False     |
+| case9  | baseline    | True      | 0.0         | False     |
+| case9  | branch1_out | False     | 4.095       | True      |
+| case9  | branch2_out | True      | 4.095       | True      |
+| case14 | baseline    | True      | 0.0         | False     |
+| case14 | branch2_out | True      | 4.095       | True      |
+| case30 | baseline    | True      | 0.0         | False     |
+
+Baseline false-positive rate observed:
+
+0%
