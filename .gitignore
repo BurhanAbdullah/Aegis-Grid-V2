@@ -23,3 +23,6 @@ ledger/
 
 # Nested internal copies
 .aegis_v2_core
+__pycache__/
+*.pyc
+v3_fabric/synapses/data_matrix.bin
