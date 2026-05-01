@@ -151,7 +151,6 @@ These describe the progression from adaptive monitoring substrate to morphic def
 
 Aegis-Grid supports evaluation of:
 
-* topology attacks
 * measurement corruption scenarios
 * distributed denial-of-service events
 * timing integrity violations
@@ -171,5 +170,28 @@ Current release:
 
 AEGIS-Grid V2.3
 Cyber-Physical Validation Release
+# Aegis-Grid-V2
 
+Reproducibility repository for:
+
+Statistically Guaranteed Multi-Layer Detection of Coordinated Topology and Timing Attacks in Smart-Grid SCADA Systems
+
+## Requirements
+
+MATLAB R2023b
+MATPOWER 7.1
+
+## Run experiments
+
+bash run_all.sh
+
+This regenerates:
+
+baseline results
+topology attacks
+slow-drift attacks
+impedance perturbation attacks
+stealth topology attacks
+tables
+figures
 © 2026 Burhan Abdullah — Private Research

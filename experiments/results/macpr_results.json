@@ -17,7 +17,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 0.0,
-    "latency_pf_s": 0.763,
+    "latency_pf_s": 0.762,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -39,7 +39,7 @@
     "mitigation": true,
     "level": 2,
     "threat_score": 4.095,
-    "latency_pf_s": 0.808,
+    "latency_pf_s": 0.776,
     "recovery_dv": 0.02298,
     "n_cycles": 5
   },
@@ -61,7 +61,7 @@
     "mitigation": true,
     "level": 2,
     "threat_score": 4.095,
-    "latency_pf_s": 0.794,
+    "latency_pf_s": 0.753,
     "recovery_dv": 0.02298,
     "n_cycles": 5
   },
@@ -83,7 +83,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 2.629,
-    "latency_pf_s": 0.923,
+    "latency_pf_s": 0.839,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -105,7 +105,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 0.0,
-    "latency_pf_s": 0.736,
+    "latency_pf_s": 0.792,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -127,7 +127,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 3.285,
-    "latency_pf_s": 0.787,
+    "latency_pf_s": 0.777,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -149,7 +149,7 @@
     "mitigation": true,
     "level": 2,
     "threat_score": 4.095,
-    "latency_pf_s": 0.827,
+    "latency_pf_s": 0.759,
     "recovery_dv": 0.048474,
     "n_cycles": 5
   },
@@ -171,7 +171,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 2.629,
-    "latency_pf_s": 0.744,
+    "latency_pf_s": 0.867,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -193,7 +193,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 0.0,
-    "latency_pf_s": 0.817,
+    "latency_pf_s": 0.751,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -215,7 +215,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 3.285,
-    "latency_pf_s": 0.818,
+    "latency_pf_s": 0.826,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -237,7 +237,7 @@
     "mitigation": true,
     "level": 2,
     "threat_score": 4.095,
-    "latency_pf_s": 0.743,
+    "latency_pf_s": 0.87,
     "recovery_dv": 0.018057,
     "n_cycles": 5
   },
@@ -259,7 +259,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 2.629,
-    "latency_pf_s": 0.816,
+    "latency_pf_s": 0.867,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -281,7 +281,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 0.0,
-    "latency_pf_s": 0.876,
+    "latency_pf_s": 0.867,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -303,7 +303,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 3.285,
-    "latency_pf_s": 0.857,
+    "latency_pf_s": 0.898,
     "recovery_dv": null,
     "n_cycles": 5
   },
@@ -325,7 +325,7 @@
     "mitigation": true,
     "level": 2,
     "threat_score": 4.095,
-    "latency_pf_s": 0.777,
+    "latency_pf_s": 0.788,
     "recovery_dv": 0.022935,
     "n_cycles": 5
   },
@@ -347,7 +347,7 @@
     "mitigation": false,
     "level": 0,
     "threat_score": 2.629,
-    "latency_pf_s": 0.803,
+    "latency_pf_s": 0.906,
     "recovery_dv": null,
     "n_cycles": 5
   }
