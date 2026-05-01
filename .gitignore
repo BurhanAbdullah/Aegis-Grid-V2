@@ -26,3 +26,16 @@ ledger/
 __pycache__/
 *.pyc
 v3_fabric/synapses/data_matrix.bin
+__pycache__/
+*.pyc
+*.log
+*.tmp
+nano.*.save
+
+results/
+final_archive/
+research_docs/
+ledger/
+releases/
+
+.mat
