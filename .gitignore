@@ -39,3 +39,4 @@ ledger/
 releases/
 
 .mat
+*_trace.txt
