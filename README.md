@@ -8,7 +8,7 @@ Implementation and evaluation code accompanying the paper:
 
 ## Overview
 
-AEGIS-Grid V2 implements cross-layer sequential anomaly-detection methodology for coordinated cyber--physical attack detection under AC power-flow constraints
+AEGIS-Grid V2 implements cross-layer sequential anomaly-detection methodology for coordinated cyber-physical attack detection under AC power-flow constraints
 The implementation integrates:
 
 - Sequential innovation accumulation
