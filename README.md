@@ -1,4 +1,4 @@
-# AEGIS-Grid V2
+# XMON-Grid
 
 Implementation and evaluation code accompanying the paper:
 
@@ -8,7 +8,7 @@ Implementation and evaluation code accompanying the paper:
 
 ## Overview
 
-AEGIS-Grid V2 implements a cross-layer cyber--physical monitoring methodology for coordinated topology manipulation and timing attack detection in SCADA-monitored transmission systems.
+XMON-Grid implements a cross-layer cyber--physical monitoring methodology for coordinated topology manipulation and timing attack detection in SCADA-monitored transmission systems.
 
 The implementation integrates:
 

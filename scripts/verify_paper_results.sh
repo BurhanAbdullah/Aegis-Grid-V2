@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================================"
-echo "AEGIS-GRID-V2 PAPER RESULT VERIFIER"
+echo "XMON-GRID-V2 PAPER RESULT VERIFIER"
 echo "VALIDATION CHECK PIPELINE"
 echo "======================================"
 

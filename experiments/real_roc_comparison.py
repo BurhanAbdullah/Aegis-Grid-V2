@@ -74,11 +74,11 @@ print("================================================\n")
 print("AUC RESULTS")
 print("--------------------------------")
 
-print(f"AEGIS Sequential : {auc_a:.4f}")
+print(f"XMON Sequential : {auc_a:.4f}")
 print(f"Plain KF         : {auc_k:.4f}")
 print(f"Chi-Square       : {auc_c:.4f}")
 
-print("\nAEGIS THRESHOLD METRICS")
+print("\nXMON THRESHOLD METRICS")
 print("--------------------------------")
 
 print(f"Precision : {precision:.4f}")
@@ -95,7 +95,7 @@ plt.plot(
     fpr_a,
     tpr_a,
     linewidth=2,
-    label=f'AEGIS (AUC={auc_a:.3f})'
+    label=f'XMON (AUC={auc_a:.3f})'
 )
 
 plt.plot(

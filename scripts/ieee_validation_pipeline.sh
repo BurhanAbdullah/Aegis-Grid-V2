@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================================"
-echo "AEGIS-GRID VALIDATION PIPELINE"
+echo "XMON-GRID VALIDATION PIPELINE"
 echo "FULL BASH REPRODUCIBILITY PIPELINE"
 echo "======================================"
 

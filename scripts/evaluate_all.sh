@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================================"
-echo "AEGIS-GRID EVALUATION (FINAL)"
+echo "XMON-GRID EVALUATION (FINAL)"
 echo "======================================"
 
 python3 << 'PYCODE'

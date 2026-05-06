@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================================"
-echo "AEGIS-GRID FULL REPRODUCIBILITY PIPELINE"
+echo "XMON-GRID FULL REPRODUCIBILITY PIPELINE"
 echo "======================================"
 
 # -----------------------------
