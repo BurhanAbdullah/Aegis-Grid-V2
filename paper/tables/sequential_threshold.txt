@@ -1,1 +1,3 @@
-adaptive_threshold=328.9147
+mean=211.8084
+std=58.5532
+threshold=241.0850
