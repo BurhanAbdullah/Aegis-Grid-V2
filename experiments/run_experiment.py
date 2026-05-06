@@ -6,7 +6,7 @@ import time
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(PROJECT_ROOT)
 
-from aegis_v2.agents.adaptive_agent import AegisAgentV2
+from aegis_grid_v2.agents.adaptive_agent import AegisAgentV2
 
 
 MATPOWER_PATH = os.path.join(PROJECT_ROOT, "matpower")
