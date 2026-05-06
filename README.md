@@ -1,34 +1,36 @@
 # AEGIS-Grid V2
 
-Reproducibility repository for:
+Implementation and evaluation code accompanying the paper:
 
-## Cyber-Physical Detection of Coordinated Topology and Timing Attacks in Smart-Grid SCADA Systems
+## Sequential Innovation and Cross-Layer Consensus Monitoring for Coordinated Topology and Timing Attack Detection in Smart Grids
 
 ---
 
 ## Overview
 
-AEGIS-Grid V2 is a cyber-physical anomaly detection framework for smart-grid security evaluation under coordinated false-data injection and topology manipulation attacks.
+AEGIS-Grid V2 implements a cross-layer cyber--physical monitoring methodology for coordinated topology manipulation and timing attack detection in SCADA-monitored transmission systems.
 
-The framework integrates:
+The implementation integrates:
 
-- Sequential innovation monitoring
-- Adaptive CUSUM analysis
+- Sequential innovation accumulation
+- Adaptive Page--Hinkley CUSUM monitoring
 - Jacobian conditioning analysis
-- Timing anomaly detection
-- Byzantine consensus validation
+- Timing-jitter anomaly statistics
+- Authenticated consensus fusion
 - MATPOWER AC power-flow validation
+
+within MATPOWER-based AC power-flow simulations spanning IEEE benchmark transmission networks.
 
 ---
 
 ## Repository Structure
 
-paper/              LaTeX manuscript and figures
-plotting_data/      CSV datasets for figures/tables
-scripts/            Reproducibility scripts
+paper/              Manuscript sources and figures
+plotting_data/      CSV datasets used for plots and tables
+scripts/            Experiment and evaluation scripts
 matpower/           MATPOWER validation pipeline
-results/            Generated outputs
-experiments/        Detector and evaluation experiments
+results/            Generated detector outputs
+experiments/        Sequential and cross-layer evaluations
 
 ---
 
@@ -44,28 +46,29 @@ pip install -r requirements.txt
 
 ---
 
-## Reproducibility
+## Running Experiments
 
-Run all experiments:
+Run the complete evaluation pipeline:
 
 bash scripts/run_all.sh
 
-Verify outputs:
+Verify generated outputs:
 
 bash scripts/verify_paper_results.sh
 
 ---
 
-## Outputs
+## Generated Outputs
 
 The pipeline regenerates:
 
 - ROC curves
-- Threshold sensitivity analysis
-- Sequential detector outputs
-- MATPOWER cyber-physical datasets
+- Threshold-sensitivity analysis
+- Sequential detector statistics
+- MATPOWER cyber--physical datasets
 - Timing anomaly datasets
-- Final plotting CSV files
+- Cross-layer consensus outputs
+- Plotting CSV files
 
 ---
 
