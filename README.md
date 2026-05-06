@@ -1,77 +1,129 @@
+<p align="center">
+  <img src="Gemini_Generated_Image_dstue6dstue6dstu.png" width="100%" alt="XMON-Grid Banner"/>
+</p>
+
 # XMON-Grid
 
-Implementation and evaluation code accompanying the paper:
+## Sequential Residual Accumulation and Multi-Agent Consensus for Cross-Layer Cyber–Physical Anomaly Detection in IEEE Benchmark Power Systems
 
-## Sequential Innovation and Cross-Layer Consensus Monitoring for Coordinated Topology and Timing Attack Detection in Smart Grids
+Implementation and reproducible evaluation framework accompanying the paper:
+
+> **Sequential Innovation and Cross-Layer Consensus Monitoring for Coordinated Topology and Timing Attack Detection in Smart Grids**
 
 ---
 
-## Overview
+# Overview
 
-XMON-Grid implements a cross-layer cyber--physical monitoring methodology for coordinated topology manipulation and timing attack detection in SCADA-monitored transmission systems.
+XMON-Grid implements a reproducible multi-agent cyber–physical monitoring framework for coordinated topology manipulation, timing anomalies, and cross-layer attack detection in SCADA-monitored transmission systems.
 
-The implementation integrates:
+The framework integrates:
 
 - Sequential innovation accumulation
-- Adaptive Page--Hinkley CUSUM monitoring
+- Adaptive Page–Hinkley CUSUM monitoring
+- Cross-layer anomaly fusion
 - Jacobian conditioning analysis
 - Timing-jitter anomaly statistics
-- Authenticated consensus fusion
+- Distributed multi-agent coordination
+- Authenticated consensus-guided mitigation
 - MATPOWER AC power-flow validation
 
-within MATPOWER-based AC power-flow simulations spanning IEEE benchmark transmission networks.
+across IEEE benchmark transmission networks including:
+- IEEE 9-bus
+- IEEE 14-bus
+- IEEE 30-bus
+- IEEE 57-bus
+- IEEE 118-bus
+- IEEE 300-bus
 
 ---
 
-## Repository Structure
+# Multi-Agent Architecture
 
-paper/              Manuscript sources and figures
-plotting_data/      CSV datasets used for plots and tables
+The framework evaluates coordinated monitoring using distributed agents:
+
+| Agent | Function |
+|---|---|
+| Monitor Agent | Timing and communication anomaly monitoring |
+| Auditor Agent | Sequential physics residual analysis |
+| Protector Agent | Consensus-triggered mitigation coordination |
+| Coordinator Agent | Multi-agent authenticated vote fusion |
+
+The implementation evaluates:
+- distributed evidence fusion,
+- sequential residual accumulation,
+- adaptive thresholding,
+- and consensus-triggered mitigation behavior.
+
+---
+
+# Core Detection Components
+
+## Sequential Physics Accumulator
+
+The implemented sequential accumulator follows:
+
+\[
+\Theta(k)=0.9\Theta(k-1)+NIS(k)
+\]
+
+with adaptive threshold calibration:
+
+\[
+\text{threshold} = \mu + 0.5\sigma
+\]
+
+where:
+- \(\mu = 211.8084\)
+- \(\sigma = 58.5532\)
+
+This enables:
+- persistence-sensitive anomaly accumulation,
+- weak-signal temporal aggregation,
+- and low-amplitude residual monitoring.
+
+---
+
+## Communication-Layer Monitoring
+
+The communication layer evaluates:
+- timing jitter statistics,
+- Page–Hinkley sequential monitoring,
+- consensus activation behavior,
+- and coordinated anomaly propagation.
+
+---
+
+## Consensus-Guided Mitigation
+
+The framework evaluates authenticated multi-agent consensus under crash-fault-tolerant coordination assumptions.
+
+Observed runtime behavior:
+
+| Scenario | Consensus | Mitigation |
+|---|---|---|
+| Baseline | 0 | False |
+| Stealth | 0 | False |
+| Flood | 1 | True |
+| Timing | 1 | True |
+
+The current implementation demonstrates:
+- strong communication-layer sensitivity,
+- layered corroboration,
+- and sequential residual support for persistent anomalies.
+
+---
+
+# Repository Structure
+
+```text
+paper/              Manuscript sources, figures, and tables
+paper/data/         Reproducible exported CSV artifacts
+paper/figures/      Generated paper figures
 scripts/            Experiment and evaluation scripts
-matpower/           MATPOWER validation pipeline
-results/            Generated detector outputs
-experiments/        Sequential and cross-layer evaluations
-
----
-
-## Requirements
-
-- Python 3.11+
-- MATLAB or GNU Octave
-- MATPOWER 7.1+
-
-Install dependencies:
-
-pip install -r requirements.txt
-
----
-
-## Running Experiments
-
-Run the complete evaluation pipeline:
-
-bash scripts/run_all.sh
-
-Verify generated outputs:
-
-bash scripts/verify_paper_results.sh
-
----
-
-## Generated Outputs
-
-The pipeline regenerates:
-
-- ROC curves
-- Threshold-sensitivity analysis
-- Sequential detector statistics
-- MATPOWER cyber--physical datasets
-- Timing anomaly datasets
-- Cross-layer consensus outputs
-- Plotting CSV files
-
----
-
-## License
-
-MIT License
+experiments/        Monte Carlo and stealth evaluations
+agents/             Multi-agent coordination modules
+core/               Consensus and mitigation logic
+matpower/           MATPOWER AC power-flow validation
+results/            Runtime detector outputs
+plotting_data/      CSV traces used for plotting
+validation/         Reproducibility verification scripts
