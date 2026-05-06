@@ -104,5 +104,5 @@ plt.tight_layout()
 plt.savefig("figures/fig_heatmap.png", dpi=600)
 plt.close()
 
-print("All IEEE-quality figures generated.")
+print("All publication-quality figures generated.")
 
