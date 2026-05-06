@@ -13,3 +13,7 @@ private_archive/
 
 private_archive/
 archive_private/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
