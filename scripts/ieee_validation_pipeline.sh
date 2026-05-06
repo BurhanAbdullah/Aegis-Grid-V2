@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================================"
-echo "AEGIS-GRID IEEE TRANSACTIONS VALIDATION"
+echo "AEGIS-GRID VALIDATION PIPELINE"
 echo "FULL BASH REPRODUCIBILITY PIPELINE"
 echo "======================================"
 

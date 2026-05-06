@@ -2,7 +2,7 @@
 
 echo "======================================"
 echo "AEGIS-GRID-V2 PAPER RESULT VERIFIER"
-echo "IEEE TRANSACTIONS CHECK PIPELINE"
+echo "VALIDATION CHECK PIPELINE"
 echo "======================================"
 
 echo ""
