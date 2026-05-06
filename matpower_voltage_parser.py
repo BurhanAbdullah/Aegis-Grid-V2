@@ -14,9 +14,7 @@ def run_with_voltages(case, attack_code="", matpower_path=None):
 
     lines = [
         f"addpath(genpath('{mp}'));",
-        f"addpath('{mp}/lib');",
-
-"warning('off','all');",
+        "warning('off','all');",
 
         "if exist('runpf','file') ~= 2;",
         "  disp('RUNPF_MISSING');",
@@ -83,22 +81,13 @@ def run_with_voltages(case, attack_code="", matpower_path=None):
         }
 
     if "RUNPF_MISSING" in out:
-        return {
-            "success": False,
-            "voltages": [],
-            "delta_v": 0.0,
-            "latency": round(latency,3),
-            "error": "MATPOWER runpf() not found",
-            "raw_output": out
-        }
 
-    if "PF_FAILED" in out:
         return {
             "success": False,
             "voltages": [],
             "delta_v": 0.0,
-            "latency": round(latency,3),
-            "error": "Power flow did not converge",
+            "latency": round(latency, 3),
+            "error": "MATPOWER runpf() not found",
             "raw_output": out
         }
 
@@ -106,15 +95,21 @@ def run_with_voltages(case, attack_code="", matpower_path=None):
 
     voltages = []
 
-    m = re.search(r"VOLTAGES:\s*([\d\.\s\-eE]+)", out)
+    m = re.search(
+        r"VOLTAGES:\s*([\d\.\s\-eE]+)",
+        out
+    )
 
     if m:
+
         try:
+
             voltages = [
                 float(v)
                 for v in m.group(1).split()
                 if v
             ]
+
         except:
             voltages = []
 
