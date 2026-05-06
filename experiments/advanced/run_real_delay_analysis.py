@@ -6,17 +6,7 @@ df = pd.read_csv(
     "paper/data/final_dataset_labeled.csv"
 )
 
-# =====================================================
-# REQUIRE scan index column
-# =====================================================
-
-if "scan_id" not in df.columns:
-
-    df["scan_id"] = range(len(df))
-
-# =====================================================
-# DETECTION DELAY
-# =====================================================
+df["scan_id"] = range(len(df))
 
 rows = []
 
@@ -29,18 +19,14 @@ for attack_name in df["attack"].unique():
     attack_start = sub["scan_id"].min()
 
     detected = sub[
-        sub["prediction_label"] == 1
+        sub["y_pred"] == 1
     ]
 
     if len(detected) > 0:
 
-        first_detect = detected[
-            "scan_id"
-        ].min()
-
         delay = (
-            first_detect -
-            attack_start
+            detected["scan_id"].min()
+            - attack_start
         )
 
     else:
@@ -52,7 +38,7 @@ for attack_name in df["attack"].unique():
         "attack": attack_name,
 
         "detection_delay":
-            delay
+            int(delay)
     })
 
 out = pd.DataFrame(rows)

@@ -12,46 +12,33 @@ df = pd.read_csv(
     "paper/data/final_dataset_labeled.csv"
 )
 
-y_true = df["attack_label"]
-
-# =====================================================
-# REAL CONFIGURATIONS
-# =====================================================
+y_true = df["y_true"]
 
 configs = {
 
     "full_system":
-        df["prediction_label"],
+        df["y_pred"].astype(int),
+
+    "no_physics":
+        (
+            df["jitter_detected"]
+        ).astype(int),
+
+    "no_communication":
+        (
+            df["kalman_anomaly"] |
+            df["cusum_alarm"]
+        ).astype(int),
 
     "no_sequential":
         (
-            (
-                df["monitor_vote"] +
-                df["protector_vote"]
-            ) >= 2
+            df["kalman_anomaly"] |
+            df["jitter_detected"]
         ).astype(int),
 
-    "communication_only":
-        (
-            (
-                df["monitor_vote"] +
-                df["protector_vote"]
-            ) > 0
-        ).astype(int),
-
-    "physics_only":
-        df["auditor_vote"],
-
-    "monitor_only":
-        df["monitor_vote"],
-
-    "protector_only":
-        df["protector_vote"]
+    "consensus_only":
+        df["consensus"].astype(int)
 }
-
-# =====================================================
-# METRICS
-# =====================================================
 
 rows = []
 
