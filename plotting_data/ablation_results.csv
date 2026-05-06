@@ -1,0 +1,5 @@
+detector_stack,auc
+kalman_only,0.575
+kalman_cusum,0.575
+kalman_jitter,0.9625
+full_xmon,0.9625
