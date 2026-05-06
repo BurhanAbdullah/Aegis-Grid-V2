@@ -8,39 +8,29 @@ from sklearn.metrics import (
     f1_score
 )
 
-# =====================================================
-# LOAD REAL DATASET
-# =====================================================
-
 df = pd.read_csv(
     "paper/data/final_dataset_labeled.csv"
 )
 
-y_true = df["attack_label"]
-
-# =====================================================
-# REAL DETECTOR DEFINITIONS
-# =====================================================
+y_true = df["y_true"]
 
 systems = {
+
     "physics_only":
-        df["auditor_vote"],
+        df["kalman_anomaly"].astype(int),
 
     "communication_only":
-        (
-            (
-                df["monitor_vote"] +
-                df["protector_vote"]
-            ) > 0
-        ).astype(int),
+        df["jitter_detected"].astype(int),
 
-    "consensus_fusion":
-        df["prediction_label"]
+    "sequential_only":
+        df["cusum_alarm"].astype(int),
+
+    "consensus":
+        df["consensus"].astype(int),
+
+    "fusion_final":
+        df["y_pred"].astype(int)
 }
-
-# =====================================================
-# COMPUTE METRICS
-# =====================================================
 
 rows = []
 

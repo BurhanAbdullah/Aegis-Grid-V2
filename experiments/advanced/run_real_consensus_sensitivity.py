@@ -11,21 +11,17 @@ df = pd.read_csv(
     "paper/data/final_dataset_labeled.csv"
 )
 
-y_true = df["attack_label"]
+y_true = df["y_true"]
+
+votes = (
+    df["kalman_anomaly"].astype(int)
+    + df["jitter_detected"].astype(int)
+    + df["cusum_alarm"].astype(int)
+)
 
 rows = []
 
-# =====================================================
-# TEST DIFFERENT QUORUMS
-# =====================================================
-
 for quorum in [1, 2, 3]:
-
-    votes = (
-        df["monitor_vote"] +
-        df["protector_vote"] +
-        df["auditor_vote"]
-    )
 
     pred = (
         votes >= quorum
