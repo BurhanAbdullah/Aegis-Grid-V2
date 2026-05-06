@@ -4,23 +4,41 @@ import csv
 import random
 import numpy as np
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.insert(
+    0,
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            ".."
+        )
+    )
+)
 
 from matpower_voltage_parser import run_with_voltages
 from v3_fabric.core.jitter_detector import JitterDetector
 from v4_hive.core.hive_consensus import HiveConsensus
 
-# --------------------------------------------------
-# Lightweight local detectors
-# --------------------------------------------------
+
+# ==========================================================
+# Lightweight Detectors
+# ==========================================================
 
 class KalmanAnomalyDetector:
-    def __init__(self, threshold=0.02):
+
+    def __init__(self, threshold=0.025):
+
         self.threshold = threshold
 
     def update(self, z):
-        residual = float(np.mean(np.abs(np.array(z) - 1.0)))
+
+        residual = float(
+            np.mean(
+                np.abs(np.array(z) - 1.0)
+            )
+        )
+
         detected = residual > self.threshold
+
         return {
             "residual": residual,
             "detected": detected
@@ -28,48 +46,89 @@ class KalmanAnomalyDetector:
 
 
 class CUSUMDetector:
-    def __init__(self, threshold=0.05):
+
+    def __init__(self, threshold=0.08):
+
         self.threshold = threshold
+
         self.g = 0.0
 
     def update(self, x):
-        self.g = max(0.0, self.g + x)
+
+        self.g = max(
+            0.0,
+            self.g + x - 0.01
+        )
+
         detected = self.g > self.threshold
+
         return {
             "score": self.g,
             "detected": detected
         }
 
 
-# --------------------------------------------------
-# Experiment setup
-# --------------------------------------------------
+# ==========================================================
+# Experiment Configuration
+# ==========================================================
 
-CASES = ["case9", "case14", "case30", "case118"]
+CASES = [
+    "case9",
+    "case14",
+    "case30",
+    "case118"
+]
 
 ATTACKS = {
+
+    # --------------------------------------------------
+    # Baseline
+    # --------------------------------------------------
+
     "baseline": "",
 
-    "branch1_out":
-        "mpc.branch(1, BR_STATUS) = 0;",
-
-    "branch2_out":
-        "mpc.branch(2, BR_STATUS) = 0;",
-
-    "branch3_out":
-        "mpc.branch(3, BR_STATUS) = 0;",
+    # --------------------------------------------------
+    # Small reactance perturbation
+    # --------------------------------------------------
 
     "impedance_perturb":
-        "mpc.branch(1, BR_X) = mpc.branch(1, BR_X) * 1.25;",
+        "mpc.branch(:,4)=mpc.branch(:,4)*1.02;",
+
+    # --------------------------------------------------
+    # Small distributed load drift
+    # --------------------------------------------------
 
     "load_shift":
-        "mpc.bus(:, PD) = mpc.bus(:, PD) * 1.15;",
+        "mpc.bus(:,3)=mpc.bus(:,3)*1.01;"
+        "mpc.bus(:,4)=mpc.bus(:,4)*1.01;",
+
+    # --------------------------------------------------
+    # Generator voltage drift
+    # --------------------------------------------------
 
     "voltage_drift":
-        "mpc.gen(:, VG) = mpc.gen(:, VG) * 1.03;"
+        "mpc.gen(:,6)=mpc.gen(:,6)*1.005;",
+
+    # --------------------------------------------------
+    # Resistance perturbation
+    # --------------------------------------------------
+
+    "resistance_shift":
+        "mpc.branch(:,3)=mpc.branch(:,3)*1.03;",
+
+    # --------------------------------------------------
+    # Localized demand perturbation
+    # --------------------------------------------------
+
+    "localized_load_attack":
+        "mpc.bus(5,3)=mpc.bus(5,3)*1.05;"
+        "mpc.bus(5,4)=mpc.bus(5,4)*1.05;",
 }
 
-os.makedirs("experiments/results", exist_ok=True)
+os.makedirs(
+    "experiments/results",
+    exist_ok=True
+)
 
 rows = []
 
@@ -77,9 +136,10 @@ print("\n" + "=" * 72)
 print("  MACPR Full Experiment Pipeline")
 print("=" * 72)
 
-# --------------------------------------------------
-# Main loop
-# --------------------------------------------------
+
+# ==========================================================
+# Main Experiment Loop
+# ==========================================================
 
 for case in CASES:
 
@@ -87,45 +147,69 @@ for case in CASES:
 
     rng = random.Random(42)
 
+    # --------------------------------------------------
+    # Baseline PF
+    # --------------------------------------------------
+
     base = run_with_voltages(case)
 
     if not base["success"]:
+
         print("MATPOWER failed for", case)
+
         continue
 
     nominal_v = base["voltages"]
+
+    # --------------------------------------------------
+    # Scenario Loop
+    # --------------------------------------------------
 
     for attack_name, attack_code in ATTACKS.items():
 
         print(f"  -> {attack_name}")
 
-        result = run_with_voltages(case, attack_code)
+        result = run_with_voltages(
+            case,
+            attack_code
+        )
 
         if not result["success"]:
+
             print("     power flow failed")
+
             continue
 
-        voltages = result["voltages"]
+        # --------------------------------------------------
+        # Add realistic sensor noise
+        # --------------------------------------------------
 
-        # ------------------------------------------
+        voltages = [
+            v + rng.gauss(0, 0.002)
+            for v in result["voltages"]
+        ]
+
+        # --------------------------------------------------
         # Kalman residual detector
-        # ------------------------------------------
+        # --------------------------------------------------
 
         kalman = KalmanAnomalyDetector()
 
         k_out = kalman.update(voltages)
 
-        # ------------------------------------------
-        # CUSUM detector
-        # ------------------------------------------
+        # --------------------------------------------------
+        # Sequential CUSUM detector
+        # --------------------------------------------------
 
         cusum = CUSUMDetector()
 
-        c_out = cusum.update(k_out["residual"])
+        c_out = cusum.update(
+            k_out["residual"]
+        )
 
-        # ------------------------------------------
+        # --------------------------------------------------
         # Timing jitter detector
-        # ------------------------------------------
+        # --------------------------------------------------
 
         jitter = JitterDetector(
             mu=0.004,
@@ -135,46 +219,74 @@ for case in CASES:
             W=50
         )
 
-        delta_t = rng.uniform(0.0035, 0.0045)
+        delta_t = rng.gauss(
+            0.004,
+            0.001
+        )
 
         if attack_name != "baseline":
-            delta_t += rng.uniform(0.002, 0.006)
+
+            delta_t += abs(
+                rng.gauss(
+                    0.0015,
+                    0.002
+                )
+            )
 
         jitter_result = jitter.update(delta_t)
 
-        # ------------------------------------------
-        # Hive consensus
-        # ------------------------------------------
+        # --------------------------------------------------
+        # Consensus fusion
+        # --------------------------------------------------
 
         hive = HiveConsensus()
 
         votes = [
+
             int(k_out["detected"]),
+
             int(c_out["detected"]),
+
             int(jitter_result["detected"])
         ]
 
         consensus = sum(votes) >= 2
 
-        # ------------------------------------------
-        # Save row
-        # ------------------------------------------
+        # --------------------------------------------------
+        # Save results
+        # --------------------------------------------------
 
         rows.append({
-            "case": case,
-            "attack": attack_name,
+
+            "case":
+                case,
+
+            "attack":
+                attack_name,
 
             "kalman_residual":
-                round(k_out["residual"], 6),
+                round(
+                    k_out["residual"],
+                    6
+                ),
 
             "cusum_score":
-                round(c_out["score"], 6),
+                round(
+                    c_out["score"],
+                    6
+                ),
 
             "jitter_z":
-                round(jitter_result["z_score"], 6),
+                round(
+                    jitter_result["z_score"],
+                    6
+                ),
 
             "jitter_window":
-                round(jitter_result["window_mean_z"], 6),
+                round(
+                    jitter_result["window_mean_z"],
+                    6
+                ),
 
             "consensus":
                 int(consensus),
@@ -186,19 +298,29 @@ for case in CASES:
                 result["delta_v"]
         })
 
-# --------------------------------------------------
+# ==========================================================
 # Save CSV
-# --------------------------------------------------
+# ==========================================================
 
-csv_path = "experiments/results/macpr_results.csv"
+csv_path = (
+    "experiments/results/macpr_results.csv"
+)
 
-with open(csv_path, "w", newline="") as f:
+with open(
+    csv_path,
+    "w",
+    newline=""
+) as f:
 
-    writer = csv.DictWriter(f, fieldnames=rows[0].keys())
+    writer = csv.DictWriter(
+        f,
+        fieldnames=rows[0].keys()
+    )
 
     writer.writeheader()
 
     writer.writerows(rows)
 
 print("\nSaved:", csv_path)
+
 print("Rows:", len(rows))
