@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Gemini_Generated_Image_dstue6dstue6dstu.png" width="100%" alt="XMON-Grid Banner"/>
+  <img src="Banner.png" width="100%" alt="XMON-Grid Banner"/>
 </p>
 
 # XMON-Grid
