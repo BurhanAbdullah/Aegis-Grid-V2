@@ -1,0 +1,17 @@
+case,attack,cusum_stat
+case9,baseline,0.0
+case9,branch1_out,6964.9156
+case9,branch2_out,7089.5963
+case9,branch3_out,6855.9667
+case14,baseline,0.0
+case14,branch1_out,6964.9156
+case14,branch2_out,7089.5963
+case14,branch3_out,6855.9667
+case30,baseline,0.0
+case30,branch1_out,6964.9156
+case30,branch2_out,7089.5963
+case30,branch3_out,6855.9667
+case118,baseline,0.0
+case118,branch1_out,6964.9156
+case118,branch2_out,7089.5963
+case118,branch3_out,6855.9667
