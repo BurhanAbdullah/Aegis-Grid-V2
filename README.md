@@ -8,8 +8,7 @@ Implementation and evaluation code accompanying the paper:
 
 ## Overview
 
-AEGIS-Grid V2 implements a cross-layer cyber--physical monitoring methodology for coordinated topology manipulation and timing attack detection in SCADA-monitored transmission systems.
-
+AEGIS-Grid V2 implements cross-layer sequential anomaly-detection methodology for coordinated cyber--physical attack detection under AC power-flow constraints
 The implementation integrates:
 
 - Sequential innovation accumulation
