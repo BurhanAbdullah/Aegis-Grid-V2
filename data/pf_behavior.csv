@@ -1,0 +1,17 @@
+case,attack,pf_success,delta_v,recovery_dv
+case9,baseline,True,0.02298,
+case9,branch1_out,False,,0.02298
+case9,branch2_out,True,0.024754,0.02298
+case9,branch3_out,True,0.023063,
+case14,baseline,True,0.048474,
+case14,branch1_out,True,0.043773,
+case14,branch2_out,True,0.045954,0.048474
+case14,branch3_out,True,0.046485,
+case30,baseline,True,0.018057,
+case30,branch1_out,True,0.018003,
+case30,branch2_out,True,0.019708,0.018057
+case30,branch3_out,True,0.019831,
+case118,baseline,True,0.022935,
+case118,branch1_out,True,0.022854,
+case118,branch2_out,True,0.022787,0.022935
+case118,branch3_out,True,0.022973,

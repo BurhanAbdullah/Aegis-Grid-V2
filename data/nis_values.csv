@@ -1,0 +1,17 @@
+case,attack,nis
+case9,baseline,11.9118
+case9,branch1_out,118.1702
+case9,branch2_out,11.978
+case9,branch3_out,11.3974
+case14,baseline,12.0133
+case14,branch1_out,11.5634
+case14,branch2_out,11.8107
+case14,branch3_out,11.8341
+case30,baseline,11.049
+case30,branch1_out,10.9627
+case30,branch2_out,10.6896
+case30,branch3_out,10.712
+case118,baseline,10.6597
+case118,branch1_out,10.7864
+case118,branch2_out,11.0982
+case118,branch3_out,10.6683

@@ -1,42 +1,14 @@
-# Python cache
-__pycache__/
-*.pyc
-
-# Virtual environments
-.venv/
-
-# OS temp files
-*.save
-*.swp
-
-# Runtime artifacts
-ledger/
-
-# Matplotlib output
-*.png
-
-# Octave cache
-*.mat
-
-# Local hidden runtime aliases
-.runtime_alias/
-
-# Nested internal copies
-.aegis_v2_core
-__pycache__/
-*.pyc
-v3_fabric/synapses/data_matrix.bin
 __pycache__/
 *.pyc
 *.log
 *.tmp
-nano.*.save
+.env
+*.png
+*.jpg
+*.jpeg
+*.pdf
+.DS_Store
 
-results/
-final_archive/
-research_docs/
-ledger/
-releases/
+private_archive/
 
-.mat
-*_trace.txt
+private_archive/

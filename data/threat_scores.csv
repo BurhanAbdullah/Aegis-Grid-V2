@@ -1,0 +1,17 @@
+case,attack,threat_score
+case9,baseline,0.0
+case9,branch1_out,4.095
+case9,branch2_out,4.095
+case9,branch3_out,2.629
+case14,baseline,0.0
+case14,branch1_out,3.285
+case14,branch2_out,4.095
+case14,branch3_out,2.629
+case30,baseline,0.0
+case30,branch1_out,3.285
+case30,branch2_out,4.095
+case30,branch3_out,2.629
+case118,baseline,0.0
+case118,branch1_out,3.285
+case118,branch2_out,4.095
+case118,branch3_out,2.629
