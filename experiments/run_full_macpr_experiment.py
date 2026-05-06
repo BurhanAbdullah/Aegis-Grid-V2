@@ -3,6 +3,7 @@ import os
 import csv
 import random
 import numpy as np
+import pandas as pd
 
 sys.path.insert(
     0,
@@ -81,44 +82,21 @@ CASES = [
 
 ATTACKS = {
 
-    # --------------------------------------------------
-    # Baseline
-    # --------------------------------------------------
-
-    "baseline": "",
-
-    # --------------------------------------------------
-    # Small reactance perturbation
-    # --------------------------------------------------
+    "baseline":
+        "",
 
     "impedance_perturb":
         "mpc.branch(:,4)=mpc.branch(:,4)*1.02;",
-
-    # --------------------------------------------------
-    # Small distributed load drift
-    # --------------------------------------------------
 
     "load_shift":
         "mpc.bus(:,3)=mpc.bus(:,3)*1.01;"
         "mpc.bus(:,4)=mpc.bus(:,4)*1.01;",
 
-    # --------------------------------------------------
-    # Generator voltage drift
-    # --------------------------------------------------
-
     "voltage_drift":
         "mpc.gen(:,6)=mpc.gen(:,6)*1.005;",
 
-    # --------------------------------------------------
-    # Resistance perturbation
-    # --------------------------------------------------
-
     "resistance_shift":
         "mpc.branch(:,3)=mpc.branch(:,3)*1.03;",
-
-    # --------------------------------------------------
-    # Localized demand perturbation
-    # --------------------------------------------------
 
     "localized_load_attack":
         "mpc.bus(5,3)=mpc.bus(5,3)*1.05;"
@@ -130,7 +108,14 @@ os.makedirs(
     exist_ok=True
 )
 
+os.makedirs(
+    "plotting_data",
+    exist_ok=True
+)
+
 rows = []
+
+runtime_rows = []
 
 print("\n" + "=" * 72)
 print("  MACPR Full Experiment Pipeline")
@@ -147,10 +132,6 @@ for case in CASES:
 
     rng = random.Random(42)
 
-    # --------------------------------------------------
-    # Baseline PF
-    # --------------------------------------------------
-
     base = run_with_voltages(case)
 
     if not base["success"]:
@@ -160,10 +141,6 @@ for case in CASES:
         continue
 
     nominal_v = base["voltages"]
-
-    # --------------------------------------------------
-    # Scenario Loop
-    # --------------------------------------------------
 
     for attack_name, attack_code in ATTACKS.items():
 
@@ -180,36 +157,20 @@ for case in CASES:
 
             continue
 
-        # --------------------------------------------------
-        # Add realistic sensor noise
-        # --------------------------------------------------
-
         voltages = [
             v + rng.gauss(0, 0.002)
             for v in result["voltages"]
         ]
 
-        # --------------------------------------------------
-        # Kalman residual detector
-        # --------------------------------------------------
-
         kalman = KalmanAnomalyDetector()
 
         k_out = kalman.update(voltages)
-
-        # --------------------------------------------------
-        # Sequential CUSUM detector
-        # --------------------------------------------------
 
         cusum = CUSUMDetector()
 
         c_out = cusum.update(
             k_out["residual"]
         )
-
-        # --------------------------------------------------
-        # Timing jitter detector
-        # --------------------------------------------------
 
         jitter = JitterDetector(
             mu=0.004,
@@ -235,10 +196,6 @@ for case in CASES:
 
         jitter_result = jitter.update(delta_t)
 
-        # --------------------------------------------------
-        # Consensus fusion
-        # --------------------------------------------------
-
         hive = HiveConsensus()
 
         votes = [
@@ -251,10 +208,6 @@ for case in CASES:
         ]
 
         consensus = sum(votes) >= 2
-
-        # --------------------------------------------------
-        # Save results
-        # --------------------------------------------------
 
         rows.append({
 
@@ -298,8 +251,67 @@ for case in CASES:
                 result["delta_v"]
         })
 
+        # ==================================================
+        # REAL RUNTIME LOGGING
+        # ==================================================
+
+        runtime_rows.append({
+
+            "time":
+                len(runtime_rows),
+
+            "case":
+                case,
+
+            "attack":
+                attack_name,
+
+            "kalman_residual":
+                round(
+                    k_out["residual"],
+                    6
+                ),
+
+            "cusum_score":
+                round(
+                    c_out["score"],
+                    6
+                ),
+
+            "jitter_z":
+                round(
+                    jitter_result["z_score"],
+                    6
+                ),
+
+            "kalman_detected":
+                int(
+                    k_out["detected"]
+                ),
+
+            "cusum_detected":
+                int(
+                    c_out["detected"]
+                ),
+
+            "jitter_detected":
+                int(
+                    jitter_result["detected"]
+                ),
+
+            "consensus":
+                int(consensus),
+
+            "latency":
+                result["latency"],
+
+            "delta_v":
+                result["delta_v"]
+        })
+
+
 # ==========================================================
-# Save CSV
+# Save Main Results
 # ==========================================================
 
 csv_path = (
@@ -324,3 +336,17 @@ with open(
 print("\nSaved:", csv_path)
 
 print("Rows:", len(rows))
+
+
+# ==========================================================
+# Save REAL Runtime Dynamics
+# ==========================================================
+
+pd.DataFrame(runtime_rows).to_csv(
+    "plotting_data/runtime_agent_dynamics.csv",
+    index=False
+)
+
+print(
+    "Saved: plotting_data/runtime_agent_dynamics.csv"
+)
