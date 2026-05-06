@@ -1,4 +1,4 @@
-case,attack,delta_v,nis,cusum_stat,cusum_alarm,jitter_z,jitter_detected,kalman_anomaly,consensus,threat_score,y_true,y_pred
+case,attack,delta_v,nis,cusum_stat,cusum_alarm,jitter_z,jitter_detected,kalman_anomaly,consensus,threat_score,attack_label,prediction_label
 case9,baseline,0.0144405994097653,11.804406535500528,1.4746669750961885,False,0.49689244610629,False,False,0,0.2946033602791204,0,0
 case9,baseline,0.0247518484119845,11.200305525451158,0.3941784627200045,False,0.2383635000320198,False,False,0,0.0,0,0
 case9,baseline,0.0206110958261134,11.530208209570905,0.83744085231788,False,0.0579908566462991,False,False,0,0.0151041047854523,0,0

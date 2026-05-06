@@ -1,3 +1,2 @@
-,Predicted_Normal,Predicted_Attack
-Actual_Normal,239,1
-Actual_Attack,174,546
+tn,fp,fn,tp
+239,1,174,546
