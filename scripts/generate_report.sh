@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "AEGIS-GRID V4: CONSENSUS SECURITY REPORT"
+echo "XMON-GRID V4: CONSENSUS SECURITY REPORT"
 echo "----------------------------------------"
 echo "TIMESTAMP: $(date)"
 echo "SUBSTRATE STATE: LOCKED"

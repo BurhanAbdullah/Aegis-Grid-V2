@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================================"
-echo "AEGIS-GRID PAPER RESULT SUMMARY"
+echo "XMON-GRID PAPER RESULT SUMMARY"
 echo "Extracting usable results for manuscript"
 echo "======================================"
 
