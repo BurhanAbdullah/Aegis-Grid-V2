@@ -1,0 +1,12 @@
+fusion:
+  threshold: 2
+  protector_override: false
+
+runtime:
+  scada_cycle_sec: 4
+
+evaluation:
+  monte_carlo_trials: 100
+
+security:
+  enable_byzantine_tests: true
