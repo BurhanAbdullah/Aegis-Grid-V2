@@ -1,0 +1,7 @@
+layer,component,function
+L1,Monitor Agent,Communication anomaly detection
+L1,Auditor Agent,Sequential physics monitoring
+L2,CUSUM Layer,Temporal residual accumulation
+L2,Kalman Layer,Innovation analysis
+L3,Consensus Layer,Distributed vote fusion
+L4,Mitigation Layer,Threat-triggered response
