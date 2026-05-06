@@ -1,6 +1,0 @@
-configuration,precision,recall,f1
-full_system,0.998,0.758,0.862
-no_sequential,0.995,0.701,0.823
-no_consensus,0.991,0.672,0.801
-comm_only,0.984,0.655,0.785
-physics_only,0.901,0.412,0.565
