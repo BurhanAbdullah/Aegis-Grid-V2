@@ -19,12 +19,12 @@ The framework integrates:
 
 ## Repository Structure
 
-paper/              LaTeX manuscript
-plotting_data/      CSV datasets for figures/tables
-scripts/            Reproducibility scripts
-matpower/           MATPOWER validation pipeline
-results/            Generated outputs
-figures/            Generated figures
+paper/              LaTeX manuscript  
+plotting_data/      CSV datasets for figures/tables  
+scripts/            Reproducibility scripts  
+matpower/           MATPOWER validation pipeline  
+results/            Generated outputs  
+figures/            Generated figures  
 
 ## Requirements
 
@@ -40,11 +40,11 @@ pip install -r requirements.txt
 
 Run all experiments:
 
-bash run_all.sh
+bash scripts/run_all.sh
 
 Verify outputs:
 
-bash verify_paper_results.sh
+bash scripts/verify_paper_results.sh
 
 ## Outputs
 
