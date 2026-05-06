@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import pandas as pd
+import numpy as np
 
 df = pd.read_csv(
     "paper/data/final_dataset_labeled.csv"
@@ -12,6 +13,23 @@ rows = []
 
 for attack_name in df["attack"].unique():
 
+    # ============================================
+    # BASELINE HAS NO ATTACK
+    # ============================================
+
+    if attack_name == "baseline":
+
+        rows.append({
+            "attack": attack_name,
+            "detection_delay": np.nan
+        })
+
+        continue
+
+    # ============================================
+    # REAL ATTACK SUBSET
+    # ============================================
+
     sub = df[
         df["attack"] == attack_name
     ]
@@ -22,6 +40,10 @@ for attack_name in df["attack"].unique():
         sub["y_pred"] == 1
     ]
 
+    # ============================================
+    # DETECTION DELAY
+    # ============================================
+
     if len(detected) > 0:
 
         delay = (
@@ -31,14 +53,14 @@ for attack_name in df["attack"].unique():
 
     else:
 
-        delay = -1
+        delay = np.nan
 
     rows.append({
 
         "attack": attack_name,
 
         "detection_delay":
-            int(delay)
+            delay
     })
 
 out = pd.DataFrame(rows)
