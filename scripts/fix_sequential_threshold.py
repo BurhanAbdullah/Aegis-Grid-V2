@@ -7,26 +7,37 @@ INPUT = "paper/data/sequential_physics.csv"
 df = pd.read_csv(INPUT)
 
 # =====================================================
-# ADAPTIVE THRESHOLD
+# COMPUTE ADAPTIVE THRESHOLD
 # =====================================================
 
 mu = df["theta_seq"].mean()
-
 sigma = df["theta_seq"].std()
 
-threshold = mu + (2.0 * sigma)
+# -----------------------------------------------------
+# PREVIOUS:
+# threshold = mu + 2*sigma
+#
+# TOO STRICT -> 0% alarms
+#
+# NEW:
+# moderate sensitivity
+# -----------------------------------------------------
+
+threshold = mu + (0.5 * sigma)
+
+# =====================================================
+# GENERATE SEQUENTIAL ALARMS
+# =====================================================
 
 df["physics_alarm_seq"] = (
     df["theta_seq"] > threshold
 ).astype(int)
 
 # =====================================================
-# SAVE UPDATED DATA
+# SAVE UPDATED DATASET
 # =====================================================
 
-OUTPUT = "paper/data/sequential_physics.csv"
-
-df.to_csv(OUTPUT, index=False)
+df.to_csv(INPUT, index=False)
 
 # =====================================================
 # EXPORT THRESHOLD INFO
@@ -37,12 +48,23 @@ with open(
     "w"
 ) as f:
 
-    f.write(
-        f"adaptive_threshold={threshold:.4f}\n"
-    )
+    f.write(f"mean={mu:.4f}\n")
+    f.write(f"std={sigma:.4f}\n")
+    f.write(f"threshold={threshold:.4f}\n")
 
-print(f"\nAdaptive threshold: {threshold:.4f}")
+# =====================================================
+# REPORT
+# =====================================================
 
+rate = df["physics_alarm_seq"].mean()
+
+print("\n=== SEQUENTIAL PHYSICS CALIBRATION ===")
+print(f"mean       : {mu:.4f}")
+print(f"std        : {sigma:.4f}")
+print(f"threshold  : {threshold:.4f}")
+print(f"alarm_rate : {rate:.4f}")
+
+print("\nSample rows:")
 print(df[
     [
         "theta_seq",
@@ -50,4 +72,4 @@ print(df[
     ]
 ].head())
 
-print(f"\n[OK] Updated -> {OUTPUT}")
+print("\n[OK] Sequential threshold updated.")
