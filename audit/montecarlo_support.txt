@@ -1,0 +1,203 @@
+./.github/workflows/codeql.yml:92:        echo '  make bootstrap'
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:852:%    Fractional reduction of the trial step size in the backtracking line search.
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:853:%      At every step of the backtracking line search, the trial step size is
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:856:% accept_every_trial_step       ("no")
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:857:%    Always accept the first trial step.
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:866:%    Accept a trial point after maximal this number of steps.
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:915:%      search did not accept the first trial point exceeds this number, the
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:919:% watchdog_trial_iter_max                1 <= (          3) <  +inf
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:921:%      This option determines the number of trial iterations allowed before the
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:970:%    Maximum number of second order correction trial steps at each iteration.
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:983:%      Trial points are rejected if they lead to an increase in the barrier
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:990:%      trial steps size was rejected because of the filter.  This option
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:996:%      iterations in which the last rejected trial step size was rejected
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:1254:%      The factor by which the perturbation is increased when a trial value was
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:1262:%      The factor by which the perturbation is increased when a trial value was
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:1269:%      The factor by which the perturbation is decreased when a trial value is
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:1359:% evaluate_orig_obj_at_resto_trial("yes")
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:1361:%    restoration phase trial points.
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:1363:%      evaluate the objective function of the original problem at every trial
+./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/ipopt_options.m:1373:%     - yes                     [evaluate at every trial point]
+./matpower/mp-opt-model/docs/src/MP-Opt-Model-manual/MP-Opt-Model-manual.tex:6811:E.~L. Allgower, K. Georg, \emph{Introduction to Numerical Continuation Methods}, Society for Industrial and Applied Mathematics, 2003.
+./matpower/mp-opt-model/docs/src/MP-Opt-Model-manual/MP-Opt-Model-manual.tex:6837:J.~Currie and D.~I.~Wilson,``OPTI: Lowering the Barrier Between Open Source Optimizers and the Industrial MATLAB User,'' \emph{Foundations of Computer-Aided Process Operations}, Georgia, USA, 2012.
+./matpower/mp-opt-model/lib/ipopt_options.m:852:%    Fractional reduction of the trial step size in the backtracking line search.
+./matpower/mp-opt-model/lib/ipopt_options.m:853:%      At every step of the backtracking line search, the trial step size is
+./matpower/mp-opt-model/lib/ipopt_options.m:856:% accept_every_trial_step       ("no")
+./matpower/mp-opt-model/lib/ipopt_options.m:857:%    Always accept the first trial step.
+./matpower/mp-opt-model/lib/ipopt_options.m:866:%    Accept a trial point after maximal this number of steps.
+./matpower/mp-opt-model/lib/ipopt_options.m:915:%      search did not accept the first trial point exceeds this number, the
+./matpower/mp-opt-model/lib/ipopt_options.m:919:% watchdog_trial_iter_max                1 <= (          3) <  +inf
+./matpower/mp-opt-model/lib/ipopt_options.m:921:%      This option determines the number of trial iterations allowed before the
+./matpower/mp-opt-model/lib/ipopt_options.m:970:%    Maximum number of second order correction trial steps at each iteration.
+./matpower/mp-opt-model/lib/ipopt_options.m:983:%      Trial points are rejected if they lead to an increase in the barrier
+./matpower/mp-opt-model/lib/ipopt_options.m:990:%      trial steps size was rejected because of the filter.  This option
+./matpower/mp-opt-model/lib/ipopt_options.m:996:%      iterations in which the last rejected trial step size was rejected
+./matpower/mp-opt-model/lib/ipopt_options.m:1254:%      The factor by which the perturbation is increased when a trial value was
+./matpower/mp-opt-model/lib/ipopt_options.m:1262:%      The factor by which the perturbation is increased when a trial value was
+./matpower/mp-opt-model/lib/ipopt_options.m:1269:%      The factor by which the perturbation is decreased when a trial value is
+./matpower/mp-opt-model/lib/ipopt_options.m:1359:% evaluate_orig_obj_at_resto_trial("yes")
+./matpower/mp-opt-model/lib/ipopt_options.m:1361:%    restoration phase trial points.
+./matpower/mp-opt-model/lib/ipopt_options.m:1363:%      evaluate the objective function of the original problem at every trial
+./matpower/mp-opt-model/lib/ipopt_options.m:1373:%     - yes                     [evaluate at every trial point]
+./matpower/data/case533mt_hi.m:7:%   inhabitants plus an industrial area. 
+./matpower/data/case_ACTIVSg25k.m:79846:	'MONTEREY 1';
+./matpower/data/case_ACTIVSg25k.m:79847:	'MONTEREY 2';
+./matpower/data/case60nordic.m:21:%       https://people.montefiore.uliege.be/capitane/
+./matpower/data/case533mt_lo.m:7:%   inhabitants plus an industrial area. 
+./matpower/data/case_SyntheticUSA.m:257893:	'MONTEREY 1 1';
+./matpower/data/case_SyntheticUSA.m:265057:	'MONTEZUMA 1 1';
+./matpower/data/case_SyntheticUSA.m:265058:	'MONTEZUMA 2 1';
+./matpower/data/case_SyntheticUSA.m:265059:	'MONTEZUMA 2 2';
+./matpower/data/case_SyntheticUSA.m:266577:	'ALTAMONTE SPRINGS 1 1';
+./matpower/data/case_SyntheticUSA.m:266578:	'ALTAMONTE SPRINGS 2 1';
+./matpower/data/case_SyntheticUSA.m:266579:	'ALTAMONTE SPRINGS 3 1';
+./matpower/data/case_SyntheticUSA.m:268524:	'MONTEVALLO 1 1';
+./matpower/data/case_SyntheticUSA.m:268525:	'MONTEVALLO 2 1';
+./matpower/data/case_SyntheticUSA.m:271125:	'MONTEREY 2 1';
+./matpower/data/case_SyntheticUSA.m:271126:	'MONTEREY 2 2';
+./matpower/data/case_SyntheticUSA.m:271127:	'MONTEREY 3 1';
+./matpower/data/case_SyntheticUSA.m:271128:	'MONTEREY 3 2';
+./matpower/data/case_SyntheticUSA.m:282175:	'MONTEZUMA 3 1';
+./matpower/data/case_SyntheticUSA.m:287220:	'MONTELLO 1 1';
+./matpower/data/case_SyntheticUSA.m:287221:	'MONTELLO 2 1';
+./matpower/data/case_SyntheticUSA.m:287222:	'MONTELLO 3 1';
+./matpower/data/case_SyntheticUSA.m:287223:	'MONTELLO 3 2';
+./matpower/data/case_SyntheticUSA.m:290242:	'MONTEVIDEO 1 1';
+./matpower/data/case_SyntheticUSA.m:290243:	'MONTEVIDEO 2 1';
+./matpower/data/case_SyntheticUSA.m:290244:	'MONTEVIDEO 2 2';
+./matpower/data/case_SyntheticUSA.m:290245:	'MONTEVIDEO 3 1';
+./matpower/data/case_SyntheticUSA.m:293919:	'MONTEZUMA 4 1';
+./matpower/data/case_SyntheticUSA.m:293920:	'MONTEZUMA 5 1';
+./matpower/data/case_SyntheticUSA.m:293921:	'MONTEZUMA 5 2';
+./matpower/data/case_SyntheticUSA.m:294225:	'MONTEZUMA 6 1';
+./matpower/data/case_SyntheticUSA.m:294226:	'MONTEZUMA 6 2';
+./matpower/data/case_SyntheticUSA.m:294227:	'MONTEZUMA 6 3';
+./matpower/data/case_SyntheticUSA.m:294228:	'MONTEZUMA 6 4';
+./matpower/data/case_SyntheticUSA.m:294229:	'MONTEZUMA 6 5';
+./matpower/data/case_SyntheticUSA.m:294230:	'MONTEZUMA 6 6';
+./matpower/data/case_SyntheticUSA.m:294231:	'MONTEZUMA 6 7';
+./matpower/data/case_SyntheticUSA.m:294232:	'MONTEZUMA 6 8';
+./matpower/data/case_SyntheticUSA.m:294233:	'MONTEZUMA 6 10';
+./matpower/data/case_SyntheticUSA.m:294655:	'MONTEZUMA 7 1';
+./matpower/data/case_SyntheticUSA.m:294656:	'MONTEZUMA 7 2';
+./matpower/data/case_SyntheticUSA.m:300385:	'MONTEGUT 1';
+./matpower/data/case_SyntheticUSA.m:304083:	'MONTEZUMA 8 1';
+./matpower/data/case_SyntheticUSA.m:304084:	'MONTEZUMA 8 2';
+./matpower/data/case_SyntheticUSA.m:304085:	'MONTEZUMA 9 1';
+./matpower/data/case_SyntheticUSA.m:305535:	'MONTEZUMA 10 1';
+./matpower/data/case_SyntheticUSA.m:305536:	'MONTEZUMA 10 2';
+./matpower/data/case_SyntheticUSA.m:305537:	'MONTEZUMA 10 3';
+./matpower/data/case_SyntheticUSA.m:305538:	'MONTEZUMA 10 5';
+./matpower/data/case_SyntheticUSA.m:305574:	'MONTEZUMA 11 1';
+./matpower/data/case_SyntheticUSA.m:305575:	'MONTEZUMA 11 2';
+./matpower/data/case_SyntheticUSA.m:305576:	'MONTEZUMA 11 3';
+./matpower/data/case_SyntheticUSA.m:305577:	'MONTEZUMA 11 4';
+./matpower/data/case_SyntheticUSA.m:305578:	'MONTEZUMA 11 5';
+./matpower/data/case_SyntheticUSA.m:305579:	'MONTEZUMA 11 7';
+./matpower/data/case_SyntheticUSA.m:309894:	'MONTESANO 1';
+./matpower/data/case_SyntheticUSA.m:309895:	'MONTESANO 2';
+./matpower/data/case_SyntheticUSA.m:312972:	'MONTEREY 1';
+./matpower/data/case_SyntheticUSA.m:314096:	'MONTEREY PARK 1';
+./matpower/data/case_SyntheticUSA.m:314097:	'MONTEREY PARK 2';
+./matpower/data/case_SyntheticUSA.m:314140:	'MONTEBELLO 1 1';
+./matpower/data/case_SyntheticUSA.m:314141:	'MONTEBELLO 1 2';
+./matpower/data/case_SyntheticUSA.m:314142:	'MONTEBELLO 1 3';
+./matpower/data/case_SyntheticUSA.m:314143:	'MONTEBELLO 2 1';
+./matpower/data/case_SyntheticUSA.m:314179:	'SOUTH EL MONTE 1 1';
+./matpower/data/case_SyntheticUSA.m:314180:	'SOUTH EL MONTE 2 1';
+./matpower/data/case_SyntheticUSA.m:314184:	'EL MONTE 1 1';
+./matpower/data/case_SyntheticUSA.m:314199:	'EL MONTE 2 1';
+./matpower/data/case_SyntheticUSA.m:314200:	'EL MONTE 2 2';
+./matpower/data/case_SyntheticUSA.m:314201:	'EL MONTE 3 1';
+./matpower/data/case_SyntheticUSA.m:317642:	'MONTEZUMA CREEK 1';
+./matpower/data/case_SyntheticUSA.m:317643:	'MONTEZUMA CREEK 2';
+./matpower/data/case_SyntheticUSA.m:318172:	'MONTE VISTA 1';
+./matpower/data/case_SyntheticUSA.m:318173:	'MONTE VISTA 2';
+./matpower/data/case_SyntheticUSA.m:318174:	'MONTE VISTA 3';
+./matpower/data/case_ACTIVSg10k.m:32737:	'MONTESANO 1';
+./matpower/data/case_ACTIVSg10k.m:32738:	'MONTESANO 2';
+./matpower/data/case_ACTIVSg10k.m:35815:	'MONTEREY 1';
+./matpower/data/case_ACTIVSg10k.m:36939:	'MONTEREY PARK 1';
+./matpower/data/case_ACTIVSg10k.m:36940:	'MONTEREY PARK 2';
+./matpower/data/case_ACTIVSg10k.m:36983:	'MONTEBELLO 1 1';
+./matpower/data/case_ACTIVSg10k.m:36984:	'MONTEBELLO 1 2';
+./matpower/data/case_ACTIVSg10k.m:36985:	'MONTEBELLO 1 3';
+./matpower/data/case_ACTIVSg10k.m:36986:	'MONTEBELLO 2 1';
+./matpower/data/case_ACTIVSg10k.m:37022:	'SOUTH EL MONTE 1 1';
+./matpower/data/case_ACTIVSg10k.m:37023:	'SOUTH EL MONTE 2 1';
+./matpower/data/case_ACTIVSg10k.m:37027:	'EL MONTE 1 1';
+./matpower/data/case_ACTIVSg10k.m:37042:	'EL MONTE 2 1';
+./matpower/data/case_ACTIVSg10k.m:37043:	'EL MONTE 2 2';
+./matpower/data/case_ACTIVSg10k.m:37044:	'EL MONTE 3 1';
+./matpower/data/case_ACTIVSg10k.m:40485:	'MONTEZUMA CREEK 1';
+./matpower/data/case_ACTIVSg10k.m:40486:	'MONTEZUMA CREEK 2';
+./matpower/data/case_ACTIVSg10k.m:41015:	'MONTE VISTA 1';
+./matpower/data/case_ACTIVSg10k.m:41016:	'MONTE VISTA 2';
+./matpower/data/case_ACTIVSg10k.m:41017:	'MONTE VISTA 3';
+./matpower/data/case_ACTIVSg70k.m:217862:	'MONTEREY 1 1';
+./matpower/data/case_ACTIVSg70k.m:225026:	'MONTEZUMA 1 1';
+./matpower/data/case_ACTIVSg70k.m:225027:	'MONTEZUMA 2 1';
+./matpower/data/case_ACTIVSg70k.m:225028:	'MONTEZUMA 2 2';
+./matpower/data/case_ACTIVSg70k.m:226546:	'ALTAMONTE SPRINGS 1 1';
+./matpower/data/case_ACTIVSg70k.m:226547:	'ALTAMONTE SPRINGS 2 1';
+./matpower/data/case_ACTIVSg70k.m:226548:	'ALTAMONTE SPRINGS 3 1';
+./matpower/data/case_ACTIVSg70k.m:228493:	'MONTEVALLO 1 1';
+./matpower/data/case_ACTIVSg70k.m:228494:	'MONTEVALLO 2 1';
+./matpower/data/case_ACTIVSg70k.m:231094:	'MONTEREY 2 1';
+./matpower/data/case_ACTIVSg70k.m:231095:	'MONTEREY 2 2';
+./matpower/data/case_ACTIVSg70k.m:231096:	'MONTEREY 3 1';
+./matpower/data/case_ACTIVSg70k.m:231097:	'MONTEREY 3 2';
+./matpower/data/case_ACTIVSg70k.m:242144:	'MONTEZUMA 3 1';
+./matpower/data/case_ACTIVSg70k.m:247189:	'MONTELLO 1 1';
+./matpower/data/case_ACTIVSg70k.m:247190:	'MONTELLO 2 1';
+./matpower/data/case_ACTIVSg70k.m:247191:	'MONTELLO 3 1';
+./matpower/data/case_ACTIVSg70k.m:247192:	'MONTELLO 3 2';
+./matpower/data/case_ACTIVSg70k.m:250211:	'MONTEVIDEO 1 1';
+./matpower/data/case_ACTIVSg70k.m:250212:	'MONTEVIDEO 2 1';
+./matpower/data/case_ACTIVSg70k.m:250213:	'MONTEVIDEO 2 2';
+./matpower/data/case_ACTIVSg70k.m:250214:	'MONTEVIDEO 3 1';
+./matpower/data/case_ACTIVSg70k.m:253888:	'MONTEZUMA 4 1';
+./matpower/data/case_ACTIVSg70k.m:253889:	'MONTEZUMA 5 1';
+./matpower/data/case_ACTIVSg70k.m:253890:	'MONTEZUMA 5 2';
+./matpower/data/case_ACTIVSg70k.m:254194:	'MONTEZUMA 6 1';
+./matpower/data/case_ACTIVSg70k.m:254195:	'MONTEZUMA 6 2';
+./matpower/data/case_ACTIVSg70k.m:254196:	'MONTEZUMA 6 3';
+./matpower/data/case_ACTIVSg70k.m:254197:	'MONTEZUMA 6 4';
+./matpower/data/case_ACTIVSg70k.m:254198:	'MONTEZUMA 6 5';
+./matpower/data/case_ACTIVSg70k.m:254199:	'MONTEZUMA 6 6';
+./matpower/data/case_ACTIVSg70k.m:254200:	'MONTEZUMA 6 7';
+./matpower/data/case_ACTIVSg70k.m:254201:	'MONTEZUMA 6 8';
+./matpower/data/case_ACTIVSg70k.m:254202:	'MONTEZUMA 6 10';
+./matpower/data/case_ACTIVSg70k.m:254624:	'MONTEZUMA 7 1';
+./matpower/data/case_ACTIVSg70k.m:254625:	'MONTEZUMA 7 2';
+./matpower/data/case_ACTIVSg70k.m:260354:	'MONTEGUT 1';
+./matpower/data/case_ACTIVSg70k.m:264052:	'MONTEZUMA 8 1';
+./matpower/data/case_ACTIVSg70k.m:264053:	'MONTEZUMA 8 2';
+./matpower/data/case_ACTIVSg70k.m:264054:	'MONTEZUMA 9 1';
+./matpower/data/case_ACTIVSg70k.m:265504:	'MONTEZUMA 10 1';
+./matpower/data/case_ACTIVSg70k.m:265505:	'MONTEZUMA 10 2';
+./matpower/data/case_ACTIVSg70k.m:265506:	'MONTEZUMA 10 3';
+./matpower/data/case_ACTIVSg70k.m:265507:	'MONTEZUMA 10 5';
+./matpower/data/case_ACTIVSg70k.m:265543:	'MONTEZUMA 11 1';
+./matpower/data/case_ACTIVSg70k.m:265544:	'MONTEZUMA 11 2';
+./matpower/data/case_ACTIVSg70k.m:265545:	'MONTEZUMA 11 3';
+./matpower/data/case_ACTIVSg70k.m:265546:	'MONTEZUMA 11 4';
+./matpower/data/case_ACTIVSg70k.m:265547:	'MONTEZUMA 11 5';
+./matpower/data/case_ACTIVSg70k.m:265548:	'MONTEZUMA 11 7';
+./experiments/advanced/run_confidence_intervals.py:107:    "paper/tables/advanced/confidence_intervals.csv",
+./experiments/advanced/run_mc_stats.py:8:trials = 100
+./experiments/advanced/run_mc_stats.py:13:    trials
+./experiments/advanced/run_mc_stats.py:19:    trials
+./experiments/advanced/run_mc_stats.py:25:    trials
+./experiments/advanced/run_mc_stats.py:46:    "paper/data/advanced/monte_carlo_trials.csv",
+./experiments/advanced/run_mc_stats.py:51:    "paper/tables/advanced/monte_carlo_summary.csv",
+./experiments/run_monte_carlo.py:35:with open("results/csv/monte_carlo_results.csv", "w", newline="") as f:
+./experiments/run_monte_carlo.py:50:print("Monte Carlo experiment complete.")
+./experiments/analyze_monte_carlo.py:5:df = pd.read_csv("results/csv/monte_carlo_results.csv")
+./experiments/analyze_monte_carlo.py:13:print("\n=== MONTE CARLO ANALYSIS ===")
+./experiments/analyze_monte_carlo.py:14:print(f"Trials            : {total}")
+./reproduce_all.sh:28:# MONTE CARLO
+./reproduce_all.sh:32:echo "[2/8] Running Monte Carlo..."
+./reproduce_all.sh:34:python3 experiments/run_monte_carlo.py
+./reproduce_all.sh:35:python3 experiments/analyze_monte_carlo.py
+./config/system.yaml:9:  monte_carlo_trials: 100
