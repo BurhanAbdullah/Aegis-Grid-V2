@@ -1,4 +1,4 @@
-case,attack,consensus_rate
+case,attack,consensus
 case118,baseline,0.0
 case118,branch1_out,0.7166666666666667
 case118,branch2_out,0.7833333333333333

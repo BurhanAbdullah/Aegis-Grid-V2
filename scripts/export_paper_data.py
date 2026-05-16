@@ -1,53 +1,203 @@
-import pandas as pd
 import os
-from sklearn.metrics import confusion_matrix
+import pandas as pd
 
-# Ensure directories exist
+from sklearn.metrics import (
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix,
+)
+
+# =====================================================
+# LOAD AUTHORITATIVE EXPERIMENT DATA
+# =====================================================
+
+df = pd.read_csv(
+    "data/full_experiment_table.csv"
+)
+
+# =====================================================
+# GROUND TRUTH
+# =====================================================
+
+df["y_true"] = (
+    df["attack"] != "baseline"
+).astype(int)
+
+# =====================================================
+# AUTHORITATIVE DETECTOR LOGIC
+# =====================================================
+
+wk = 0.3333
+wc = 0.3333
+wj = 0.3333
+
+th = 0.2
+
+kalman = (
+    df["kalman_anomaly"]
+    .astype(int)
+)
+
+cusum = (
+    df["cusum_alarm"] == True
+).astype(int)
+
+jitter = (
+    df["jitter_detected"] == True
+).astype(int)
+
+# =====================================================
+# THREAT SCORE
+# =====================================================
+
+score = (
+    wk * kalman +
+    wc * cusum +
+    wj * jitter
+)
+
+df["threat_score"] = score
+
+# =====================================================
+# REGENERATE PREDICTIONS
+# =====================================================
+
+df["y_pred"] = (
+    score >= th
+).astype(int)
+
+# =====================================================
+# OUTPUT DIRECTORIES
+# =====================================================
+
 os.makedirs("paper/data", exist_ok=True)
 os.makedirs("paper/tables", exist_ok=True)
+os.makedirs("paper/generated", exist_ok=True)
 
-print("=== EXPORTING REAL PAPER DATA ===")
+# =====================================================
+# EXPORT AUTHORITATIVE DATASET
+# =====================================================
 
-# Load the real dataset
-raw_data_path = "results/final_dataset.csv"
-if os.path.exists(raw_data_path):
-    df = pd.read_csv(raw_data_path)
-    
-    # Map 'baseline' to 0 (Normal) and everything else to 1 (Attack)
-    df["y_true"] = df["attack"].apply(lambda x: 0 if str(x).lower() == 'baseline' else 1)
-    
-    # 'consensus' is the agent decision (1 for alert, 0 for normal)
-    df["y_pred"] = df["consensus"].astype(int)
-    
-    # Save the normalized dataset for the paper
-    df.to_csv("paper/data/final_dataset_labeled.csv", index=False)
-    print("[OK] Labeled dataset generated at paper/data/final_dataset_labeled.csv")
+df.to_csv(
+    "paper/data/final_dataset_labeled.csv",
+    index=False
+)
 
-    # Generate Confusion Matrix
-    cm = confusion_matrix(df["y_true"], df["y_pred"])
-    cm_df = pd.DataFrame(cm, 
-                         index=['Actual_Normal', 'Actual_Attack'], 
-                         columns=['Predicted_Normal', 'Predicted_Attack'])
-    cm_df.to_csv("paper/tables/confusion_matrix.csv")
-    print("[OK] Confusion matrix generated at paper/tables/confusion_matrix.csv")
+# =====================================================
+# METRICS
+# =====================================================
 
-    # Generate Main Metrics Summary Table
-    # Re-calculating from the actual labels for 100% accuracy
-    tp = cm[1, 1]
-    tn = cm[0, 0]
-    fp = cm[0, 1]
-    fn = cm[1, 0]
-    
-    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
-    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
-    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-    
-    metrics = pd.DataFrame([{
-        "Metric": ["Precision", "Recall", "F1-Score"],
-        "Value": [precision, recall, f1]
-    }])
-    metrics.to_csv("paper/tables/main_results.csv", index=False)
-    print("[OK] Performance metrics updated.")
-else:
-    print("[ERROR] results/final_dataset.csv not found!")
+y_true = df["y_true"]
+y_pred = df["y_pred"]
 
+precision = precision_score(y_true, y_pred)
+recall = recall_score(y_true, y_pred)
+f1 = f1_score(y_true, y_pred)
+
+metrics_df = pd.DataFrame({
+    "Metric": [
+        "Precision",
+        "Recall",
+        "F1-Score"
+    ],
+    "Value": [
+        round(precision, 3),
+        round(recall, 3),
+        round(f1, 3),
+    ]
+})
+
+metrics_df.to_csv(
+    "paper/tables/main_results.csv",
+    index=False
+)
+
+# =====================================================
+# CONFUSION MATRIX
+# =====================================================
+
+cm = confusion_matrix(y_true, y_pred)
+
+cm_df = pd.DataFrame(
+    cm,
+    columns=[
+        "Predicted_Normal",
+        "Predicted_Attack"
+    ],
+    index=[
+        "Actual_Normal",
+        "Actual_Attack"
+    ]
+)
+
+cm_df.to_csv(
+    "paper/tables/confusion_matrix.csv"
+)
+
+# =====================================================
+# NIS EXPORT
+# =====================================================
+
+nis_df = (
+    df.groupby(
+        ["case", "attack"]
+    )["nis"]
+    .mean()
+    .reset_index()
+)
+
+nis_df.to_csv(
+    "paper/generated/nis_values.csv",
+    index=False
+)
+
+# =====================================================
+# CUSUM EXPORT
+# =====================================================
+
+cusum_df = (
+    df.groupby(
+        ["case", "attack"]
+    )["cusum_stat"]
+    .mean()
+    .reset_index()
+)
+
+cusum_df.to_csv(
+    "paper/generated/cusum_values.csv",
+    index=False
+)
+
+# =====================================================
+# CONSENSUS EXPORT
+# =====================================================
+
+consensus_df = (
+    df.groupby(
+        ["case", "attack"]
+    )["consensus"]
+    .mean()
+    .reset_index()
+)
+
+consensus_df.to_csv(
+    "paper/generated/consensus_votes.csv",
+    index=False
+)
+
+print("\n===================================")
+print("PAPER EXPORT COMPLETE")
+print("===================================")
+
+print(f"Precision : {precision:.3f}")
+print(f"Recall    : {recall:.3f}")
+print(f"F1 Score  : {f1:.3f}")
+
+print("\nGenerated:")
+print("  paper/data/final_dataset_labeled.csv")
+print("  paper/tables/main_results.csv")
+print("  paper/tables/confusion_matrix.csv")
+print("  paper/generated/nis_values.csv")
+print("  paper/generated/cusum_values.csv")
+print("  paper/generated/consensus_votes.csv")

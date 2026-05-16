@@ -1,0 +1,547 @@
+.
+├── CURRENT_COMMIT.txt
+├── LICENSE
+├── README.md
+├── aegis_grid_v2
+│   ├── __init__.py
+│   ├── agents
+│   │   ├── __init__.py
+│   │   └── adaptive_agent.py
+│   ├── attacks
+│   │   ├── __init__.py
+│   │   └── simulator.py
+│   ├── core
+│   │   ├── __init__.py
+│   │   ├── crypto
+│   │   └── pq_crypto.py
+│   ├── detection
+│   │   ├── __init__.py
+│   │   ├── cusum_detector.py
+│   │   └── kalman_detector.py
+│   ├── tests
+│   │   └── __init__.py
+│   └── verify.py
+├── agents
+│   ├── auditor.py
+│   ├── coordinator.py
+│   ├── monitor.py
+│   └── protector.py
+├── config
+│   └── system.yaml
+├── core
+│   ├── consensus.py
+│   └── mitigation.py
+├── data
+│   └── full_experiment_table.csv
+├── experiments
+│   ├── __init__.py
+│   ├── advanced
+│   │   ├── run_ablation.py
+│   │   ├── run_baselines.py
+│   │   ├── run_complexity_analysis.py
+│   │   ├── run_confidence_intervals.py
+│   │   ├── run_consensus_sensitivity.py
+│   │   ├── run_delay_analysis.py
+│   │   ├── run_mc_stats.py
+│   │   ├── run_real_ablation.py
+│   │   ├── run_real_baselines.py
+│   │   ├── run_real_consensus_sensitivity.py
+│   │   ├── run_real_delay_analysis.py
+│   │   ├── run_roc_comparison.py
+│   │   └── run_threshold_sweep.py
+│   ├── analyze_monte_carlo.py
+│   ├── benchmark_scaling.py
+│   ├── byzantine
+│   │   └── run_attack.py
+│   ├── fusion_detector.py
+│   ├── metadata
+│   │   ├── run_signature.json
+│   │   └── run_signature.py
+│   ├── real_roc_comparison.py
+│   ├── results
+│   │   ├── macpr_results.csv
+│   │   └── macpr_results.json
+│   ├── run_experiment.py
+│   ├── run_full_macpr_experiment.py
+│   ├── run_full_xmon_experiment.py
+│   ├── run_monte_carlo.py
+│   ├── run_stealth_sweep.py
+│   └── sequential_detector.py
+├── figures
+├── matpower
+│   ├── AUTHORS
+│   ├── CHANGES.md
+│   ├── CITATION
+│   ├── CONTRIBUTING.md
+│   ├── LICENSE
+│   ├── README.md
+│   ├── data
+│   │   ├── case10ba.m
+│   │   ├── case118.m
+│   │   ├── case118zh.m
+│   │   ├── case1197.m
+│   │   ├── case11kundur.m
+│   │   ├── case12da.m
+│   │   ├── case1354pegase.m
+│   │   ├── case13659pegase.m
+│   │   ├── case136ma.m
+│   │   ├── case14.m
+│   │   ├── case141.m
+│   │   ├── case145.m
+│   │   ├── case15da.m
+│   │   ├── case15nbr.m
+│   │   ├── case16am.m
+│   │   ├── case16ci.m
+│   │   ├── case17me.m
+│   │   ├── case18.m
+│   │   ├── case1888rte.m
+│   │   ├── case18nbr.m
+│   │   ├── case1951rte.m
+│   │   ├── case22.m
+│   │   ├── case2383wp.m
+│   │   ├── case24_ieee_rts.m
+│   │   ├── case2736sp.m
+│   │   ├── case2737sop.m
+│   │   ├── case2746wop.m
+│   │   ├── case2746wp.m
+│   │   ├── case2848rte.m
+│   │   ├── case2868rte.m
+│   │   ├── case2869pegase.m
+│   │   ├── case28da.m
+│   │   ├── case30.m
+│   │   ├── case300.m
+│   │   ├── case3012wp.m
+│   │   ├── case30Q.m
+│   │   ├── case30pwl.m
+│   │   ├── case3120sp.m
+│   │   ├── case3375wp.m
+│   │   ├── case33bw.m
+│   │   ├── case33mg.m
+│   │   ├── case34sa.m
+│   │   ├── case38si.m
+│   │   ├── case39.m
+│   │   ├── case4_dist.m
+│   │   ├── case4gs.m
+│   │   ├── case5.m
+│   │   ├── case51ga.m
+│   │   ├── case51he.m
+│   │   ├── case533mt_hi.m
+│   │   ├── case533mt_lo.m
+│   │   ├── case57.m
+│   │   ├── case59.m
+│   │   ├── case60nordic.m
+│   │   ├── case6468rte.m
+│   │   ├── case6470rte.m
+│   │   ├── case6495rte.m
+│   │   ├── case6515rte.m
+│   │   ├── case69.m
+│   │   ├── case6ww.m
+│   │   ├── case70da.m
+│   │   ├── case74ds.m
+│   │   ├── case8387pegase.m
+│   │   ├── case85.m
+│   │   ├── case89pegase.m
+│   │   ├── case9.m
+│   │   ├── case9241pegase.m
+│   │   ├── case94pi.m
+│   │   ├── case9Q.m
+│   │   ├── case9target.m
+│   │   ├── case_ACTIVSg10k.m
+│   │   ├── case_ACTIVSg200.m
+│   │   ├── case_ACTIVSg2000.m
+│   │   ├── case_ACTIVSg25k.m
+│   │   ├── case_ACTIVSg500.m
+│   │   ├── case_ACTIVSg70k.m
+│   │   ├── case_RTS_GMLC.m
+│   │   ├── case_SyntheticUSA.m
+│   │   ├── case_ieee30.m
+│   │   ├── contab_ACTIVSg10k.m
+│   │   ├── contab_ACTIVSg200.m
+│   │   ├── contab_ACTIVSg2000.m
+│   │   ├── contab_ACTIVSg500.m
+│   │   ├── scenarios_ACTIVSg200.m
+│   │   └── scenarios_ACTIVSg2000.m
+│   ├── install_matpower.m
+│   ├── lib
+│   │   ├── +mp
+│   │   ├── @opf_model
+│   │   ├── Contents.m
+│   │   ├── add_userfcn.m
+│   │   ├── apply_changes.m
+│   │   ├── bustypes.m
+│   │   ├── calc_branch_angle.m
+│   │   ├── calc_v_i_sum.m
+│   │   ├── calc_v_pq_sum.m
+│   │   ├── calc_v_y_sum.m
+│   │   ├── case_info.m
+│   │   ├── caseformat.m
+│   │   ├── cdf2mpc.m
+│   │   ├── compare_case.m
+│   │   ├── connected_components.m
+│   │   ├── cpf_corrector.m
+│   │   ├── cpf_current_mpc.m
+│   │   ├── cpf_default_callback.m
+│   │   ├── cpf_detect_events.m
+│   │   ├── cpf_flim_event.m
+│   │   ├── cpf_flim_event_cb.m
+│   │   ├── cpf_nose_event.m
+│   │   ├── cpf_nose_event_cb.m
+│   │   ├── cpf_p.m
+│   │   ├── cpf_p_jac.m
+│   │   ├── cpf_plim_event.m
+│   │   ├── cpf_plim_event_cb.m
+│   │   ├── cpf_predictor.m
+│   │   ├── cpf_qlim_event.m
+│   │   ├── cpf_qlim_event_cb.m
+│   │   ├── cpf_register_callback.m
+│   │   ├── cpf_register_event.m
+│   │   ├── cpf_tangent.m
+│   │   ├── cpf_target_lam_event.m
+│   │   ├── cpf_target_lam_event_cb.m
+│   │   ├── cpf_vlim_event.m
+│   │   ├── cpf_vlim_event_cb.m
+│   │   ├── d2Abr_dV2.m
+│   │   ├── d2Ibr_dV2.m
+│   │   ├── d2Imis_dV2.m
+│   │   ├── d2Imis_dVdSg.m
+│   │   ├── d2Sbr_dV2.m
+│   │   ├── d2Sbus_dV2.m
+│   │   ├── dAbr_dV.m
+│   │   ├── dIbr_dV.m
+│   │   ├── dImis_dV.m
+│   │   ├── dSbr_dV.m
+│   │   ├── dSbus_dV.m
+│   │   ├── dcopf.m
+│   │   ├── dcopf_solver.m
+│   │   ├── dcpf.m
+│   │   ├── define_constants.m
+│   │   ├── e2i_data.m
+│   │   ├── e2i_field.m
+│   │   ├── ext2int.m
+│   │   ├── extract_islands.m
+│   │   ├── fdpf.m
+│   │   ├── feval_w_path.m
+│   │   ├── find_bridges.m
+│   │   ├── find_islands.m
+│   │   ├── fmincopf.m
+│   │   ├── gausspf.m
+│   │   ├── genfuels.m
+│   │   ├── gentypes.m
+│   │   ├── get_losses.m
+│   │   ├── get_reorder.m
+│   │   ├── hasPQcap.m
+│   │   ├── have_feature.m
+│   │   ├── have_feature_e4st.m
+│   │   ├── have_feature_minopf.m
+│   │   ├── have_feature_most.m
+│   │   ├── have_feature_mp_core.m
+│   │   ├── have_feature_pdipmopf.m
+│   │   ├── have_feature_regexp_split.m
+│   │   ├── have_feature_scpdipmopf.m
+│   │   ├── have_feature_sdp_pf.m
+│   │   ├── have_feature_smartmarket.m
+│   │   ├── have_feature_syngrid.m
+│   │   ├── have_feature_table.m
+│   │   ├── have_feature_tralmopf.m
+│   │   ├── i2e_data.m
+│   │   ├── i2e_field.m
+│   │   ├── idx_brch.m
+│   │   ├── idx_bus.m
+│   │   ├── idx_cost.m
+│   │   ├── idx_ct.m
+│   │   ├── idx_dcline.m
+│   │   ├── idx_gen.m
+│   │   ├── int2ext.m
+│   │   ├── isload.m
+│   │   ├── load2disp.m
+│   │   ├── loadcase.m
+│   │   ├── loadshed.m
+│   │   ├── makeAang.m
+│   │   ├── makeApq.m
+│   │   ├── makeAvl.m
+│   │   ├── makeAy.m
+│   │   ├── makeB.m
+│   │   ├── makeBdc.m
+│   │   ├── makeJac.m
+│   │   ├── makeLODF.m
+│   │   ├── makePTDF.m
+│   │   ├── makeSbus.m
+│   │   ├── makeSdzip.m
+│   │   ├── makeYbus.m
+│   │   ├── make_vcorr.m
+│   │   ├── make_zpv.m
+│   │   ├── margcost.m
+│   │   ├── miqps_matpower.m
+│   │   ├── modcost.m
+│   │   ├── mp_table.m
+│   │   ├── mp_table_class.m
+│   │   ├── mp_table_subclass.m
+│   │   ├── mpoption.m
+│   │   ├── mpoption_info_clp.m
+│   │   ├── mpoption_info_cplex.m
+│   │   ├── mpoption_info_fmincon.m
+│   │   ├── mpoption_info_glpk.m
+│   │   ├── mpoption_info_gurobi.m
+│   │   ├── mpoption_info_highs.m
+│   │   ├── mpoption_info_intlinprog.m
+│   │   ├── mpoption_info_ipopt.m
+│   │   ├── mpoption_info_knitro.m
+│   │   ├── mpoption_info_linprog.m
+│   │   ├── mpoption_info_mips.m
+│   │   ├── mpoption_info_mosek.m
+│   │   ├── mpoption_info_osqp.m
+│   │   ├── mpoption_info_quadprog.m
+│   │   ├── mpoption_old.m
+│   │   ├── mpver.m
+│   │   ├── newtonpf.m
+│   │   ├── newtonpf_I_cart.m
+│   │   ├── newtonpf_I_hybrid.m
+│   │   ├── newtonpf_I_polar.m
+│   │   ├── newtonpf_S_cart.m
+│   │   ├── newtonpf_S_hybrid.m
+│   │   ├── nlpopf_solver.m
+│   │   ├── opf.m
+│   │   ├── opf_args.m
+│   │   ├── opf_branch_ang_fcn.m
+│   │   ├── opf_branch_ang_hess.m
+│   │   ├── opf_branch_flow_fcn.m
+│   │   ├── opf_branch_flow_hess.m
+│   │   ├── opf_current_balance_fcn.m
+│   │   ├── opf_current_balance_hess.m
+│   │   ├── opf_execute.m
+│   │   ├── opf_gen_cost_fcn.m
+│   │   ├── opf_legacy_user_cost_fcn.m
+│   │   ├── opf_power_balance_fcn.m
+│   │   ├── opf_power_balance_hess.m
+│   │   ├── opf_setup.m
+│   │   ├── opf_veq_fcn.m
+│   │   ├── opf_veq_hess.m
+│   │   ├── opf_vlim_fcn.m
+│   │   ├── opf_vlim_hess.m
+│   │   ├── opf_vref_fcn.m
+│   │   ├── opf_vref_hess.m
+│   │   ├── order_radial.m
+│   │   ├── pfsoln.m
+│   │   ├── poly2pwl.m
+│   │   ├── polycost.m
+│   │   ├── pqcost.m
+│   │   ├── printpf.m
+│   │   ├── psse2mpc.m
+│   │   ├── psse_convert.m
+│   │   ├── psse_convert_hvdc.m
+│   │   ├── psse_convert_xfmr.m
+│   │   ├── psse_parse.m
+│   │   ├── psse_parse_line.m
+│   │   ├── psse_parse_section.m
+│   │   ├── psse_read.m
+│   │   ├── qps_matpower.m
+│   │   ├── radial_pf.m
+│   │   ├── remove_userfcn.m
+│   │   ├── run_cpf.m
+│   │   ├── run_mp.m
+│   │   ├── run_opf.m
+│   │   ├── run_pf.m
+│   │   ├── run_userfcn.m
+│   │   ├── runcpf.m
+│   │   ├── rundcopf.m
+│   │   ├── rundcpf.m
+│   │   ├── runduopf.m
+│   │   ├── runopf.m
+│   │   ├── runopf_w_res.m
+│   │   ├── runpf.m
+│   │   ├── runuopf.m
+│   │   ├── save2psse.m
+│   │   ├── save2psse_rop.m
+│   │   ├── savecase.m
+│   │   ├── savechgtab.m
+│   │   ├── scale_load.m
+│   │   ├── set_reorder.m
+│   │   ├── t
+│   │   ├── toggle_dcline.m
+│   │   ├── toggle_iflims.m
+│   │   ├── toggle_reserves.m
+│   │   ├── toggle_softlims.m
+│   │   ├── total_load.m
+│   │   ├── totcost.m
+│   │   ├── uopf.m
+│   │   ├── update_mupq.m
+│   │   └── zgausspf.m
+│   ├── matpower.prj
+│   ├── matpower_project_startup.m
+│   ├── mips
+│   │   ├── AUTHORS
+│   │   ├── CHANGES.md
+│   │   ├── CITATION
+│   │   ├── CONTRIBUTING.md
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── examples
+│   │   └── lib
+│   ├── mp-opt-model
+│   │   ├── AUTHORS
+│   │   ├── CHANGES.md
+│   │   ├── CITATION
+│   │   ├── CONTRIBUTING.md
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── examples
+│   │   └── lib
+│   └── resources
+│       └── project
+├── matpower_voltage_parser.py
+├── paper
+│   ├── FIGURE_MANIFEST.md
+│   ├── data
+│   │   ├── advanced
+│   │   ├── consensus_votes.csv
+│   │   ├── cusum_values.csv
+│   │   ├── final_dataset.csv
+│   │   ├── final_dataset_labeled.csv
+│   │   ├── jitter_values.csv
+│   │   ├── monte_carlo_results.csv
+│   │   ├── nis_values.csv
+│   │   ├── pf_behavior.csv
+│   │   ├── roc_curve_data.csv
+│   │   ├── roc_metrics.csv
+│   │   ├── scaling_results.csv
+│   │   ├── sequential_physics.csv
+│   │   ├── sequential_physics_plot.csv
+│   │   └── stealth_sweep.csv
+│   ├── figures
+│   │   ├── advanced
+│   │   └── xmon_architecture.xml
+│   ├── main.tex
+│   └── tables
+│       ├── advanced
+│       ├── confusion_matrix.csv
+│       ├── main_results.csv
+│       └── sequential_threshold.txt
+├── plots
+├── plotting_data
+│   ├── archive_old
+│   │   ├── comparison_table.csv
+│   │   ├── consensus_votes.csv
+│   │   ├── cusum_values.csv
+│   │   ├── detector_activation.csv
+│   │   ├── final_dataset.csv
+│   │   ├── full_experiment_table.csv
+│   │   ├── heatmap_data.csv
+│   │   ├── jitter_values.csv
+│   │   ├── multi_run_results.csv
+│   │   ├── nis_values.csv
+│   │   ├── pf_behavior.csv
+│   │   ├── roc_curve_data.csv
+│   │   ├── sensitivity_data.csv
+│   │   └── threat_scores.csv
+│   ├── consensus_votes.csv
+│   ├── cusum_values.csv
+│   ├── final_dataset.csv
+│   ├── jitter_values.csv
+│   ├── nis_values.csv
+│   ├── pf_behavior.csv
+│   ├── roc_curve_data.csv
+│   └── runtime_agent_dynamics.csv
+├── reproduce_all.sh
+├── requirements.txt
+├── restoration
+├── results
+│   ├── README.txt
+│   ├── csv
+│   │   ├── monte_carlo_results.csv
+│   │   ├── scaling_results.csv
+│   │   └── stealth_sweep.csv
+│   ├── figures
+│   ├── final_dataset.csv
+│   ├── final_figures
+│   ├── final_metrics.txt
+│   ├── logs
+│   ├── multi_run_results.csv
+│   ├── paper_csv
+│   ├── roc_data
+│   │   ├── CUSUM_roc.csv
+│   │   ├── Fusion_roc.csv
+│   │   ├── Jitter_roc.csv
+│   │   └── NIS_roc.csv
+│   ├── roc_metrics.csv
+│   └── tables
+├── roc_data
+├── run_all.sh
+├── run_pipeline.sh
+├── scripts
+│   ├── add_sequential_physics.py
+│   ├── build_figure_manifest.py
+│   ├── check_metrics.sh
+│   ├── evaluate_all.sh
+│   ├── export_paper_data.py
+│   ├── fix_sequential_threshold.py
+│   ├── fix_topology_labels.py
+│   ├── generate_comparison_table.py
+│   ├── generate_data.py
+│   ├── generate_figures.m
+│   ├── generate_figures.py
+│   ├── generate_heatmap_data.py
+│   ├── generate_heatmap_data.pynano
+│   ├── generate_ieee_figures.py
+│   ├── generate_plotting_data.py
+│   ├── generate_realistic_dataset.py
+│   ├── generate_report.sh
+│   ├── generate_roc.sh
+│   ├── generate_roc_data.py
+│   ├── generate_roc_metrics.py
+│   ├── generate_sensitivity_data.py
+│   ├── generate_tables.m
+│   ├── generate_threshold_sensitivity.sh
+│   ├── how_paper_results.sh
+│   ├── ieee_validation_pipeline.sh
+│   ├── multi_run_eval.py
+│   ├── optimize_consensus.py
+│   ├── run_all.sh
+│   ├── run_attacks.m
+│   ├── run_baseline.m
+│   ├── run_experiments.py
+│   ├── run_fdia_attack.m
+│   ├── run_impedance_attack.m
+│   ├── run_slow_drift_attack.m
+│   ├── run_stealth_attack.m
+│   ├── show_paper_results.sh
+│   └── verify_paper_results.sh
+├── v3_fabric
+│   ├── README.md
+│   ├── __init__.py
+│   ├── causal_engine
+│   │   └── __init__.py
+│   ├── core
+│   │   ├── __init__.py
+│   │   └── jitter_detector.py
+│   ├── logs
+│   │   └── __init__.py
+│   ├── neurons
+│   │   └── __init__.py
+│   └── synapses
+│       ├── __init__.py
+│       └── data_matrix.bin
+├── v4_hive
+│   ├── README.md
+│   ├── __init__.py
+│   ├── chambers
+│   │   └── __init__.py
+│   ├── core
+│   │   ├── __init__.py
+│   │   └── hive_consensus.py
+│   ├── gate
+│   │   └── __init__.py
+│   └── logs
+│       └── __init__.py
+├── validation
+│   ├── validate_env.py
+│   └── validate_results.py
+├── verify_paper_results.sh
+├── visualization
+│   ├── 3d
+│   │   └── plot_3d_attack.py
+│   ├── outputs
+│   ├── plot_all_cases.py
+│   └── plot_localized_attack.py
+└── xmon-main
+
+68 directories, 477 files

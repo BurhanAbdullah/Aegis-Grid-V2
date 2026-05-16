@@ -1,4 +1,4 @@
-case,attack,nis_mean
+case,attack,nis
 case118,baseline,11.532492500264556
 case118,branch1_out,24.053192588426196
 case118,branch2_out,25.90937550349504

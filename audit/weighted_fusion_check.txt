@@ -1,47 +1,5 @@
-./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/+mp/opt_model.m:186:        function new_mm = copy(mm)
-./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/+mp/opt_model.m:190:            %   new_mm = mm.copy()
-./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/+mp/opt_model.m:193:            %   new_mm (mp.opt_model) : duplicate of original object
-./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/+mp/opt_model.m:208:            new_mm = eval(class(mm));   %% create new object
-./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/+mp/opt_model.m:220:                new_mm = copy_prop(mm, new_mm, props{k});
-./matpower/mp-opt-model/docs/sphinx/source/matlab-source/mp_opt_model/mosek_options.m:136:            sc.MSK_OPTIMIZER_NEW_PRIMAL_SIMPLEX;    %%  -  -   -     7
-./matpower/mp-opt-model/docs/sphinx/source/conf.py:73:matlab_show_property_default_value = True
-./matpower/mp-opt-model/docs/sphinx/source/conf.py:74:matlab_show_property_specs = True
-./matpower/mp-opt-model/lib/+mp/opt_model.m:186:        function new_mm = copy(mm)
-./matpower/mp-opt-model/lib/+mp/opt_model.m:190:            %   new_mm = mm.copy()
-./matpower/mp-opt-model/lib/+mp/opt_model.m:193:            %   new_mm (mp.opt_model) : duplicate of original object
-./matpower/mp-opt-model/lib/+mp/opt_model.m:208:            new_mm = eval(class(mm));   %% create new object
-./matpower/mp-opt-model/lib/+mp/opt_model.m:220:                new_mm = copy_prop(mm, new_mm, props{k});
-./matpower/mp-opt-model/lib/mosek_options.m:136:            sc.MSK_OPTIMIZER_NEW_PRIMAL_SIMPLEX;    %%  -  -   -     7
-./matpower/resources/project/Project.xml:3305:                            <File Location="feval_w_path.m">
-./matpower/resources/project/Project.xml:4509:                            <File Location="t_feval_w_path.m">
-./matpower/resources/project/Project.xml:6015:                                <File Location="feval_w_path.rst">
-./matpower/resources/project/Project.xml:6462:                                <File Location="t_feval_w_path.rst">
-./matpower/resources/project/Project.xml:9501:            <File Location="feval_w_path.m">
-./matpower/resources/project/Project.xml:11252:                <File Location="t_feval_w_path">
-./matpower/resources/project/Project.xml:11272:                <File Location="t_feval_w_path.m">
-./matpower/CHANGES.md:953:  - Update `feval_w_path()` to allow empty string for path, equivalent to
-./matpower/CHANGES.md:955:  - Modify `loadcase()` to use `feval_w_path()`.
-./matpower/CHANGES.md:1414:  - Added `feval_w_path()` function for evaluating functions located at
 ./matpower/CHANGES.md:3146:  - Cleaned up variable names in `makeYbus.m` to avoid confusion.
-./matpower/lib/opf_branch_flow_fcn.m:68:    flow_max = branch(il, RATE_A) / mpc.baseMVA;
-./matpower/lib/opf_branch_flow_fcn.m:70:        flow_max = flow_max.^2;
-./matpower/lib/opf_branch_flow_fcn.m:75:        h = [ If .* conj(If) - flow_max;    %% branch current limits (from bus)
-./matpower/lib/opf_branch_flow_fcn.m:76:              It .* conj(It) - flow_max ];  %% branch current limits (to bus)
-./matpower/lib/opf_branch_flow_fcn.m:82:            h = [ real(Sf).^2 - flow_max;       %% branch real power limits (from bus)
-./matpower/lib/opf_branch_flow_fcn.m:83:                  real(St).^2 - flow_max ];     %% branch real power limits (to bus)
-./matpower/lib/opf_branch_flow_fcn.m:85:            h = [ real(Sf) - flow_max;          %% branch real power limits (from bus)
-./matpower/lib/opf_branch_flow_fcn.m:86:                  real(St) - flow_max ];        %% branch real power limits (to bus
-./matpower/lib/opf_branch_flow_fcn.m:88:            h = [ Sf .* conj(Sf) - flow_max;    %% branch apparent power limits (from bus)
-./matpower/lib/opf_branch_flow_fcn.m:89:                  St .* conj(St) - flow_max ];  %% branch apparent power limits (to bus)
 ./matpower/lib/opf_setup.m:125:        %% use weighted avg between original Vmin/Vmax limits and Vg
-./matpower/lib/loadcase.m:84:                s = feval_w_path(pathstr, fname);
-./matpower/lib/loadcase.m:94:                            s.gencost] = feval_w_path(pathstr, fname);
-./matpower/lib/loadcase.m:102:                                s.gencost] = feval_w_path(pathstr, fname);
-./matpower/lib/loadcase.m:106:                                    feval_w_path(pathstr, fname);
-./matpower/lib/loadcase.m:114:                                feval_w_path(pathstr, fname);
-./matpower/lib/t/test_matpower.m:76:tests{end+1} = 't_feval_w_path';
-./matpower/lib/t/t_opf_dc_mosek.m:35:        'NEW_PRIMAL_SIMPLEX', 'new primal simplex' ...      % v11
-./matpower/lib/t/t_opf_dc_mosek.m:45:        algs = {algs{:}, 'NEW_PRIMAL_SIMPLEX', 'NEW_DUAL_SIMPLEX'};
 ./matpower/lib/t/t_port_inj_power_acc.m:152:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_power_acc.m:161:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_power_acc.m:266:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
@@ -50,93 +8,34 @@
 ./matpower/lib/t/t_port_inj_current_acp.m:165:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_current_acp.m:270:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_current_acp.m:279:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
-./matpower/lib/t/t_mp_table.m:87:% show_me(T)
-./matpower/lib/t/t_mp_table.m:707:function show_me(T)
 ./matpower/lib/t/t_port_inj_power_acp.m:156:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_power_acp.m:165:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_power_acp.m:270:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_power_acp.m:279:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
-./matpower/lib/t/t_feval_w_path.m:1:function t_feval_w_path(quiet)
-./matpower/lib/t/t_feval_w_path.m:2:% t_feval_w_path - Tests for feval_w_path.
-./matpower/lib/t/t_feval_w_path.m:20:t = '$MATPOWER/t/t_feval_w_path must not be in path';
-./matpower/lib/t/t_feval_w_path.m:25:[p, n, e] = fileparts(which('t_feval_w_path'));
-./matpower/lib/t/t_feval_w_path.m:28:t = 'ab = feval_w_path(<empty path>, fname, a, b)';
-./matpower/lib/t/t_feval_w_path.m:29:rv = feval_w_path('', 't_ok', 1, 'true');
-./matpower/lib/t/t_feval_w_path.m:34:t = 'ab = feval_w_path(<absolute path>, fname, a, b)';
-./matpower/lib/t/t_feval_w_path.m:35:rv = feval_w_path(fullfile(p, 't_feval_w_path'), 'rithmaticker', 3, 4);
-./matpower/lib/t/t_feval_w_path.m:39:t = 'abc = feval_w_path(<absolute path>, fname, a, b, c)';
-./matpower/lib/t/t_feval_w_path.m:40:rv = feval_w_path(fullfile(p, 't_feval_w_path'), 'rithmaticker', 3, 4, 5);
-./matpower/lib/t/t_feval_w_path.m:44:t = 'abcd = feval_w_path(<absolute path>, fname, a, b, c, d)';
-./matpower/lib/t/t_feval_w_path.m:45:rv = feval_w_path(fullfile(p, 't_feval_w_path'), 'rithmaticker', 3, 4, 5, 6);
-./matpower/lib/t/t_feval_w_path.m:49:t = '[ab, a_b] = feval_w_path(<absolute path>, fname, a, b)';
-./matpower/lib/t/t_feval_w_path.m:50:[rv, rv2] = feval_w_path(fullfile(p, 't_feval_w_path'), 'rithmaticker', 3, 4);
-./matpower/lib/t/t_feval_w_path.m:60:t = 'ab = feval_w_path(<relative path>, fname, a, b)';
-./matpower/lib/t/t_feval_w_path.m:61:rv = feval_w_path('t_feval_w_path', 'rithmaticker', 3, 4);
-./matpower/lib/t/t_feval_w_path.m:65:t = 'abc = feval_w_path(<relative path>, fname, a, b, c)';
-./matpower/lib/t/t_feval_w_path.m:66:rv = feval_w_path('t_feval_w_path', 'rithmaticker', 3, 4, 5);
-./matpower/lib/t/t_feval_w_path.m:70:t = 'abcd = feval_w_path(<relative path>, fname, a, b, c, d)';
-./matpower/lib/t/t_feval_w_path.m:71:rv = feval_w_path('t_feval_w_path', 'rithmaticker', 3, 4, 5, 6);
-./matpower/lib/t/t_feval_w_path.m:75:t = '[ab, a_b] = feval_w_path(<relative path>, fname, a, b)';
-./matpower/lib/t/t_feval_w_path.m:76:[rv, rv2] = feval_w_path('t_feval_w_path', 'rithmaticker', 3, 4);
-./matpower/lib/t/generate_matpower_autodoc.m:366:    'feval_w_path', ...
-./matpower/lib/t/generate_matpower_autodoc.m:526:    't_feval_w_path', ...
 ./matpower/lib/t/t_port_inj_current_acc.m:152:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_current_acc.m:161:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_current_acc.m:266:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
 ./matpower/lib/t/t_port_inj_current_acc.m:275:    t_is(H, HH, 12, [t 'weighted sum indiv Hessians']);
-./matpower/lib/+mp/dme_branch_opf.m:88:                    pp_args.branch.flow_magnitude = struct( 'fr', fm_fr, ...
-./matpower/lib/+mp/dme_branch_opf.m:103:            fm = pp_args.branch.flow_magnitude;
-./matpower/lib/+mp/dme_branch_opf.m:143:            fm = pp_args.branch.flow_magnitude;
-./matpower/lib/+mp/mme_branch_opf_ac.m:39:                flow_max = dme.rate_a(ibr); %% RATE_A
-./matpower/lib/+mp/mme_branch_opf_ac.m:46:                        [flow_max; flow_max] .^ 2);
-./matpower/lib/+mp/mme_branch_opf_ac.m:51:                        mm.convert_x_m2n(x, nm), nm, idx, [flow_max; flow_max]);
-./matpower/lib/+mp/mme_branch_opf_ac.m:57:                        [flow_max; flow_max] .^ 2);
-./matpower/lib/+mp/mme_branch_opf_ac.m:63:                        [flow_max; flow_max] .^ 2);
-./matpower/lib/+mp/mme_branch_opf_dc.m:35:                flow_max = dme.rate_a(ibr); %% RATE_A
-./matpower/lib/+mp/mme_branch_opf_dc.m:40:                mm.add_lin_constraint('Pf', Af, -p-flow_max, -p+flow_max, ...
 ./matpower/lib/+mp/data_model.m:751:                %% use weighted avg between original vm_lb/vm_ub limits and vm_setpoint
 ./matpower/lib/mpoption.m:231:%          [ between 0 and 1 - use a weighted average of the 2 options         ]
-./matpower/lib/feval_w_path.m:1:function varargout = feval_w_path(fpath, fname, varargin)
-./matpower/lib/feval_w_path.m:2:% feval_w_path - Calls a function located by the specified path.
-./matpower/lib/feval_w_path.m:5:%   FEVAL_W_PATH(FPATH, F, x1, ..., xn)
-./matpower/lib/feval_w_path.m:6:%   [y1, ..., yn] = FEVAL_W_PATH(FPATH, F, x1, ..., xn)
-./matpower/lib/feval_w_path.m:30:%       y = feval_w_path('/opt/testfunctions', 'mytestfcn', x1, x2);
-./matpower/lib/feval_w_path.m:42:    error('feval_w_path: FPATH must be a string');
-./matpower/lib/feval_w_path.m:45:    error('feval_w_path: FNAME must be a string');
-./matpower/lib/feval_w_path.m:53:        error('feval_w_path: Sorry, ''%s'' is not a valid directory path.', fpath);
-./matpower/lib/add_userfcn.m:1:function mpc = add_userfcn(mpc, stage, fcn, args, allow_multiple)
-./matpower/lib/add_userfcn.m:7:%   MPC = ADD_USERFCN(MPC, STAGE, FCN, ARGS, ALLOW_MULTIPLE)
-./matpower/lib/add_userfcn.m:18:%   ALLOW_MULTIPLE : (optional) if TRUE, allows the same function to
-./matpower/lib/add_userfcn.m:92:    allow_multiple = 0;
-./matpower/lib/add_userfcn.m:108:        if ~allow_multiple
 ./experiments/advanced/run_real_baselines.py:31:    "fusion_final":
 ./experiments/advanced/run_complexity_analysis.py:10:    ["Threat fusion", "O(N_agents)"],
 ./experiments/advanced/run_baselines.py:23:fusion = (
 ./experiments/advanced/run_baselines.py:30:    "fusion": fusion
-./experiments/advanced/run_roc_comparison.py:31:    "Fusion":
-./experiments/fusion_detector.py:28:# FUSION SCORE
 ./experiments/fusion_detector.py:31:fusion_score = (
 ./experiments/fusion_detector.py:37:df["fusion_score"] = fusion_score
-./experiments/fusion_detector.py:40:print("FUSION DETECTOR SUMMARY")
 ./experiments/fusion_detector.py:47:            "fusion_score",
 ./experiments/fusion_detector.py:55:    ["fusion_score"]
 ./experiments/fusion_detector.py:61:    ["fusion_score"]
-./experiments/fusion_detector.py:65:print("\nFusion Separation:")
 ./experiments/fusion_detector.py:70:    "results/sequential/fusion_scores.csv",
 ./experiments/fusion_detector.py:75:print("results/sequential/fusion_scores.csv")
-./experiments/run_full_xmon_experiment.py:9:from experiments.core.consensus import ConsensusFusion
 ./experiments/run_full_xmon_experiment.py:44:fusion = ConsensusFusion()
 ./experiments/run_full_xmon_experiment.py:83:h = fusion.step(
-./experiments/run_full_macpr_experiment.py:240:                    jitter_result["window_mean_z"],
-./visualization/plot_all_cases.py:111:        show_plot=False
-./visualization/plot_localized_attack.py:76:    show_plot=False
-./v3_fabric/core/jitter_detector.py:24:                "z_score": round(z,4), "window_mean_z": round(wm,4),
 ./scripts/export_paper_data.py:3:from sklearn.metrics import confusion_matrix
 ./scripts/export_paper_data.py:26:    # Generate Confusion Matrix
 ./scripts/export_paper_data.py:27:    cm = confusion_matrix(df["y_true"], df["y_pred"])
 ./scripts/export_paper_data.py:31:    cm_df.to_csv("paper/tables/confusion_matrix.csv")
 ./scripts/export_paper_data.py:32:    print("[OK] Confusion matrix generated at paper/tables/confusion_matrix.csv")
-./scripts/generate_roc.sh:35:    scores["Fusion"] = df["threat_score"]
 ./scripts/evaluate_all.sh:9:from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix
 ./scripts/evaluate_all.sh:38:print("\nConfusion Matrix:")
 ./scripts/evaluate_all.sh:39:print(confusion_matrix(y_true, y_pred))
@@ -145,6 +44,5 @@
 ./paper/tables/advanced/complexity_analysis.csv:5:Threat fusion,O(N_agents)
 ./paper/data/advanced/architecture_layers.csv:6:L3,Consensus Layer,Distributed vote fusion
 ./paper/data/advanced/baseline_comparison.csv:6:fusion_final,0.9981718464351006,0.7583333333333333,0.861878453038674
-./paper/data/advanced/roc_comparison.csv:6:Fusion,0.8770833333333333
 ./results/README.txt:20:- Optimized fusion weights: (0.333, 0.333, 0.333)
 ./results/final_metrics.txt:11:Confusion Matrix:

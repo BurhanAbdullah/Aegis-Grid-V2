@@ -1,4 +1,4 @@
-case,attack,cusum_mean
+case,attack,cusum_stat
 case118,baseline,1.0251337650369152
 case118,branch1_out,16.14400008317276
 case118,branch2_out,17.339570211742362

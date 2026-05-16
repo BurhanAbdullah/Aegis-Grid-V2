@@ -1,20 +1,4 @@
-======================================
-AEGIS-GRID EVALUATION (FINAL)
-======================================
-
-=== MAIN METHOD ===
-Precision : 0.970
-Recall    : 0.933
-F1 Score  : 0.951
-AUC       : 0.998
-
-Confusion Matrix:
-[[219  21]
- [ 48 672]]
-
-=== BASELINES ===
-CUSUM      | P=0.995 R=0.764 F1=0.864
-JITTER     | P=1.000 R=0.375 F1=0.545
-KALMAN     | P=0.972 R=0.921 F1=0.946
-
-Evaluation complete.
+Precision: 0.977
+Recall: 0.928
+F1: 0.952
+AUC: 0.998

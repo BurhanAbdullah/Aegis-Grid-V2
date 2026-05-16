@@ -1,2 +1,4 @@
 Metric,Value
-"['Precision', 'Recall', 'F1-Score']","[np.float64(0.9981718464351006), np.float64(0.7583333333333333), np.float64(0.861878453038674)]"
+Precision,0.977
+Recall,0.928
+F1-Score,0.952
