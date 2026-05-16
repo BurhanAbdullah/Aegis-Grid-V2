@@ -8,3 +8,4 @@ __pycache__/
 *.toc
 .DS_Store
 results/tmp/
+audit/constants_check.txt
