@@ -1,3 +1,4 @@
+import numpy as np
 import random
 import pandas as pd
 
@@ -8,8 +9,8 @@ from core.hysteresis import update_membership
 
 ROWS = []
 
-for trust_seed in [0.4, 0.5, 0.6, 0.7, 0.8]:
-    for risk_seed in [0.0, 0.1, 0.2, 0.3, 0.4]:
+for trust_seed in np.linspace(0.1,1.0,20):
+    for risk_seed in np.linspace(0.0,0.9,20):
 
         tv = TrustVector()
 
