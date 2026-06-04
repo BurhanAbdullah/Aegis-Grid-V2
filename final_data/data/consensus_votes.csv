@@ -1,0 +1,17 @@
+case,attack,consensus_rate
+case118,baseline,0.0
+case118,branch1_out,0.7166666666666667
+case118,branch2_out,0.7833333333333333
+case118,branch3_out,0.7666666666666667
+case14,baseline,0.0
+case14,branch1_out,0.75
+case14,branch2_out,0.8
+case14,branch3_out,0.7
+case30,baseline,0.0
+case30,branch1_out,0.7833333333333333
+case30,branch2_out,0.8333333333333334
+case30,branch3_out,0.7333333333333333
+case9,baseline,0.0
+case9,branch1_out,0.8666666666666667
+case9,branch2_out,0.8333333333333334
+case9,branch3_out,0.75
