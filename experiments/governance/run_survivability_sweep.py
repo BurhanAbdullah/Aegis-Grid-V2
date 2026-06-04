@@ -1,5 +1,5 @@
-import numpy as np
 import random
+import numpy as np
 import pandas as pd
 
 from core.trust_vector import TrustVector
@@ -8,9 +8,13 @@ from core.adaptive_quorum import adaptive_quorum
 from core.hysteresis import update_membership
 
 ROWS = []
+TRUST_ROWS = []
+QUORUM_ROWS = []
+PRC_ROWS = []
+HYST_ROWS = []
 
-for trust_seed in np.linspace(0.1,1.0,20):
-    for risk_seed in np.linspace(0.0,0.9,20):
+for trust_seed in np.linspace(0.1, 1.0, 20):
+    for risk_seed in np.linspace(0.0, 0.9, 20):
 
         tv = TrustVector()
 
@@ -25,7 +29,6 @@ for trust_seed in np.linspace(0.1,1.0,20):
         successful_rounds = 0
         failed_rounds = 0
 
-        trust_history = []
         quorum_history = []
 
         for rnd in range(100):
@@ -50,12 +53,43 @@ for trust_seed in np.linspace(0.1,1.0,20):
                 avg_trust=trust
             )
 
+            previous_state = active
+
             active = update_membership(
                 active,
                 governance_weight
             )
 
-            trust_history.append(trust)
+            TRUST_ROWS.append([
+                trust_seed,
+                risk_seed,
+                rnd,
+                trust
+            ])
+
+            QUORUM_ROWS.append([
+                trust_seed,
+                risk_seed,
+                rnd,
+                quorum
+            ])
+
+            PRC_ROWS.append([
+                trust_seed,
+                risk_seed,
+                rnd,
+                governance_weight
+            ])
+
+            if previous_state != active:
+                HYST_ROWS.append([
+                    trust_seed,
+                    risk_seed,
+                    rnd,
+                    int(previous_state),
+                    int(active)
+                ])
+
             quorum_history.append(quorum)
 
             if active and governance_weight >= quorum:
@@ -67,7 +101,7 @@ for trust_seed in np.linspace(0.1,1.0,20):
                 0.0,
                 min(
                     1.0,
-                    tv.competence - risk * 0.01
+                    tv.competence - risk * 0.010
                 )
             )
 
@@ -105,21 +139,70 @@ for trust_seed in np.linspace(0.1,1.0,20):
             "initial_risk": risk_seed,
             "survivability": survivability,
             "final_trust": tv.aggregate(),
-            "mean_quorum": sum(quorum_history)/len(quorum_history)
+            "mean_quorum": np.mean(quorum_history)
         })
 
-df = pd.DataFrame(ROWS)
-
-df.to_csv(
-    "results/governance_sweep.csv",
-    index=False
-)
-
-df.to_csv(
+pd.DataFrame(ROWS).to_csv(
     "paper/data/survivability_landscape.csv",
     index=False
 )
 
-print(df.head())
-print()
-print("rows =", len(df))
+pd.DataFrame(ROWS).to_csv(
+    "results/governance_sweep.csv",
+    index=False
+)
+
+pd.DataFrame(
+    TRUST_ROWS,
+    columns=[
+        "initial_trust",
+        "initial_risk",
+        "round",
+        "trust"
+    ]
+).to_csv(
+    "paper/data/trust_trajectories.csv",
+    index=False
+)
+
+pd.DataFrame(
+    QUORUM_ROWS,
+    columns=[
+        "initial_trust",
+        "initial_risk",
+        "round",
+        "quorum"
+    ]
+).to_csv(
+    "paper/data/quorum_dynamics.csv",
+    index=False
+)
+
+pd.DataFrame(
+    PRC_ROWS,
+    columns=[
+        "initial_trust",
+        "initial_risk",
+        "round",
+        "governance_weight"
+    ]
+).to_csv(
+    "paper/data/prc_actions.csv",
+    index=False
+)
+
+pd.DataFrame(
+    HYST_ROWS,
+    columns=[
+        "initial_trust",
+        "initial_risk",
+        "round",
+        "old_state",
+        "new_state"
+    ]
+).to_csv(
+    "paper/data/hysteresis_transitions.csv",
+    index=False
+)
+
+print("governance configs =", len(ROWS))
