@@ -1,0 +1,17 @@
+case,scenario,num_samples,Precision,Recall,F1,FPR
+case9,baseline,60,0.0,0.0,0.0,0.0333
+case9,branch_outage,60,1.0,1.0,1.0,0.0
+case9,fdia,60,1.0,1.0,1.0,0.0
+case9,stealth_drift,60,1.0,0.7167,0.835,0.0
+case14,baseline,60,0.0,0.0,0.0,0.0
+case14,branch_outage,60,1.0,0.9833,0.9916,0.0
+case14,fdia,60,1.0,1.0,1.0,0.0
+case14,stealth_drift,60,1.0,0.75,0.8571,0.0
+case30,baseline,60,0.0,0.0,0.0,0.0
+case30,branch_outage,60,1.0,0.9833,0.9916,0.0
+case30,fdia,60,1.0,1.0,1.0,0.0
+case30,stealth_drift,60,1.0,0.7333,0.8462,0.0
+case118,baseline,60,0.0,0.0,0.0,0.0
+case118,branch_outage,60,1.0,0.9833,0.9916,0.0
+case118,fdia,60,1.0,1.0,1.0,0.0
+case118,stealth_drift,60,1.0,0.7833,0.8785,0.0

@@ -1,0 +1,12 @@
+XMON-Grid Phase 3F Authoritative Run Metadata
+==========================================================
+Git Commit Hash    : 395d4cf1ab22f4061f49de23fa9b1e4c48407df2
+Random Seed        : 42
+Python Version     : 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+Platform           : Windows-10-10.0.26200-SP0
+Test Sample Count  : 1200 (240 Benign + 960 Attack)
+IEEE Cases         : case9, case14, case30, case118
+Attack Scenarios   : baseline, branch_outage, fdia, load_shift, stealth_drift
+Severity Tiers     : Tier 1 (Subtle), Tier 2 (Moderate), Tier 3 (Strong), Tier 4 (Severe)
+Calibration        : 800 Benign-Only Samples
+Validation         : 400 Samples (50% Benign, 50% Attack)
