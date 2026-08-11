@@ -1,129 +1,115 @@
 <p align="center">
-  <img src="Banner.png" width="100%" alt="XMON-Grid Banner"/>
+  <img src="banner.png" width="100%" alt="XMON-Grid Banner"/>
 </p>
 
 # XMON-Grid
 
-## Sequential Residual Accumulation and Multi-Agent Consensus for Cross-Layer Cyber–Physical Anomaly Detection in IEEE Benchmark Power Systems
+## Sequential Innovation Accumulation and Cross-Layer Quorum Consensus for Topology-Attack Detection in SCADA-Monitored Transmission Systems
 
-Implementation and reproducible evaluation framework accompanying the paper:
+Official research implementation and reproducible evaluation framework accompanying the manuscript:
 
-> **Sequential Innovation and Cross-Layer Consensus Monitoring for Coordinated Topology and Timing Attack Detection in Smart Grids**
-
----
-
-# Overview
-
-XMON-Grid implements a reproducible multi-agent cyber–physical monitoring framework for coordinated topology manipulation, timing anomalies, and cross-layer attack detection in SCADA-monitored transmission systems.
-
-The framework integrates:
-
-- Sequential innovation accumulation
-- Adaptive Page–Hinkley CUSUM monitoring
-- Cross-layer anomaly fusion
-- Jacobian conditioning analysis
-- Timing-jitter anomaly statistics
-- Distributed multi-agent coordination
-- Authenticated consensus-guided mitigation
-- MATPOWER AC power-flow validation
-
-across IEEE benchmark transmission networks including:
-- IEEE 9-bus
-- IEEE 14-bus
-- IEEE 30-bus
-- IEEE 57-bus
-- IEEE 118-bus
-- IEEE 300-bus
+> **Sequential Innovation Accumulation and Cross-Layer Quorum Consensus for Topology-Attack Detection in SCADA-Monitored Transmission Systems**
 
 ---
 
-# Multi-Agent Architecture
+## Overview
 
-The framework evaluates coordinated monitoring using distributed agents:
+XMON-Grid implements a reproducible multi-layer cyber-physical anomaly detection framework for coordinated topology manipulation and SCADA timing integrity monitoring in transmission systems. 
 
-| Agent | Function |
-|---|---|
-| Monitor Agent | Timing and communication anomaly monitoring |
-| Auditor Agent | Sequential physics residual analysis |
-| Protector Agent | Consensus-triggered mitigation coordination |
-| Coordinator Agent | Multi-agent authenticated vote fusion |
+The framework integrates three complementary sub-detector streams:
+- **Physical State Estimation Residuals:** Normalized Innovation Squared ($\text{NIS}$) derived from dynamic Extended Kalman Filtering (EKF).
+- **Statistical Drift Monitoring:** Adaptive Page--Hinkley Cumulative Sum (CUSUM) tracking of low-amplitude residual shifts.
+- **Communication-Layer Timing Monitoring:** Packet arrival timing jitter statistics ($J$) detecting telemetry network manipulation.
 
-The implementation evaluates:
-- distributed evidence fusion,
-- sequential residual accumulation,
-- adaptive thresholding,
-- and consensus-triggered mitigation behavior.
+To capture weak, persistent anomalies across extended temporal horizons, XMON-Grid incorporates a sequential innovation accumulator $\Theta(k) = 0.9\Theta(k-1) + \text{NIS}(k)$ with an adaptively calibrated threshold ($\gamma_{\text{seq}} = 241.0850$). Sub-detector outputs are integrated using a multi-agent voting quorum framework establishing both a primary conservative operating point ($K=2$ Strict Majority) and a secondary high-sensitivity operating point ($K=1$ OR Mode).
 
 ---
 
-# Core Detection Components
+## Benchmark Evaluation & Authoritative Baseline
 
-## Sequential Physics Accumulator
+The framework is evaluated across a deterministic 960-instance benchmark spanning four IEEE transmission network topologies:
+- **IEEE 9-bus System**
+- **IEEE 14-bus System**
+- **IEEE 30-bus System**
+- **IEEE 118-bus System**
 
-The implemented sequential accumulator follows:
+Under four operational conditions (`baseline`, `branch1_out`, `branch2_out`, `branch3_out`) over 60 trial repetitions per grid/scenario tuple ($4 \times 4 \times 60 = 960$ total observations: $240$ benign normal, $720$ attack instances).
 
-\[
-\Theta(k)=0.9\Theta(k-1)+NIS(k)
-\]
+### Authoritative Performance Summary (`results/tsg_run_001/`):
 
-with adaptive threshold calibration:
+| Decision Quorum / Model | TN | FP | FN | TP | Accuracy | Precision | Recall | F1-Score | FPR |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Consensus ($K=2$, Primary Conservative)** | **239** | **1** | **174** | **546** | **0.8177** | **99.82%** | **75.83%** | **0.8619** | **0.42%** |
+| **Consensus ($K=1$, Secondary Sensitivity)** | **219** | **21** | **48** | **672** | **0.9281** | **96.97%** | **93.33%** | **0.9512** | **8.75%** |
+| **CUSUM Standalone** | 237 | 3 | 170 | 550 | 0.8198 | 99.46% | 76.39% | 0.8641 | 1.25% |
+| **JITTER Standalone** | 240 | 0 | 450 | 270 | 0.5313 | 100.00% | 37.50% | 0.5455 | 0.00% |
+| **KALMAN Standalone** | 221 | 19 | 57 | 663 | 0.9208 | 97.21% | 92.08% | 0.9458 | 7.92% |
 
-\[
-\text{threshold} = \mu + 0.5\sigma
-\]
-
-where:
-- \(\mu = 211.8084\)
-- \(\sigma = 58.5532\)
-
-This enables:
-- persistence-sensitive anomaly accumulation,
-- weak-signal temporal aggregation,
-- and low-amplitude residual monitoring.
+- **Continuous Threat Score Separability:** $\text{ROC AUC} = 0.9982$.
+- **Sequential Accumulator Calibration:** Baseline mean $\mu_{\Theta} = 211.8084$, std $\sigma_{\Theta} = 58.5532$, calibrated threshold $\gamma_{\text{seq}} = 241.0850$.
 
 ---
 
-## Communication-Layer Monitoring
+## Quick Start & Reproduction
 
-The communication layer evaluates:
-- timing jitter statistics,
-- Page–Hinkley sequential monitoring,
-- consensus activation behavior,
-- and coordinated anomaly propagation.
+### Installation
+```bash
+git clone https://github.com/BurhanAbdullah/XMON-Grid.git
+cd XMON-Grid
+pip install -r requirements.txt
+```
 
----
+### Reproducing the Authoritative Experiment
+To execute the complete end-to-end isolated reproduction pipeline:
 
-## Consensus-Guided Mitigation
+```bash
+python3 scripts/run_isolated_reproduction.py
+```
 
-The framework evaluates authenticated multi-agent consensus under crash-fault-tolerant coordination assumptions.
+Or execute via the shell driver:
+```bash
+bash reproduce_all.sh
+```
 
-Observed runtime behavior:
-
-| Scenario | Consensus | Mitigation |
-|---|---|---|
-| Baseline | 0 | False |
-| Stealth | 0 | False |
-| Flood | 1 | True |
-| Timing | 1 | True |
-
-The current implementation demonstrates:
-- strong communication-layer sensitivity,
-- layered corroboration,
-- and sequential residual support for persistent anomalies.
+By default, the isolated driver outputs all generated datasets, metrics, tables, and figures to an isolated execution directory (e.g., `results/tsg_run_002/`), preserving the immutable frozen baseline package in `results/tsg_run_001/`.
 
 ---
 
-# Repository Structure
+## Repository Structure
 
 ```text
-paper/              Manuscript sources, figures, and tables
-paper/data/         Reproducible exported CSV artifacts
-paper/figures/      Generated paper figures
-scripts/            Experiment and evaluation scripts
-experiments/        Monte Carlo and stealth evaluations
-agents/             Multi-agent coordination modules
-core/               Consensus and mitigation logic
-matpower/           MATPOWER AC power-flow validation
-results/            Runtime detector outputs
-plotting_data/      CSV traces used for plotting
-validation/         Reproducibility verification scripts
+XMON-Grid/
+├── README.md                          # Repository documentation & guide
+├── requirements.txt                   # Python dependencies
+├── reproduce_all.sh                   # Master reproduction shell script
+├── banner.png                         # Project header graphic
+├── scripts/                           # Reproducible experiment & figure scripts
+│   ├── run_isolated_reproduction.py   # Isolated execution driver
+│   ├── generate_realistic_dataset.py  # Benchmark dataset generator (seed=42)
+│   ├── export_paper_data.py           # Quorum metrics evaluator
+│   ├── add_sequential_physics.py      # Sequential accumulator trace calculator
+│   ├── fix_sequential_threshold.py    # Adaptive threshold calibrator
+│   ├── generate_sensitivity_data.py   # Precision-Recall sensitivity generator
+│   ├── generate_comparison_table.py   # Quorum comparison table generator
+│   └── generate_ieee_figures.py       # Publication figure renderer (Figs 1-4)
+├── experiments/                       # Experiment modules and support scripts
+├── visualization/                     # Localized case-level visualization tools
+├── docs/                              # Reproduction and technical documentation
+└── results/
+    └── tsg_run_001/                   # AUTHORITATIVE FROZEN RESULT PACKAGE
+        ├── SHA256SUMS.txt             # Cryptographic hash manifest
+        ├── run_metadata.txt           # Execution & Git commit provenance
+        ├── raw/                       # 960-instance raw experiment dataset
+        ├── metrics/                   # Labeled prediction traces & sequential states
+        ├── tables/                    # Authoritative CSV tables
+        └── figures/                   # Authoritative 600-DPI publication figures
+```
+
+> [!NOTE]
+> **Manuscript Governance:** The IEEE Transactions LaTeX manuscript (`main.tex`), submission figures, and table packages are maintained separately in an external submission package (`XMON-Grid-IEEE-Submission/`).
+
+---
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
