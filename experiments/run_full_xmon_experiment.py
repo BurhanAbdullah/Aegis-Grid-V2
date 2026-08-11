@@ -5,8 +5,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from matpower_voltage_parser import run_with_voltages
 from aegis_grid_v2.detection.kalman_detector import KalmanAnomalyDetector
 from aegis_grid_v2.detection.cusum_detector import CUSUMDetector
-from experiments.core.jitter_detector import JitterDetector
-from experiments.core.consensus import ConsensusFusion
+from v3_fabric.core.jitter_detector import JitterDetector
+from v4_hive.core.hive_consensus import HiveConsensus as ConsensusFusion
 
 CASES = ["case9", "case14", "case30", "case118"]
 ATTACKS = {
@@ -41,7 +41,7 @@ for case in CASES:
         cusum  = CUSUMDetector(mu0=200.0, delta=400.0, h=5.0)
         # Calibrate jitter: baseline IAT = 4ms +/- 0.5ms
         jitter = JitterDetector(mu=0.004, sigma=0.0005, eta_sigma=3.5, eta_mu=2.0, W=20)
-fusion = ConsensusFusion()
+        fusion = ConsensusFusion()
         # Warm up Kalman on nominal (20 steps)
         for _ in range(WARMUP_STEPS):
             noise = [rng.gauss(0, 0.001) for _ in range(n_feat)]
@@ -80,7 +80,7 @@ fusion = ConsensusFusion()
             jit = jitter.update(delta_t)
             brk = 1 if pf_div else 0
 
-h = fusion.step(
+            h = fusion.step(
                 nis=kal["nis"], state_dev=(delta_v or 0.0),
                 timing_det=jit["detected"], brk_hamming=brk,
                 cusum_stat=cus["C_pos"], traffic_ent=traffic_ent,

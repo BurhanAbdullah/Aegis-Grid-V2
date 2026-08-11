@@ -1,7 +1,9 @@
+import sys
+import os
 import numpy as np
 import pandas as pd
 
-np.random.seed(None)
+np.random.seed(42)
 
 CASES = ['case9','case14','case30','case118']
 ATTACKS = ['baseline','branch1_out','branch2_out','branch3_out']
@@ -81,6 +83,9 @@ def generate_dataset(n_per_combo=50):
     return df
 
 if __name__ == "__main__":
+    out_path = sys.argv[1] if len(sys.argv) > 1 else "data/full_experiment_table.csv"
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
     df = generate_dataset(n_per_combo=60)  # 4 cases × 4 attacks × 60 = 960 rows
-    df.to_csv("data/full_experiment_table.csv", index=False)
-    print(f"Generated dataset with {len(df)} rows at data/full_experiment_table.csv")
+    df.to_csv(out_path, index=False)
+    print(f"Generated dataset with {len(df)} rows at {out_path}")
+

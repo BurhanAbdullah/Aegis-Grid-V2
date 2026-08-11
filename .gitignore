@@ -8,3 +8,24 @@ __pycache__/
 *.toc
 .DS_Store
 results/tmp/
+results/reproduction_staging/
+
+# Editor & IDE Metadata
+.vscode/
+.idea/
+*.swp
+*.swo
+*.pynano
+
+# MATLAB / Octave
+octave-workspace
+octave-core
+
+# OS Generated Files
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Local Scratch / Agent Artifacts
+.gemini/
+scratch/

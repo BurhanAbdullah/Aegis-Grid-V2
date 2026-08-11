@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# NOTE: Legacy/non-authoritative demonstration script.
 import csv
 
 epsilons = [
