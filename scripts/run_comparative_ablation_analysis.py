@@ -28,7 +28,7 @@ from sklearn.metrics import (
     recall_score, f1_score, roc_curve, auc, precision_recall_curve
 )
 
-OUTPUT_DIR = "results/tsg_run_002"
+OUTPUT_DIR = "results/tsg_run_003"
 METRICS_CSV = os.path.join(OUTPUT_DIR, "metrics", "detector_outputs.csv")
 
 def load_detector_outputs():
@@ -178,17 +178,20 @@ def run_ablation_study(rows):
     
     a_nis = np.array([int(r["a_nis"]) for r in rows])
     a_cusum = np.array([int(r["a_cusum"]) for r in rows])
+    a_cusum_inst = np.array([int(r.get("a_cusum_inst", r["a_cusum"])) for r in rows])
     a_jitter = np.array([int(r["a_jitter"]) for r in rows])
     s_comp = np.array([float(r["s_comp"]) for r in rows])
+    tau_comp_val = float(rows[0].get("tau_comp", 0.4838))
     
-    # 6 Ablation Configurations
+    # 6 Redesigned Causally Valid Ablation Configurations
+    # Retains K=2 quorum consensus (>= 2 out of remaining detectors) to avoid confounding with OR gates
     ablations = [
         ("A. Full XMON-Grid (K=2 Quorum)", ((a_nis + a_cusum + a_jitter) >= 2).astype(int), s_comp),
-        ("B. XMON-Grid without NIS", ((a_cusum + a_jitter) >= 1).astype(int), None),
-        ("C. XMON-Grid without CUSUM", ((a_nis + a_jitter) >= 1).astype(int), None),
-        ("D. XMON-Grid without Jitter", ((a_nis + a_cusum) >= 1).astype(int), None),
-        ("E. XMON-Grid without Sequential Accumulator", (s_comp > 0.30).astype(int), s_comp),
-        ("F. XMON-Grid without Quorum Fusion", (s_comp > 0.50).astype(int), s_comp),
+        ("B. XMON-Grid w/o NIS (CUSUM & Jitter, K=2/2)", ((a_cusum + a_jitter) >= 2).astype(int), None),
+        ("C. XMON-Grid w/o CUSUM (NIS & Jitter, K=2/2)", ((a_nis + a_jitter) >= 2).astype(int), None),
+        ("D. XMON-Grid w/o Jitter (NIS & CUSUM, K=2/2)", ((a_nis + a_cusum) >= 2).astype(int), None),
+        ("E. XMON-Grid w/o Sequential Accumulation (Memoryless CUSUM Quorum)", ((a_nis + a_cusum_inst + a_jitter) >= 2).astype(int), s_comp),
+        (f"F. XMON-Grid w/o Quorum Fusion (Continuous S_comp > {tau_comp_val:.4f})", (s_comp > tau_comp_val).astype(int), s_comp),
     ]
     
     abl_rows = []

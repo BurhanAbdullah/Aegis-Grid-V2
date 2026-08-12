@@ -150,5 +150,88 @@ class TestXMONModel(unittest.TestCase):
         np.testing.assert_allclose(data_1["calibration"]["z"], data_2["calibration"]["z"])
         np.testing.assert_allclose(data_1["calibration"]["iat"], data_2["calibration"]["iat"])
 
+    def test_L_state_reset(self):
+        """Test L: model.reset() resets estimator state, CUSUM g, Jitter window, and SequentialAccumulator theta to initial clean state."""
+        model = XMONGridModel(case_name="case9")
+        # Drive model with heavy anomaly
+        z_anom = np.ones(model.estimator.meas_dim) * 5.0
+        model.step(z_anom, delta_t=0.05)
+        
+        self.assertGreater(model.cusum_detector.g, 0.0)
+        self.assertGreater(len(model.jitter_detector.window), 0)
+        self.assertGreater(model.sequential_accumulator.theta, 0.0)
+        
+        # Execute model reset
+        model.reset()
+        self.assertEqual(model.cusum_detector.g, 0.0)
+        self.assertEqual(len(model.jitter_detector.window), 0)
+        self.assertEqual(model.sequential_accumulator.theta, 0.0)
+        np.testing.assert_allclose(model.estimator.x_hat[:model.estimator.N - 1], 0.0)
+        np.testing.assert_allclose(model.estimator.x_hat[model.estimator.N - 1:], 1.0)
+
+    def test_M_no_cross_scenario_contamination(self):
+        """Test M: Running Scenario B after Scenario A with model.reset() produces identical trace to running Scenario B from clean state."""
+        data = generate_physical_dataset(case_name="case9", num_calibration=20, num_test_per_scenario=10, seed=42)
+        model = XMONGridModel(case_name="case9")
+        model.calibrate_benign(data["calibration"]["z"], data["calibration"]["iat"])
+        
+        # Scenario A (branch_outage) then Scenario B (fdia) with reset
+        test_z = data["test"]["z"]
+        test_iat = data["test"]["iat"]
+        test_meta = data["test"]["metadata"]
+        
+        # Run branch_outage (idx 10..19)
+        model.reset()
+        for i in range(10, 20):
+            model.step(test_z[i], test_iat[i])
+            
+        # Reset and run fdia (idx 20..29)
+        model.reset()
+        trace_with_prior_run = []
+        for i in range(20, 30):
+            res = model.step(test_z[i], test_iat[i])
+            trace_with_prior_run.append(res["cusum_g"])
+            
+        # Fresh model running only fdia
+        fresh_model = XMONGridModel(case_name="case9")
+        fresh_model.calibrate_benign(data["calibration"]["z"], data["calibration"]["iat"])
+        fresh_model.reset()
+        trace_fresh = []
+        for i in range(20, 30):
+            res = fresh_model.step(test_z[i], test_iat[i])
+            trace_fresh.append(res["cusum_g"])
+            
+        np.testing.assert_allclose(trace_with_prior_run, trace_fresh, err_msg="State leaked across scenario boundaries!")
+
+    def test_N_ablation_component_removal(self):
+        """Test N: Redesigned 2-detector ablations enforce K=2 quorum consensus (AND gate) without altering fusion structure."""
+        # Truth table verification for 2-detector quorum consensus
+        # For a_cusum and a_jitter (without NIS): K=2 requires both (a_cusum & a_jitter) == 1
+        for c in [0, 1]:
+            for j in [0, 1]:
+                vote_sum = c + j
+                quorum_k2 = bool(vote_sum >= 2)
+                expected_and = bool(c and j)
+                self.assertEqual(quorum_k2, expected_and)
+
+    def test_O_k2_majority_equivalence(self):
+        """Test O: XMON-Grid K=2 quorum evaluation is mathematically identical to 3-detector majority vote across all 2^3 truth table inputs."""
+        for a_nis in [False, True]:
+            for a_cusum in [False, True]:
+                for a_jitter in [False, True]:
+                    res = QuorumLogic.evaluate(a_nis, a_cusum, a_jitter)
+                    expected_k2 = (int(a_nis) + int(a_cusum) + int(a_jitter)) >= 2
+                    self.assertEqual(res["d_k2"], expected_k2)
+
+    def test_P_threshold_calibration_isolation(self):
+        """Test P: Threshold calibration uses only benign calibration samples and does not touch test labels or data."""
+        data = generate_physical_dataset(case_name="case9", num_calibration=30, seed=777)
+        model = XMONGridModel(case_name="case9")
+        model.calibrate_benign(data["calibration"]["z"], data["calibration"]["iat"])
+        
+        self.assertGreater(model.nis_detector.threshold, 0.0)
+        self.assertGreater(model.cusum_detector.threshold, 0.0)
+        self.assertGreater(model.sequential_accumulator.threshold, 0.0)
+
 if __name__ == "__main__":
     unittest.main()

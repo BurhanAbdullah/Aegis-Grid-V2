@@ -52,6 +52,12 @@ class PowerSystemStateEstimator:
         ])
         self.R = np.diag(r_diag)
 
+    def reset(self):
+        """Resets estimator state vector x_hat to nominal and error covariance P to initial state."""
+        self.x_hat = np.zeros(self.state_dim)
+        self.x_hat[self.N - 1 :] = 1.0  # V_1..V_N = 1.0
+        self.P = np.eye(self.state_dim) * 1e-3
+
     def predict(self) -> Tuple[np.ndarray, np.ndarray]:
         """State prediction step: x_{k|k-1} = x_{k-1|k-1}, P_{k|k-1} = P_{k-1|k-1} + Q"""
         x_pred = self.x_hat.copy()
@@ -312,6 +318,7 @@ class XMONGridModel:
         self.jitter_detector = CommunicationJitterDetector()
         self.composite_threat = CompositeThreatScore()
         self.sequential_accumulator = SequentialAccumulator()
+        self.tau_comp = 0.30  # default, updated by benign calibration
 
     def calibrate_benign(self, benign_measurements: np.ndarray, benign_iats: np.ndarray):
         """
@@ -325,23 +332,34 @@ class XMONGridModel:
         self.cusum_detector.calibrate(np.array(nis_list))
         self.jitter_detector.calibrate(benign_iats)
         
-        # Calibrate sequential accumulator on benign threat scores
+        # Calibrate sequential accumulator and continuous threat score threshold on benign scores
         self.cusum_detector.reset()
         self.jitter_detector.reset()
         self.sequential_accumulator.reset()
         
         theta_list = []
+        s_comp_list = []
         for nis_v, delta_t in zip(nis_list, benign_iats):
             a_n, th_n = self.nis_detector.update(nis_v)
             a_c, g_c = self.cusum_detector.update(nis_v)
             a_j, j_k, j_bar = self.jitter_detector.update(delta_t)
             s_comp = self.composite_threat.compute(nis_v, th_n, g_c, self.cusum_detector.threshold, j_bar, self.jitter_detector.eta_mu)
+            s_comp_list.append(s_comp)
             a_seq, theta = self.sequential_accumulator.update(s_comp)
             theta_list.append(theta)
             
         self.sequential_accumulator.calibrate(np.array(theta_list))
+        self.tau_comp = float(np.percentile(s_comp_list, 99.0))
         
         # Reset state after calibration
+        self.reset()
+
+    def reset(self):
+        """
+        Resets state estimator and all stateful detectors to clean initial state.
+        Ensures zero information leakage across independent test scenarios.
+        """
+        self.estimator.reset()
         self.cusum_detector.reset()
         self.jitter_detector.reset()
         self.sequential_accumulator.reset()
@@ -358,6 +376,11 @@ class XMONGridModel:
         a_nis, nis_thresh = self.nis_detector.update(nis_val)
         a_cusum, cusum_g = self.cusum_detector.update(nis_val)
         a_jitter, j_k, j_bar = self.jitter_detector.update(delta_t)
+        
+        # Memoryless (instantaneous) CUSUM evaluation for Ablation E
+        y_k = (nis_val - self.cusum_detector.baseline_mean) / (self.cusum_detector.baseline_std + 1e-9)
+        g_inst = max(0.0, y_k - self.cusum_detector.mu_0 - self.cusum_detector.kappa)
+        a_cusum_inst = int(g_inst > self.cusum_detector.threshold)
         
         # 3. Continuous Composite Threat Score
         s_comp = self.composite_threat.compute(
@@ -385,10 +408,12 @@ class XMONGridModel:
             "jitter_z": j_k,
             "jitter_bar": j_bar,
             "s_comp": s_comp,
+            "tau_comp": round(self.tau_comp, 6),
             "theta_seq": theta,
             "theta_threshold": self.sequential_accumulator.threshold,
             "a_nis": quorum_res["a_nis"],
             "a_cusum": quorum_res["a_cusum"],
+            "a_cusum_inst": a_cusum_inst,
             "a_jitter": quorum_res["a_jitter"],
             "a_seq": int(a_seq),
             "votes": quorum_res["votes"],

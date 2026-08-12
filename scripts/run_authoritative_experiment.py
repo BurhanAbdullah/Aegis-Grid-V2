@@ -25,7 +25,7 @@ from sklearn.metrics import (
 from core.xmon_model import XMONGridModel, NISDetector
 from core.data_pipeline import generate_physical_dataset
 
-DEFAULT_OUTPUT_DIR = "results/tsg_run_002"
+DEFAULT_OUTPUT_DIR = "results/tsg_run_003"
 CASES = ["case9", "case14", "case30", "case118"]
 SCENARIOS = ["baseline", "branch_outage", "fdia", "stealth_drift"]
 SEED = 42
@@ -34,7 +34,9 @@ def create_directory_structure(target_dir):
     for sub in ["raw", "metrics", "tables", "figures"]:
         os.makedirs(os.path.join(target_dir, sub), exist_ok=True)
 
-def run_experiment(seed=SEED, target_dir=DEFAULT_OUTPUT_DIR):
+def run_experiment(seed=SEED, target_dir=None):
+    if target_dir is None:
+        target_dir = DEFAULT_OUTPUT_DIR
     print("\n==========================================================")
     print("RUNNING AUTHORITATIVE PHYSICAL EXPERIMENT (PHASE 3)")
     print(f"Target Output Directory : {target_dir}")
@@ -74,19 +76,13 @@ def run_experiment(seed=SEED, target_dir=DEFAULT_OUTPUT_DIR):
             "cusum_threshold": model.cusum_detector.threshold,
             "jitter_mu_T": model.jitter_detector.mu_T,
             "jitter_sigma_T": model.jitter_detector.sigma_T,
-            "seq_threshold": model.sequential_accumulator.threshold
+            "seq_threshold": model.sequential_accumulator.threshold,
+            "tau_comp": round(model.tau_comp, 6)
         }
         calibration_records.append(calib_rec)
         
-        # Reset detectors after calibration
-        model.cusum_detector.reset()
-        model.jitter_detector.reset()
-        model.sequential_accumulator.reset()
-        
-        # Estimator warmup on first 10 test samples
-        warmup_z = data["test"]["z"][:10]
-        for z_w, dt_w in zip(warmup_z, data["test"]["iat"][:10]):
-            model.estimator.step(z_w)
+        # Reset model state after calibration
+        model.reset()
             
         # B. Run Untouched Test Set Evaluation
         print(f"  [2/3] Evaluating on {len(data['test']['z'])} untouched test samples...")
@@ -95,11 +91,17 @@ def run_experiment(seed=SEED, target_dir=DEFAULT_OUTPUT_DIR):
         test_labels = data["test"]["labels"]
         test_meta = data["test"]["metadata"]
         
+        current_scenario = None
         for idx in range(len(test_z)):
             z_meas = test_z[idx]
             dt_val = test_iat[idx]
             y_true = test_labels[idx]
             meta = test_meta[idx]
+            
+            # Reset stateful detectors and estimator at the start of every independent scenario
+            if meta["scenario"] != current_scenario:
+                current_scenario = meta["scenario"]
+                model.reset()
             
             # Step canonical model
             step_res = model.step(z_meas, dt_val)
@@ -142,10 +144,12 @@ def run_experiment(seed=SEED, target_dir=DEFAULT_OUTPUT_DIR):
                 "cusum_g": round(step_res["cusum_g"], 4),
                 "cusum_threshold": round(step_res["cusum_threshold"], 4),
                 "a_cusum": step_res["a_cusum"],
+                "a_cusum_inst": step_res["a_cusum_inst"],
                 "jitter_z": round(step_res["jitter_z"], 4),
                 "jitter_bar": round(step_res["jitter_bar"], 4),
                 "a_jitter": step_res["a_jitter"],
                 "s_comp": round(step_res["s_comp"], 6),
+                "tau_comp": step_res["tau_comp"],
                 "theta_seq": round(step_res["theta_seq"], 6),
                 "theta_threshold": round(step_res["theta_threshold"], 6),
                 "a_seq": step_res["a_seq"],
@@ -219,7 +223,9 @@ def calculate_metrics(y_true, y_pred):
         "Balanced_Accuracy": round(bal_acc, 4)
     }
 
-def generate_tables(detector_rows, target_dir=DEFAULT_OUTPUT_DIR):
+def generate_tables(detector_rows, target_dir=None):
+    if target_dir is None:
+        target_dir = DEFAULT_OUTPUT_DIR
     y_true = np.array([r["y_true"] for r in detector_rows])
     
     # 1. Main Results (K=2 vs K=1 vs Standalones)
@@ -295,7 +301,9 @@ def generate_tables(detector_rows, target_dir=DEFAULT_OUTPUT_DIR):
 # 3. Publication Figures Generation
 # =====================================================================
 
-def generate_figures(detector_rows, nis_samples, target_dir=DEFAULT_OUTPUT_DIR):
+def generate_figures(detector_rows, nis_samples, target_dir=None):
+    if target_dir is None:
+        target_dir = DEFAULT_OUTPUT_DIR
     print("  Generating publication figures...")
     y_true = np.array([r["y_true"] for r in detector_rows])
     scores = np.array([r["s_comp"] for r in detector_rows])
@@ -463,11 +471,12 @@ def generate_sha256sums(target_dir=DEFAULT_OUTPUT_DIR):
     print(f"  Saved SHA256SUMS.txt with {len(sha_lines)} artifact signatures.")
 
 if __name__ == "__main__":
-    det_rows, nis_samples = run_experiment(seed=SEED, target_dir=DEFAULT_OUTPUT_DIR)
-    roc_auc_val, pr_auc_val = generate_tables(det_rows, target_dir=DEFAULT_OUTPUT_DIR)
-    generate_figures(det_rows, nis_samples, target_dir=DEFAULT_OUTPUT_DIR)
-    indep_m = independent_verification(os.path.join(DEFAULT_OUTPUT_DIR, "metrics", "detector_outputs.csv"))
-    generate_sha256sums(target_dir=DEFAULT_OUTPUT_DIR)
+    target_out_dir = sys.argv[1] if len(sys.argv) > 1 else "results/tsg_run_003"
+    det_rows, nis_samples = run_experiment(seed=SEED, target_dir=target_out_dir)
+    roc_auc_val, pr_auc_val = generate_tables(det_rows, target_dir=target_out_dir)
+    generate_figures(det_rows, nis_samples, target_dir=target_out_dir)
+    indep_m = independent_verification(os.path.join(target_out_dir, "metrics", "detector_outputs.csv"))
+    generate_sha256sums(target_dir=target_out_dir)
     
     print("\n==========================================================")
     print("AUTHORITATIVE PHYSICAL EXPERIMENT EXECUTION COMPLETE")
