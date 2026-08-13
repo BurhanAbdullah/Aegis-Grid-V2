@@ -17,7 +17,7 @@ jobs:
           python-version: "3.11"
           cache: pip
       - name: Install scientific stack
-        run: python -m pip install --upgrade pip && python -m pip install numpy scipy scikit-learn matplotlib pypower==5.1.19
+        run: python -m pip install --upgrade pip && python -m pip install "numpy<2" scipy scikit-learn matplotlib pypower==5.1.19
       - name: Unit tests
         run: python -m unittest discover -s tests -p "test_*.py" -v
       - name: Canonical physical and Jacobian validation
