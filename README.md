@@ -105,8 +105,6 @@ XMON-Grid/
         └── figures/                   # Authoritative 600-DPI publication figures
 ```
 
-> [!NOTE]
-> **Manuscript Governance:** The IEEE Transactions LaTeX manuscript (`main.tex`), submission figures, and table packages are maintained separately in an external submission package (`XMON-Grid-IEEE-Submission/`).
 
 ---
 
