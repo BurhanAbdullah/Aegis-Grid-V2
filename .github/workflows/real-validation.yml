@@ -1,0 +1,48 @@
+name: Real Scientific Validation
+
+on:
+  push:
+    branches: ["real-validation-20260813"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install scientific stack
+        run: python -m pip install --upgrade pip && python -m pip install numpy scipy scikit-learn matplotlib pypower==5.1.19
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Canonical physical validation
+        run: python validation/real_physical_validation.py
+      - name: Authoritative corrected experiment
+        run: python scripts/run_authoritative_experiment.py results/real_validation_run
+      - name: Independent result checks
+        run: |
+          python - <<'PY'
+          import csv, math
+          from collections import Counter
+          p='results/real_validation_run/metrics/detector_outputs.csv'
+          rows=list(csv.DictReader(open(p)))
+          assert len(rows)==1200
+          assert Counter(r['case'] for r in rows)==Counter({'case9':300,'case14':300,'case30':300,'case118':300})
+          assert Counter(r['scenario'] for r in rows)==Counter({'baseline':240,'branch_outage':240,'fdia':240,'load_shift':240,'stealth_drift':240})
+          assert sum(int(r['y_true'])==0 for r in rows)==240
+          assert sum(int(r['y_true'])==1 for r in rows)==960
+          assert all(int(r['d_k2'])==(int(r['votes'])>=2) for r in rows)
+          assert all(int(r['d_k1'])==(int(r['votes'])>=1) for r in rows)
+          assert all(math.isfinite(float(r['nis'])) and float(r['nis'])>=0 for r in rows)
+          print('INDEPENDENT RESULT AUDIT: PASS')
+          PY
+      - name: Upload result bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-validation-results
+          path: results/real_validation_run/
+          if-no-files-found: ignore
