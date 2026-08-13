@@ -12,8 +12,8 @@ from typing import Dict, Tuple
 
 import numpy as np
 from pypower.api import runpf, ppoption
-from pypower.idx_bus import PD, QD, VM, VA
-from pypower.idx_brch import BR_STATUS
+from pypower.idx_bus import PD, QD, VM, VA, BUS_I
+from pypower.idx_brch import BR_STATUS, F_BUS, T_BUS
 from pypower.makeYbus import makeYbus
 
 from core.grid_topology import compute_h_x, compute_jacobian_H
@@ -37,7 +37,20 @@ def solve(ppc: Dict) -> Tuple[Dict, bool]:
 
 
 def _dense_ybus(result: Dict) -> np.ndarray:
-    ybus, _, _ = makeYbus(result["baseMVA"], result["bus"], result["branch"])
+    """Build Ybus from a solved PYPOWER result using internal bus indices.
+
+    PYPOWER returns solved cases in external bus numbering (typically 1..N),
+    while ``makeYbus`` constructs sparse incidence matrices using internal
+    zero-based indices.  Convert only the local copy used for Ybus assembly;
+    keep the solved result untouched so state/measurement ordering remains
+    canonical.
+    """
+    internal = copy.deepcopy(result)
+    n = internal["bus"].shape[0]
+    internal["bus"][:, BUS_I] = np.arange(n)
+    internal["branch"][:, F_BUS] = internal["branch"][:, F_BUS] - 1
+    internal["branch"][:, T_BUS] = internal["branch"][:, T_BUS] - 1
+    ybus, _, _ = makeYbus(internal["baseMVA"], internal["bus"], internal["branch"])
     return ybus.toarray() if hasattr(ybus, "toarray") else np.asarray(ybus, dtype=complex)
 
 
