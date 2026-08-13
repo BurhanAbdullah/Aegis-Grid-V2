@@ -3,6 +3,8 @@ name: Real Scientific Validation
 on:
   push:
     branches: ["real-validation-20260813"]
+  pull_request:
+    branches: ["tsg-clean-reproduction"]
 
 jobs:
   validate:
@@ -29,7 +31,8 @@ jobs:
       - name: Generate paper figures only after gate
         run: python scripts/generate_paper_figures.py results/real_validation_run
       - name: Re-freeze complete artifact bundle
-        run: python - <<'PY'
+        run: |
+          python - <<'PY'
           import hashlib, os
           root='results/real_validation_run'
           lines=[]
