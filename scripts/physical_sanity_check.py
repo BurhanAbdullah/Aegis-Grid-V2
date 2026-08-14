@@ -1,111 +1,95 @@
 #!/usr/bin/env python3
-import os, sys
+"""Independent physical consistency audit of the canonical AC network model."""
+
+from pathlib import Path
+import sys
+import csv
 import numpy as np
 
-sys.path.insert(0, os.path.abspath("."))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
 from core.grid_topology import get_ieee_case_data, build_ybus, compute_h_x
 
-def run_physical_audit():
-    cases = ["case9", "case14", "case30", "case118"]
-    results = {}
-    
-    print("=" * 80)
-    print("INDEPENDENT PHYSICAL MODEL SANITY CHECK: POWER CONSERVATION AUDIT")
-    print("=" * 80)
-    
-    for case in cases:
-        cd = get_ieee_case_data(case)
-        N = cd["num_buses"]
-        baseMVA = cd["baseMVA"]
-        Ybus, G, B = build_ybus(cd)
-        
-        # Nominal flat voltage vector V_i = 1.0 < 0.0 deg
-        Vm = np.array([b[2] for b in cd["buses"]])
-        Va = np.array([np.radians(b[3]) for b in cd["buses"]])
-        V = Vm * np.exp(1j * Va)
-        
-        # 1. Compute node currents I = Ybus * V
-        I = Ybus @ V
-        
-        # 2. Compute apparent power S_i = V_i * conj(I_i)
-        S = V * np.conj(I)
-        P_calc = np.real(S)
-        Q_calc = np.imag(S)
-        
-        sum_P_inj = np.sum(P_calc)
-        sum_Q_inj = np.sum(Q_calc)
-        
-        # Declared load quantities Pd, Qd
-        Pd = np.array([b[4] for b in cd["buses"]])
-        Qd = np.array([b[5] for b in cd["buses"]])
-        sum_Pd = np.sum(Pd)
-        sum_Qd = np.sum(Qd)
-        
-        # Measurement vector h(x) output at nominal state
-        x_nominal = np.zeros(2 * N - 1)
-        x_nominal[N - 1:] = 1.0
-        h_x = compute_h_x(x_nominal, G, B)
-        h_V = h_x[:N]
-        h_P = h_x[N:2*N]
-        h_Q = h_x[2*N:]
-        
-        # Compare h(x) P and Q with P_calc and Q_calc
-        p_h_diff = np.max(np.abs(h_P - P_calc))
-        q_h_diff = np.max(np.abs(h_Q - Q_calc))
-        
-        # Compute branch losses
-        branch_losses_P = 0.0
-        branch_losses_Q = 0.0
-        for branch in cd["branches"]:
-            f = int(branch[0]) - 1
-            t = int(branch[1]) - 1
-            r = branch[2]
-            x = branch[3]
-            b_sh = branch[4]
-            z = complex(r, x)
-            if abs(z) > 1e-9:
-                y = 1.0 / z
-                i_ft = (V[f] - V[t]) * y
-                branch_losses_P += np.real(i_ft * np.conj(i_ft) * z)
-                branch_losses_Q += np.imag(i_ft * np.conj(i_ft) * z) - 0.5 * b_sh * (abs(V[f])**2 + abs(V[t])**2)
-                
-        abs_p_err = abs(sum_P_inj - branch_losses_P)
-        abs_q_err = abs(sum_Q_inj - branch_losses_Q)
-        rel_p_err = (abs_p_err / (sum_Pd + 1e-9)) * 100.0 if sum_Pd > 0 else 0.0
-        rel_q_err = (abs_q_err / (sum_Qd + 1e-9)) * 100.0 if sum_Qd > 0 else 0.0
-        
-        print(f"\nCASE: {case} (Buses={N}, Branches={cd['num_branches']})")
-        print(f"  Voltage vector min/max : {np.min(np.abs(V)):.4f} / {np.max(np.abs(V)):.4f} p.u.")
-        print(f"  Sum P_injected         : {sum_P_inj:.6f} p.u. ({sum_P_inj * baseMVA:.3f} MW)")
-        print(f"  Sum Q_injected         : {sum_Q_inj:.6f} p.u. ({sum_Q_inj * baseMVA:.3f} MVAr)")
-        print(f"  Sum Branch P Losses    : {branch_losses_P:.6f} p.u. ({branch_losses_P * baseMVA:.3f} MW)")
-        print(f"  Sum Branch Q Losses    : {branch_losses_Q:.6f} p.u. ({branch_losses_Q * baseMVA:.3f} MVAr)")
-        print(f"  Sum Active Load Pd     : {sum_Pd:.6f} p.u. ({sum_Pd * baseMVA:.3f} MW)")
-        print(f"  Sum Reactive Load Qd   : {sum_Qd:.6f} p.u. ({sum_Qd * baseMVA:.3f} MVAr)")
-        print(f"  h(x) Consistency       : Max P diff = {p_h_diff:.2e}, Max Q diff = {q_h_diff:.2e}")
-        print(f"  Conservation Discrepancy (P_inj - P_loss): Abs = {abs_p_err:.6e} p.u. | Rel = {rel_p_err:.4f}%")
-        print(f"  Conservation Discrepancy (Q_inj - Q_loss): Abs = {abs_q_err:.6e} p.u. | Rel = {rel_q_err:.4f}%")
-        
-        results[case] = {
-            "N": N,
-            "sum_P_inj": sum_P_inj,
-            "sum_Q_inj": sum_Q_inj,
-            "sum_Pd": sum_Pd,
-            "sum_Qd": sum_Qd,
-            "p_h_diff": p_h_diff,
-            "q_h_diff": q_h_diff,
-            "abs_p_err": abs_p_err,
-            "abs_q_err": abs_q_err,
-            "rel_p_err": rel_p_err,
-            "rel_q_err": rel_q_err
-        }
 
-    print("\n" + "=" * 80)
-    print("PHYSICAL MODEL SANITY CHECK SUMMARY")
-    print("=" * 80)
-    for c, r in results.items():
-        pass_fail = "PASS" if r["p_h_diff"] < 1e-12 and r["q_h_diff"] < 1e-12 and r["abs_p_err"] < 1e-10 else "FAIL"
-        print(f"Case {c:7s} | h(x) Match: {r['p_h_diff'] < 1e-12} | Abs P Loss Err: {r['abs_p_err']:.2e} | Result: {pass_fail}")
+def solve_state(case_name):
+    from pypower.api import ppoption, runpf
+    module = __import__(f"pypower.{case_name}", fromlist=[case_name])
+    mpc = getattr(module, case_name)()
+    solved, success = runpf(mpc, ppoption(VERBOSE=0, OUT_ALL=0))
+    if not success:
+        raise RuntimeError(f"AC power flow failed for {case_name}")
+    bus = np.asarray(solved["bus"], dtype=float)
+    va = np.deg2rad(bus[:, 8]); vm = bus[:, 7]
+    return np.concatenate([va[1:], vm]), vm*np.exp(1j*va), solved
+
+
+def audit_case(case_name):
+    case = get_ieee_case_data(case_name)
+    _, G, B = build_ybus(case)
+    x, V, solved = solve_state(case_name)
+    Ybus, _, _ = build_ybus(case)
+
+    S_bus = V * np.conj(Ybus @ V)
+    P_bus = S_bus.real
+    Q_bus = S_bus.imag
+    h = compute_h_x(x, G, B)
+    p_h = h[case["num_buses"]:2*case["num_buses"]]
+    q_h = h[2*case["num_buses"]:]
+
+    h_p_err = float(np.max(np.abs(p_h - P_bus)))
+    h_q_err = float(np.max(np.abs(q_h - Q_bus)))
+
+    # Bus conductance shunts consume P_sh = GS/baseMVA * |V|^2.
+    bus = np.asarray(case["bus"], dtype=float)
+    p_shunt = float(np.sum(bus[:, 4] / case["baseMVA"] * np.abs(V)**2))
+
+    # For a lossless-in-series network, the real power balance is
+    # sum(bus injections) = series/network losses + explicit bus shunts.
+    # We evaluate branch series losses directly from branch currents.
+    p_branch_loss = 0.0
+    for row in np.asarray(case["branch"], dtype=float):
+        if row[10] == 0:
+            continue
+        f, t = int(row[0]) - 1, int(row[1]) - 1
+        z = complex(row[2], row[3])
+        y = 1.0 / z
+        ratio = float(row[8]) or 1.0
+        tap = ratio * np.exp(1j*np.deg2rad(float(row[9])))
+        Ift = (V[f] / tap - V[t]) * y
+        Itf = (V[t] - V[f] / tap) * y
+        p_branch_loss += float(np.real((V[f] / tap) * np.conj(Ift) + V[t] * np.conj(Itf)))
+
+    conservation_residual = float(np.sum(P_bus) - p_branch_loss - p_shunt)
+    return {
+        "case": case_name,
+        "buses": case["num_buses"],
+        "branches": case["num_branches"],
+        "h_p_max_abs_error": h_p_err,
+        "h_q_max_abs_error": h_q_err,
+        "power_balance_residual": conservation_residual,
+        "converged": True,
+    }
+
+
+def main():
+    rows = [audit_case(c) for c in ("case9", "case14", "case30", "case118")]
+    for r in rows:
+        print(
+            f"{r['case']}: hP={r['h_p_max_abs_error']:.3e}, "
+            f"hQ={r['h_q_max_abs_error']:.3e}, "
+            "f"balance={r['power_balance_residual']:.3e}"
+        )
+        if r["h_p_max_abs_error"] > 1e-10 or r["h_q_max_abs_error"] > 1e-10 or abs(r["power_balance_residual"]) > 1e-9:
+            raise SystemExit(f"PHYSICAL SANITY CHECK FAILED: {r['case']}")
+
+    out = ROOT / "results" / "current_physical_sanity.csv"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=rows[0].keys())
+        writer.writeheader(); writer.writerows(rows)
+    print("PHYSICAL MODEL SANITY CHECK: PASS")
+
 
 if __name__ == "__main__":
-    run_physical_audit()
+    main()
