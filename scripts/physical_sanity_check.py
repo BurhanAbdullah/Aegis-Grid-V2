@@ -20,6 +20,12 @@ def solve_state(case_name):
     bus = np.asarray(solved["bus"], dtype=float)
     va = np.deg2rad(bus[:, 8])
     vm = bus[:, 7]
+
+    # The analytical model fixes bus 1 as its angle reference. PYPOWER's
+    # canonical case may choose a different REF bus (e.g. IEEE 118). AC power
+    # flow is invariant to a uniform angle shift, so normalize all solved
+    # angles to bus 1 before constructing the model state.
+    va = va - va[0]
     return np.concatenate([va[1:], vm]), vm * np.exp(1j * va)
 
 
@@ -36,8 +42,8 @@ def audit_case(case_name):
     h_p_err = float(np.max(np.abs(h[n:2 * n] - S_bus.real)))
     h_q_err = float(np.max(np.abs(h[2 * n:] - S_bus.imag)))
 
-    # Independent branch-end power calculation.  Include both series current
-    # and half-line charging susceptance, and retain transformer tap/phase shift.
+    # Independent branch-end power calculation. Include both series current
+    # and half-line charging, while retaining transformer tap/phase shift.
     bus = np.asarray(case["bus"], dtype=float)
     p_shunt = float(np.sum(bus[:, 4] / case["baseMVA"] * np.abs(V) ** 2))
     p_branch_loss = 0.0
