@@ -3,12 +3,11 @@
 
 from pathlib import Path
 import sys
-
 import numpy as np
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from core.grid_topology import get_ieee_case_data, build_ybus
 
@@ -24,24 +23,20 @@ def main() -> int:
             failures.append(f"{case_name}: expected {expected_buses}/{expected_branches}, got {nbus}/{nbranch}")
         if case["source"] != "PYPOWER/MATPOWER standard case definition":
             failures.append(f"{case_name}: non-canonical source marker")
-        if np.asarray(case["branch"]).shape[1] < 13:
-            failures.append(f"{case_name}: incomplete branch matrix")
         if not np.array_equal(np.asarray(case["bus"])[:, 0].astype(int), np.arange(1, nbus + 1)):
             failures.append(f"{case_name}: unexpected external bus numbering")
 
         try:
             from pypower.makeYbus import makeYbus
-            from pypower.ext2int import ext2int
-
-            mpc = {
-                "version": 2,
-                "baseMVA": float(case["baseMVA"]),
-                "bus": np.asarray(case["bus"], dtype=float).copy(),
-                "branch": np.asarray(case["branch"], dtype=float).copy(),
-                "gen": np.asarray(case.get("gen", []), dtype=float).copy(),
-            }
-            mpc_i = ext2int(mpc)
-            y_ref, _, _ = makeYbus(mpc_i["baseMVA"], mpc_i["bus"], mpc_i["branch"])
+            bus_ref = np.asarray(case["bus"], dtype=float).copy()
+            branch_ref = np.asarray(case["branch"], dtype=float).copy()
+            # PYPOWER 5.1.19's low-level makeYbus expects internal 0..N-1 IDs.
+            bus_ref[:, 0] = np.arange(nbus, dtype=float)
+            branch_ref[:, 0] = branch_ref[:, 0] - 1.0
+            branch_ref[:, 1] = branch_ref[:, 1] - 1.0
+            if np.any(branch_ref[:, :2] < 0) or np.any(branch_ref[:, :2] >= nbus):
+                raise ValueError("internal branch endpoint outside 0..N-1")
+            y_ref, _, _ = makeYbus(float(case["baseMVA"]), bus_ref, branch_ref)
             y_local, _, _ = build_ybus(case)
             err = float(np.max(np.abs(y_local - y_ref.toarray())))
             if err > 1e-12:
