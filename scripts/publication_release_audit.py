@@ -7,7 +7,10 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper" / "main.tex"
 BIB = ROOT / "paper" / "references.bib"
-REQUIRED = [PAPER, BIB, ROOT / "results" / "independent_validation_run" / "tables" / "multi_seed_summary.csv"]
+MANIFEST = ROOT / "results" / "independent_validation_run" / "paper_figures" / "FIGURE_MANIFEST.md"
+RELEASE = ROOT / "RELEASE_20260814.md"
+FIG_DIR = ROOT / "results" / "independent_validation_run" / "paper_figures"
+REQUIRED = [PAPER, BIB, MANIFEST, RELEASE, ROOT / "results" / "independent_validation_run" / "tables" / "multi_seed_summary.csv"]
 
 EXPECTED = {
     "F1": r"0\.9204\\pm0\.0026",
@@ -23,6 +26,17 @@ STALE = [
     "192.58",
 ]
 
+REQUIRED_FIGURES = [
+    "fig1_overall_performance.pdf",
+    "fig2_k1_vs_k2_tradeoff.pdf",
+    "fig3_roc_curve.pdf",
+    "fig4_pr_curve.pdf",
+    "fig5_casewise_performance.pdf",
+    "fig6_attackwise_performance.pdf",
+    "fig10_severity_robustness.pdf",
+    "fig12_ac_powerflow_consistency.pdf",
+]
+
 
 def main() -> int:
     failures = []
@@ -30,7 +44,14 @@ def main() -> int:
         if not path.exists():
             failures.append(f"missing required publication file: {path.relative_to(ROOT)}")
 
-    if not PAPER.exists() or not BIB.exists():
+    for filename in REQUIRED_FIGURES:
+        if not (FIG_DIR / filename).exists():
+            failures.append(f"missing retained publication figure: {filename}")
+
+    if (FIG_DIR / "fig11_computational_scaling.pdf").exists() or (FIG_DIR / "fig11_computational_scaling.png").exists():
+        failures.append("unsupported computational-scaling figure is still present in publication figure set")
+
+    if not PAPER.exists() or not BIB.exists() or not MANIFEST.exists() or not RELEASE.exists():
         print("PUBLICATION RELEASE AUDIT: FAIL")
         for failure in failures:
             print(" -", failure)
@@ -38,6 +59,8 @@ def main() -> int:
 
     tex = PAPER.read_text(encoding="utf-8")
     bib = BIB.read_text(encoding="utf-8")
+    manifest = MANIFEST.read_text(encoding="utf-8")
+    release = RELEASE.read_text(encoding="utf-8")
 
     for label, pattern in EXPECTED.items():
         if not re.search(pattern, tex):
@@ -57,6 +80,9 @@ def main() -> int:
         if phrase not in tex:
             failures.append(f"required limitation statement missing: {phrase}")
 
+    if "fig11_computational_scaling" in manifest or "fig11_computational_scaling" in release:
+        failures.append("unsupported computational-scaling figure is still claimed in release documentation")
+
     if failures:
         print("PUBLICATION RELEASE AUDIT: FAIL")
         for failure in failures:
@@ -67,7 +93,9 @@ def main() -> int:
     print(" - current validated aggregate values present")
     print(" - known stale aggregate/speedup claims absent")
     print(" - bibliography citation keys resolved")
-    print(" - required publication artifacts present")
+    print(" - retained publication figures present")
+    print(" - unsupported timing figure excluded")
+    print(" - release documentation present")
     print(" - principal limitations explicitly reported")
     return 0
 
