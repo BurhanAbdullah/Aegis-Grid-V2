@@ -1,0 +1,1193 @@
+experiment,method,parameter,param_value,case,seed,scenario,metric,value,raw_source
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,TN,1,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,FP,59,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,FN,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,TP,240,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,Accuracy,0.8033,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,Precision,0.8027,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,Recall,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,F1,0.8905,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,FPR,0.9833,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,Specificity,0.0167,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,Balanced_Accuracy,0.5083,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,MCC,0.1157,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,TN,19,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,FP,41,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,FN,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,TP,240,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,Accuracy,0.8633,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,Precision,0.8541,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,Recall,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,F1,0.9213,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,FPR,0.6833,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,Specificity,0.3167,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,Balanced_Accuracy,0.6583,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,MCC,0.5201,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,TN,47,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,FP,13,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,FN,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,TP,240,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,Accuracy,0.9567,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,Precision,0.9486,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,Recall,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,F1,0.9736,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,FPR,0.2167,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,Specificity,0.7833,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,Balanced_Accuracy,0.8917,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,MCC,0.862,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,TN,55,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,FP,5,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,FN,3,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,TP,237,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,Accuracy,0.9733,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,Precision,0.9793,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,Recall,0.9875,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,F1,0.9834,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,FPR,0.0833,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,Specificity,0.9167,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,Balanced_Accuracy,0.9521,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,MCC,0.9158,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,TN,59,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,FP,1,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,FN,26,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,TP,214,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,Accuracy,0.91,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,Precision,0.9953,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,Recall,0.8917,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,F1,0.9407,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,FPR,0.0167,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,Specificity,0.9833,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,Balanced_Accuracy,0.9375,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,MCC,0.7767,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,FN,30,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,TP,210,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,Accuracy,0.9,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,Recall,0.875,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,F1,0.9333,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,Balanced_Accuracy,0.9375,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,MCC,0.7638,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,FN,31,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,TP,209,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,Accuracy,0.8967,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,Recall,0.8708,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,F1,0.931,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,Balanced_Accuracy,0.9354,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,MCC,0.7577,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,FN,33,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,TP,207,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,Accuracy,0.89,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,Recall,0.8625,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,F1,0.9262,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,Balanced_Accuracy,0.9313,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,MCC,0.746,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,FN,240,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,TP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,Accuracy,0.2,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,Precision,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,Recall,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,F1,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,Balanced_Accuracy,0.5,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,MCC,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,TN,1,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,FP,59,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,FN,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,TP,240,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,Accuracy,0.8033,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,Precision,0.8027,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,Recall,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,F1,0.8905,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,FPR,0.9833,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,Specificity,0.0167,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,Balanced_Accuracy,0.5083,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,MCC,0.1157,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.1,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,TN,7,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,FP,53,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,FN,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,TP,240,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,Accuracy,0.8233,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,Precision,0.8191,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,Recall,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,F1,0.9006,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,FPR,0.8833,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,Specificity,0.1167,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,Balanced_Accuracy,0.5583,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,MCC,0.3091,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.2,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,TN,30,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,FP,30,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,FN,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,TP,240,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,Accuracy,0.9,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,Precision,0.8889,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,Recall,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,F1,0.9412,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,FPR,0.5,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,Specificity,0.5,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,Balanced_Accuracy,0.75,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,MCC,0.6667,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.3,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,TN,51,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,FP,9,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,FN,2,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,TP,238,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,Accuracy,0.9633,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,Precision,0.9636,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,Recall,0.9917,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,F1,0.9774,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,FPR,0.15,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,Specificity,0.85,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,Balanced_Accuracy,0.9208,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,MCC,0.8827,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.4,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,TN,57,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,FP,3,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,FN,23,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,TP,217,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,Accuracy,0.9133,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,Precision,0.9864,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,Recall,0.9042,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,F1,0.9435,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,FPR,0.05,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,Specificity,0.95,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,Balanced_Accuracy,0.9271,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,MCC,0.7726,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.5,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,FN,31,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,TP,209,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,Accuracy,0.8967,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,Recall,0.8708,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,F1,0.931,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,Balanced_Accuracy,0.9354,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,MCC,0.7577,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.6,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,FN,33,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,TP,207,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,Accuracy,0.89,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,Recall,0.8625,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,F1,0.9262,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,Balanced_Accuracy,0.9313,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,MCC,0.746,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.7,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,FN,37,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,TP,203,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,Accuracy,0.8767,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,Recall,0.8458,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,F1,0.9165,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,Balanced_Accuracy,0.9229,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,MCC,0.7233,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.8,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,TN,60,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,FP,0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,FN,227,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,TP,13,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,Accuracy,0.2433,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,Recall,0.0542,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,F1,0.1028,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,Balanced_Accuracy,0.5271,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,MCC,0.1064,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp2_Threshold_Sensitivity,Continuous_Threat_Score,tau_comp,0.9,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,FN,30,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,TP,210,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,Accuracy,0.9,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,Recall,0.875,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,F1,0.9333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,Balanced_Accuracy,0.9375,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,MCC,0.7638,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,ROC_AUC,0.995,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2026,all_combined,PR_AUC,0.9987,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,FN,29,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,TP,211,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,Accuracy,0.9033,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,Recall,0.8792,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,F1,0.9357,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,Balanced_Accuracy,0.9396,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,MCC,0.7699,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,ROC_AUC,0.999,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2026,all_combined,PR_AUC,0.9998,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,FN,30,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,TP,210,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,Accuracy,0.9,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,Recall,0.875,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,F1,0.9333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,Balanced_Accuracy,0.9375,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,MCC,0.7638,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,ROC_AUC,0.9944,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2026,all_combined,PR_AUC,0.9986,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,FN,29,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,TP,211,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,Accuracy,0.9033,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,Recall,0.8792,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,F1,0.9357,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,Balanced_Accuracy,0.9396,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,MCC,0.7699,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,ROC_AUC,0.9933,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2026,all_combined,PR_AUC,0.9983,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,FN,32,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,TP,208,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,Accuracy,0.8933,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,Recall,0.8667,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,F1,0.9286,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,Balanced_Accuracy,0.9333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,MCC,0.7518,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2026,all_combined,PR_AUC,0.9972,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,FN,30,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,TP,210,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,Accuracy,0.9,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,Recall,0.875,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,F1,0.9333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,Balanced_Accuracy,0.9375,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,MCC,0.7638,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,ROC_AUC,0.9998,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2026,all_combined,PR_AUC,0.9999,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,TN,56,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,FP,4,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,FN,31,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,TP,209,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,Accuracy,0.8833,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,Precision,0.9812,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,Recall,0.8708,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,F1,0.9227,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,FPR,0.0667,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,Specificity,0.9333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,Balanced_Accuracy,0.9021,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,MCC,0.7089,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,ROC_AUC,0.9892,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2026,all_combined,PR_AUC,0.9972,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,FN,28,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,TP,212,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,Accuracy,0.9067,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,Recall,0.8833,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,F1,0.9381,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,Balanced_Accuracy,0.9417,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,MCC,0.7761,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,ROC_AUC,0.9994,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2026,all_combined,PR_AUC,0.9998,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,FN,33,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,TP,207,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,Accuracy,0.89,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,Recall,0.8625,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,F1,0.9262,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,Balanced_Accuracy,0.9313,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,MCC,0.746,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,ROC_AUC,0.9969,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case9,2027,all_combined,PR_AUC,0.9992,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,TN,58,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,FP,2,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,FN,28,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,TP,212,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,Accuracy,0.9,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,Precision,0.9907,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,Recall,0.8833,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,F1,0.9339,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,FPR,0.0333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,Specificity,0.9667,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,Balanced_Accuracy,0.925,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,MCC,0.7519,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,ROC_AUC,0.9918,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case9,2027,all_combined,PR_AUC,0.9979,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,TN,57,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,FP,3,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,FN,31,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,TP,209,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,Accuracy,0.8867,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,Precision,0.9858,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,Recall,0.8708,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,F1,0.9248,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,FPR,0.05,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,Specificity,0.95,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,Balanced_Accuracy,0.9104,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,MCC,0.7212,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,ROC_AUC,0.9886,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case9,2027,all_combined,PR_AUC,0.9971,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,FN,29,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,TP,211,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,Accuracy,0.9033,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,Recall,0.8792,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,F1,0.9357,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,Balanced_Accuracy,0.9396,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,MCC,0.7699,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,ROC_AUC,0.9988,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case9,2027,all_combined,PR_AUC,0.9997,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,FN,29,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,TP,211,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,Accuracy,0.9033,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,Recall,0.8792,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,F1,0.9357,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,Balanced_Accuracy,0.9396,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,MCC,0.7699,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,ROC_AUC,0.9922,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,50,case14,2027,all_combined,PR_AUC,0.9982,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,FN,32,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,TP,208,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,Accuracy,0.8933,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,Recall,0.8667,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,F1,0.9286,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,Balanced_Accuracy,0.9333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,MCC,0.7518,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,ROC_AUC,0.9967,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,100,case14,2027,all_combined,PR_AUC,0.9991,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,FN,32,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,TP,208,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,Accuracy,0.8933,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,Recall,0.8667,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,F1,0.9286,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,Balanced_Accuracy,0.9333,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,MCC,0.7518,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,ROC_AUC,0.9968,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,200,case14,2027,all_combined,PR_AUC,0.9992,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,TN,60,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,FP,0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,FN,31,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,TP,209,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,Accuracy,0.8967,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,Precision,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,Recall,0.8708,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,F1,0.931,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,FPR,0.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,Specificity,1.0,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,Balanced_Accuracy,0.9354,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,MCC,0.7577,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,ROC_AUC,0.9992,synthetic_sweep
+Exp3_Calibration_Sensitivity,XMON_K2,num_calibration,400,case14,2027,all_combined,PR_AUC,0.9998,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,FN,29,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,TP,31,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,Accuracy,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,Recall,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,F1,0.6813,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,Balanced_Accuracy,0.2583,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,FN,2,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,TP,58,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,Accuracy,0.9667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,Recall,0.9667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,F1,0.9831,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,Balanced_Accuracy,0.4833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,FN,4,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,TP,56,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,Accuracy,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,Recall,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,F1,0.9655,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,Balanced_Accuracy,0.4667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,FN,31,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,TP,29,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,Accuracy,0.4833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,Recall,0.4833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,F1,0.6517,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,Balanced_Accuracy,0.2417,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2026,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,FN,30,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,TP,30,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,Recall,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,F1,0.6667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,Balanced_Accuracy,0.25,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,FN,4,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,TP,56,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,Accuracy,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,Recall,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,F1,0.9655,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,Balanced_Accuracy,0.4667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,FN,29,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,TP,31,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,Accuracy,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,Recall,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,F1,0.6813,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,Balanced_Accuracy,0.2583,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2027,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,FN,26,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,TP,34,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,Accuracy,0.5667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,Recall,0.5667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,F1,0.7234,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,Balanced_Accuracy,0.2833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,FN,1,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,TP,59,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,Accuracy,0.9833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,Recall,0.9833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,F1,0.9916,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,Balanced_Accuracy,0.4917,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,FN,4,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,TP,56,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,Accuracy,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,Recall,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,F1,0.9655,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,Balanced_Accuracy,0.4667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,FN,29,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,TP,31,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,Accuracy,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,Recall,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,F1,0.6813,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,Balanced_Accuracy,0.2583,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,FN,4,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,TP,56,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,Accuracy,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,Recall,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,F1,0.9655,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,Balanced_Accuracy,0.4667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2028,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,FN,30,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,TP,30,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,Recall,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,F1,0.6667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,Balanced_Accuracy,0.25,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,FN,1,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,TP,59,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,Accuracy,0.9833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,Recall,0.9833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,F1,0.9916,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,Balanced_Accuracy,0.4917,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,FN,4,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,TP,56,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,Accuracy,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,Recall,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,F1,0.9655,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,Balanced_Accuracy,0.4667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,FN,29,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,TP,31,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,Accuracy,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,Recall,0.5167,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,F1,0.6813,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,Balanced_Accuracy,0.2583,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2029,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case9,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,FN,28,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,TP,32,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,Accuracy,0.5333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,Recall,0.5333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,F1,0.6957,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,Balanced_Accuracy,0.2667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case9,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,FN,7,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,TP,53,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,Accuracy,0.8833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,Recall,0.8833,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,F1,0.9381,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,Balanced_Accuracy,0.4417,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case9,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case9,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,FN,4,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,TP,56,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,Accuracy,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,Recall,0.9333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,F1,0.9655,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,Balanced_Accuracy,0.4667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 1 (Subtle),case14,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,FN,28,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,TP,32,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,Accuracy,0.5333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,Recall,0.5333,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,F1,0.6957,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,Balanced_Accuracy,0.2667,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 2 (Moderate),case14,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,FN,3,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,TP,57,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,Accuracy,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,Recall,0.95,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,F1,0.9744,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,Balanced_Accuracy,0.475,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 3 (Strong),case14,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,TN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,FP,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,FN,0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,TP,60,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,Accuracy,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,Precision,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,Recall,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,F1,1.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,FPR,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,Specificity,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,Balanced_Accuracy,0.5,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,MCC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,ROC_AUC,0.0,synthetic_sweep
+Exp4_Severity_Sweep,XMON_K2,severity_tier,Tier 4 (Severe),case14,2030,attack_tiers,PR_AUC,0.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,FN,29,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,TP,211,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,Accuracy,0.9033,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,Recall,0.8792,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,F1,0.9357,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,Balanced_Accuracy,0.9396,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,MCC,0.7699,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,ROC_AUC,0.9935,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2026,all_combined,PR_AUC,0.9983,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,TN,60,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,FP,0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,FN,29,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,TP,211,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,Accuracy,0.9033,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,Precision,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,Recall,0.8792,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,F1,0.9357,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,FPR,0.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,Specificity,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,Balanced_Accuracy,0.9396,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,MCC,0.7699,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,ROC_AUC,0.9914,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2026,all_combined,PR_AUC,0.9978,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,TN,45,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,FP,15,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,FN,29,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,TP,211,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,Accuracy,0.8533,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,Precision,0.9336,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,Recall,0.8792,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,F1,0.9056,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,FPR,0.25,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,Specificity,0.75,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,Balanced_Accuracy,0.8146,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,MCC,0.5838,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,ROC_AUC,0.9517,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2026,all_combined,PR_AUC,0.9883,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,TN,3,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,FP,57,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,FN,3,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,TP,237,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,Accuracy,0.8,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,Precision,0.8061,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,Recall,0.9875,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,F1,0.8876,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,FPR,0.95,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,Specificity,0.05,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,Balanced_Accuracy,0.5188,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,MCC,0.1071,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,ROC_AUC,0.6585,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2026,all_combined,PR_AUC,0.8563,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,TN,0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,FP,60,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,FN,0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,TP,240,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,Accuracy,0.8,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,Precision,0.8,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,Recall,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,F1,0.8889,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,FPR,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,Specificity,0.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,Balanced_Accuracy,0.5,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,MCC,0.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,ROC_AUC,0.4231,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2026,all_combined,PR_AUC,0.7884,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,TN,56,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,FP,4,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,FN,31,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,TP,209,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,Accuracy,0.8833,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,Precision,0.9812,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,Recall,0.8708,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,F1,0.9227,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,FPR,0.0667,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,Specificity,0.9333,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,Balanced_Accuracy,0.9021,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,MCC,0.7089,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,ROC_AUC,0.9859,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.0005,case9,2027,all_combined,PR_AUC,0.9965,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,TN,50,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,FP,10,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,FN,31,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,TP,209,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,Accuracy,0.8633,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,Precision,0.9543,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,Recall,0.8708,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,F1,0.9107,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,FPR,0.1667,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,Specificity,0.8333,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,Balanced_Accuracy,0.8521,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,MCC,0.6344,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,ROC_AUC,0.974,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.001,case9,2027,all_combined,PR_AUC,0.9936,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,TN,32,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,FP,28,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,FN,30,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,TP,210,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,Accuracy,0.8067,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,Precision,0.8824,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,Recall,0.875,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,F1,0.8787,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,FPR,0.4667,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,Specificity,0.5333,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,Balanced_Accuracy,0.7042,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,MCC,0.4034,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,ROC_AUC,0.905,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.002,case9,2027,all_combined,PR_AUC,0.9791,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,TN,3,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,FP,57,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,FN,10,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,TP,230,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,Accuracy,0.7767,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,Precision,0.8014,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,Recall,0.9583,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,F1,0.8729,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,FPR,0.95,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,Specificity,0.05,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,Balanced_Accuracy,0.5042,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,MCC,0.0164,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,ROC_AUC,0.8252,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.005,case9,2027,all_combined,PR_AUC,0.9543,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,TN,0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,FP,60,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,FN,0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,TP,240,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,Accuracy,0.8,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,Precision,0.8,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,Recall,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,F1,0.8889,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,FPR,1.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,Specificity,0.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,Balanced_Accuracy,0.5,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,MCC,0.0,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,ROC_AUC,0.775,synthetic_sweep
+Exp5_Measurement_Noise_Sweep,XMON_K2,measurement_noise_std,0.01,case9,2027,all_combined,PR_AUC,0.9447,synthetic_sweep
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,9,case9,2026,timing_benchmark,per_step_latency_ms,2.493,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,9,case9,2026,timing_benchmark,num_buses,9,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,9,case9,2026,timing_benchmark,state_dim,17,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,9,case9,2026,timing_benchmark,meas_dim,27,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,14,case14,2026,timing_benchmark,per_step_latency_ms,5.747,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,14,case14,2026,timing_benchmark,num_buses,14,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,14,case14,2026,timing_benchmark,state_dim,27,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,14,case14,2026,timing_benchmark,meas_dim,42,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,30,case30,2026,timing_benchmark,per_step_latency_ms,37.139,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,30,case30,2026,timing_benchmark,num_buses,30,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,30,case30,2026,timing_benchmark,state_dim,59,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,30,case30,2026,timing_benchmark,meas_dim,90,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,118,case118,2026,timing_benchmark,per_step_latency_ms,2407.195,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,118,case118,2026,timing_benchmark,num_buses,118,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,118,case118,2026,timing_benchmark,state_dim,235,cpu_timer
+Exp9_Scalability_Latency,XMON_Full_Pipeline,num_buses,118,case118,2026,timing_benchmark,meas_dim,354,cpu_timer
