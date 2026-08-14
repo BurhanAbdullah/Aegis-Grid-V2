@@ -27,26 +27,20 @@ def solve_state(case_name):
 def audit_case(case_name):
     case = get_ieee_case_data(case_name)
     _, G, B = build_ybus(case)
-    x, V, solved = solve_state(case_name)
+    x, V, _ = solve_state(case_name)
     Ybus, _, _ = build_ybus(case)
 
     S_bus = V * np.conj(Ybus @ V)
     P_bus = S_bus.real
     Q_bus = S_bus.imag
     h = compute_h_x(x, G, B)
-    p_h = h[case["num_buses"]:2*case["num_buses"]]
-    q_h = h[2*case["num_buses"]:]
+    n = case["num_buses"]
+    h_p_err = float(np.max(np.abs(h[n:2*n] - P_bus)))
+    h_q_err = float(np.max(np.abs(h[2*n:] - Q_bus)))
 
-    h_p_err = float(np.max(np.abs(p_h - P_bus)))
-    h_q_err = float(np.max(np.abs(q_h - Q_bus)))
-
-    # Bus conductance shunts consume P_sh = GS/baseMVA * |V|^2.
     bus = np.asarray(case["bus"], dtype=float)
     p_shunt = float(np.sum(bus[:, 4] / case["baseMVA"] * np.abs(V)**2))
 
-    # For a lossless-in-series network, the real power balance is
-    # sum(bus injections) = series/network losses + explicit bus shunts.
-    # We evaluate branch series losses directly from branch currents.
     p_branch_loss = 0.0
     for row in np.asarray(case["branch"], dtype=float):
         if row[10] == 0:
@@ -61,25 +55,15 @@ def audit_case(case_name):
         p_branch_loss += float(np.real((V[f] / tap) * np.conj(Ift) + V[t] * np.conj(Itf)))
 
     conservation_residual = float(np.sum(P_bus) - p_branch_loss - p_shunt)
-    return {
-        "case": case_name,
-        "buses": case["num_buses"],
-        "branches": case["num_branches"],
-        "h_p_max_abs_error": h_p_err,
-        "h_q_max_abs_error": h_q_err,
-        "power_balance_residual": conservation_residual,
-        "converged": True,
-    }
+    return {"case": case_name, "buses": n, "branches": case["num_branches"],
+            "h_p_max_abs_error": h_p_err, "h_q_max_abs_error": h_q_err,
+            "power_balance_residual": conservation_residual, "converged": True}
 
 
 def main():
     rows = [audit_case(c) for c in ("case9", "case14", "case30", "case118")]
     for r in rows:
-        print(
-            f"{r['case']}: hP={r['h_p_max_abs_error']:.3e}, "
-            f"hQ={r['h_q_max_abs_error']:.3e}, "
-            "f"balance={r['power_balance_residual']:.3e}"
-        )
+        print(f"{r['case']}: hP={r['h_p_max_abs_error']:.3e}, hQ={r['h_q_max_abs_error']:.3e}, balance={r['power_balance_residual']:.3e}")
         if r["h_p_max_abs_error"] > 1e-10 or r["h_q_max_abs_error"] > 1e-10 or abs(r["power_balance_residual"]) > 1e-9:
             raise SystemExit(f"PHYSICAL SANITY CHECK FAILED: {r['case']}")
 
