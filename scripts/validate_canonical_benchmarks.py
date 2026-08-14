@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """Validate that XMON-Grid uses canonical PYPOWER/MATPOWER benchmark cases."""
 
+from pathlib import Path
 import sys
+
 import numpy as np
+
+# Make the repository root importable when this file is executed as
+# ``python scripts/validate_canonical_benchmarks.py`` from CI.
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from core.grid_topology import get_ieee_case_data, build_ybus
 
@@ -43,6 +51,7 @@ def main() -> int:
         # Independent cross-check against PYPOWER's own makeYbus implementation.
         try:
             from pypower.makeYbus import makeYbus
+
             y_ref, _, _ = makeYbus(
                 float(case["baseMVA"]),
                 np.asarray(case["bus"], dtype=float),
