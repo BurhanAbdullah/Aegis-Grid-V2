@@ -1,215 +1,188 @@
 #!/usr/bin/env python3
 """
-Grid Topology and Power System Equation Engine for XMON-Grid
-Provides admittance matrix Ybus, measurement functions h(x),
-and exact measurement Jacobians H(x) for IEEE test cases.
+Grid topology and AC measurement equation engine for XMON-Grid.
+
+The benchmark cases are loaded directly from the standard PYPOWER/MATPOWER
+case definitions rather than synthetic approximations.  This keeps the
+benchmark topology, bus loads, generator buses, line charging, transformer
+taps, and phase shifts tied to a versioned external case definition.
 """
 
-import numpy as np
-from typing import Dict, Tuple, List, Any
+from importlib import import_module
+from typing import Dict, Tuple, Any
 
-# =====================================================================
-# IEEE Test Case Topologies (Standard MATPOWER Data)
-# =====================================================================
+import numpy as np
+
+_CASE_MODULES = {
+    "case9": "pypower.case9",
+    "case14": "pypower.case14",
+    "case30": "pypower.case30",
+    "case118": "pypower.case118",
+}
+
 
 def get_ieee_case_data(case_name: str) -> Dict[str, Any]:
-    """
-    Returns base MVA, bus data, and branch data for standard IEEE test cases.
-    Branch format: [from_bus, to_bus, r, x, b]
-    Bus format: [bus_id, type (1=PQ, 2=PV, 3=Slack), Vm, Va, Pd, Qd]
+    """Return canonical IEEE benchmark data from PYPOWER case definitions.
+
+    The returned dictionary retains the full MATPOWER bus/branch arrays so
+    transformer ratios, phase shifts, shunts, and branch status are not lost.
+    ``buses`` and ``branches`` are also provided as Python lists for backward
+    compatibility with existing metadata/reporting code.
     """
     case_name = case_name.lower().strip()
-    
-    if case_name == "case9":
-        baseMVA = 100.0
-        buses = [
-            [1, 3, 1.000, 0.0, 0.00, 0.00],
-            [2, 2, 1.000, 0.0, 0.00, 0.00],
-            [3, 2, 1.000, 0.0, 0.00, 0.00],
-            [4, 1, 1.000, 0.0, 0.00, 0.00],
-            [5, 1, 1.000, 0.0, 0.90, 0.30],
-            [6, 1, 1.000, 0.0, 0.00, 0.00],
-            [7, 1, 1.000, 0.0, 1.00, 0.35],
-            [8, 1, 1.000, 0.0, 0.00, 0.00],
-            [9, 1, 1.000, 0.0, 1.25, 0.50],
-        ]
-        branches = [
-            [1, 4, 0.0000, 0.0576, 0.0000],
-            [4, 5, 0.0170, 0.0920, 0.1580],
-            [5, 6, 0.0390, 0.1700, 0.3580],
-            [3, 6, 0.0000, 0.0586, 0.0000],
-            [6, 7, 0.0119, 0.1008, 0.2090],
-            [7, 8, 0.0085, 0.0720, 0.1490],
-            [2, 8, 0.0000, 0.0625, 0.0000],
-            [8, 9, 0.0320, 0.1610, 0.3060],
-            [9, 4, 0.0100, 0.0850, 0.1760],
-        ]
-    elif case_name == "case14":
-        baseMVA = 100.0
-        # IEEE 14 bus summary
-        buses = [[i, 3 if i == 1 else (2 if i <= 5 else 1), 1.0, 0.0, 0.15 * (i % 3), 0.05 * (i % 2)] for i in range(1, 15)]
-        branches = [
-            [1, 2, 0.01938, 0.05917, 0.0528],
-            [1, 5, 0.05403, 0.22304, 0.0490],
-            [2, 3, 0.04699, 0.19797, 0.0438],
-            [2, 4, 0.05811, 0.17632, 0.0340],
-            [2, 5, 0.05695, 0.17388, 0.0346],
-            [3, 4, 0.06701, 0.17103, 0.0128],
-            [4, 5, 0.01335, 0.04211, 0.0000],
-            [4, 7, 0.00000, 0.20912, 0.0000],
-            [4, 9, 0.00000, 0.55618, 0.0000],
-            [5, 6, 0.00000, 0.25202, 0.0000],
-            [6, 11, 0.09498, 0.19890, 0.0000],
-            [6, 12, 0.12291, 0.25581, 0.0000],
-            [6, 13, 0.06615, 0.13027, 0.0000],
-            [7, 8, 0.00000, 0.17615, 0.0000],
-            [7, 9, 0.00000, 0.11001, 0.0000],
-            [9, 10, 0.03181, 0.08450, 0.0000],
-            [9, 14, 0.12711, 0.27038, 0.0000],
-            [10, 11, 0.08205, 0.19207, 0.0000],
-            [12, 13, 0.22092, 0.19988, 0.0000],
-            [13, 14, 0.17093, 0.34802, 0.0000],
-        ]
-    elif case_name == "case30":
-        baseMVA = 100.0
-        buses = [[i, 3 if i == 1 else (2 if i in [2, 5, 8, 11, 13] else 1), 1.0, 0.0, 0.1, 0.05] for i in range(1, 31)]
-        # Synthetic grid ring for 30 buses
-        branches = []
-        for i in range(1, 30):
-            branches.append([i, i + 1, 0.02, 0.08, 0.02])
-        branches.append([30, 1, 0.02, 0.08, 0.02])
-        # Cross links
-        for f, t in [(1, 15), (5, 20), (10, 25), (12, 28)]:
-            branches.append([f, t, 0.03, 0.12, 0.01])
-    elif case_name == "case118":
-        baseMVA = 100.0
-        buses = [[i, 3 if i == 1 else (2 if i % 5 == 0 else 1), 1.0, 0.0, 0.1, 0.05] for i in range(1, 119)]
-        branches = []
-        for i in range(1, 118):
-            branches.append([i, i + 1, 0.01, 0.05, 0.01])
-        branches.append([118, 1, 0.01, 0.05, 0.01])
-        for i in range(1, 110, 6):
-            branches.append([i, i + 8, 0.02, 0.08, 0.01])
-    else:
-        raise ValueError(f"Unknown test case: {case_name}")
+    if case_name not in _CASE_MODULES:
+        raise ValueError(f"Unknown test case: {case_name}. Supported: {sorted(_CASE_MODULES)}")
+
+    module = import_module(_CASE_MODULES[case_name])
+    loader = getattr(module, case_name)
+    mpc = loader()
+
+    bus = np.asarray(mpc["bus"], dtype=float)
+    branch = np.asarray(mpc["branch"], dtype=float)
+    base_mva = float(mpc["baseMVA"])
+
+    if bus.ndim != 2 or bus.shape[1] < 13:
+        raise ValueError(f"Invalid {case_name} bus matrix shape: {bus.shape}")
+    if branch.ndim != 2 or branch.shape[1] < 13:
+        raise ValueError(f"Invalid {case_name} branch matrix shape: {branch.shape}")
 
     return {
         "case_name": case_name,
-        "baseMVA": baseMVA,
-        "buses": buses,
-        "branches": branches,
-        "num_buses": len(buses),
-        "num_branches": len(branches),
+        "source": "PYPOWER/MATPOWER standard case definition",
+        "baseMVA": base_mva,
+        "bus": bus,
+        "branch": branch,
+        "gen": np.asarray(mpc.get("gen", []), dtype=float),
+        "gencost": np.asarray(mpc.get("gencost", []), dtype=float),
+        "buses": bus.tolist(),
+        "branches": branch.tolist(),
+        "num_buses": int(bus.shape[0]),
+        "num_branches": int(branch.shape[0]),
     }
 
-# =====================================================================
-# Bus Admittance Matrix Construction
-# =====================================================================
 
 def build_ybus(case_data: Dict[str, Any]) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """
-    Constructs the N x N complex bus admittance matrix Ybus = G + jB.
-    Returns (Ybus, G, B).
-    """
-    N = case_data["num_buses"]
-    Ybus = np.zeros((N, N), dtype=complex)
-    
-    for branch in case_data["branches"]:
-        f = int(branch[0]) - 1  # 0-indexed
-        t = int(branch[1]) - 1
-        r = branch[2]
-        x = branch[3]
-        b_shunt = branch[4]
-        
-        z = complex(r, x)
-        y = 1.0 / z if abs(z) > 1e-9 else 0.0
-        
-        # Off-diagonal elements
-        Ybus[f, t] -= y
-        Ybus[t, f] -= y
-        
-        # Diagonal elements (branch admittance + line charging)
-        Ybus[f, f] += y + complex(0.0, b_shunt / 2.0)
-        Ybus[t, t] += y + complex(0.0, b_shunt / 2.0)
-        
-    G = Ybus.real
-    B = Ybus.imag
-    return Ybus, G, B
+    """Construct the MATPOWER-compatible bus admittance matrix.
 
-# =====================================================================
-# Measurement & Jacobian Evaluation Engine
-# =====================================================================
+    Includes series admittance, line charging, transformer off-nominal tap,
+    phase shift, branch status, and bus shunts.  All quantities are in p.u.
+    on ``baseMVA``.
+    """
+    bus = np.asarray(case_data["bus"], dtype=float)
+    branch = np.asarray(case_data["branch"], dtype=float)
+    base_mva = float(case_data["baseMVA"])
+    n = int(case_data["num_buses"])
+
+    # MATPOWER column indices (zero-based).
+    BUS_I, GS, BS = 0, 4, 5
+    F_BUS, T_BUS, BR_R, BR_X, BR_B = 0, 1, 2, 3, 4
+    TAP, SHIFT, BR_STATUS = 8, 9, 10
+
+    ybus = np.zeros((n, n), dtype=complex)
+
+    # Bus shunts are specified in MW/MVAr at V = 1 p.u.; convert to p.u.
+    for row in bus:
+        i = int(round(row[BUS_I])) - 1
+        if not 0 <= i < n:
+            raise ValueError(f"Invalid bus number {row[BUS_I]} in {case_data['case_name']}")
+        ybus[i, i] += complex(row[GS], row[BS]) / base_mva
+
+    for row in branch:
+        if row[BR_STATUS] == 0:
+            continue
+
+        f = int(round(row[F_BUS])) - 1
+        t = int(round(row[T_BUS])) - 1
+        if not (0 <= f < n and 0 <= t < n):
+            raise ValueError(f"Invalid branch endpoints {row[F_BUS]} -> {row[T_BUS]}")
+
+        z = complex(row[BR_R], row[BR_X])
+        if abs(z) <= 1e-15:
+            raise ValueError(f"Zero branch impedance on {row[F_BUS]} -> {row[T_BUS]}")
+        y = 1.0 / z
+        b_shunt = complex(0.0, row[BR_B])
+
+        ratio = float(row[TAP])
+        if abs(ratio) <= 1e-15:
+            ratio = 1.0
+        shift = np.deg2rad(float(row[SHIFT]))
+        tap = ratio * np.exp(1j * shift)
+
+        yff = (y + b_shunt / 2.0) / (tap * np.conj(tap))
+        yft = -y / np.conj(tap)
+        ytf = -y / tap
+        ytt = y + b_shunt / 2.0
+
+        ybus[f, f] += yff
+        ybus[f, t] += yft
+        ybus[t, f] += ytf
+        ybus[t, t] += ytt
+
+    return ybus, ybus.real, ybus.imag
+
 
 def compute_h_x(x: np.ndarray, G: np.ndarray, B: np.ndarray) -> np.ndarray:
+    """Evaluate full AC measurement vector h(x) = [V, P, Q].
+
+    State: x = [theta_2, ..., theta_N, V_1, ..., V_N].
+    Reference-bus angle theta_1 is fixed to zero.
     """
-    Computes measurement vector h(x) given state vector x.
-    x = [theta_2, ..., theta_N, V_1, ..., V_N]^T  (Dimension: 2N - 1)
-    
-    Measurements h(x) = [V_1..V_N, P_1..P_N, Q_1..Q_N]^T  (Dimension: 3N)
-    Vectorized NumPy implementation for 50x speedup.
-    """
-    N = G.shape[0]
-    theta = np.zeros(N)
-    theta[1:] = x[: N - 1]  # theta_1 = 0 (reference bus)
-    V = x[N - 1 :]
-    
-    d_ij = theta[:, np.newaxis] - theta[np.newaxis, :]
+    n = G.shape[0]
+    x = np.asarray(x, dtype=float)
+    if x.size != 2 * n - 1:
+        raise ValueError(f"State dimension mismatch: expected {2*n-1}, got {x.size}")
+
+    theta = np.zeros(n)
+    theta[1:] = x[: n - 1]
+    v = x[n - 1 :]
+
+    d_ij = theta[:, None] - theta[None, :]
     cos_d = np.cos(d_ij)
     sin_d = np.sin(d_ij)
-    
-    P = V * np.sum(V[np.newaxis, :] * (G * cos_d + B * sin_d), axis=1)
-    Q = V * np.sum(V[np.newaxis, :] * (G * sin_d - B * cos_d), axis=1)
-            
-    return np.concatenate([V, P, Q])
+
+    p = v * np.sum(v[None, :] * (G * cos_d + B * sin_d), axis=1)
+    q = v * np.sum(v[None, :] * (G * sin_d - B * cos_d), axis=1)
+    return np.concatenate([v, p, q])
+
 
 def compute_jacobian_H(x: np.ndarray, G: np.ndarray, B: np.ndarray) -> np.ndarray:
-    """
-    Computes exact analytical Jacobian H = dh(x)/dx of size (3N x (2N-1)).
-    State vector x = [theta_2..theta_N, V_1..V_N]^T
-    Measurements h(x) = [V_1..V_N, P_1..P_N, Q_1..Q_N]^T
-    Vectorized NumPy implementation for 50x speedup.
-    """
-    N = G.shape[0]
-    theta = np.zeros(N)
-    theta[1:] = x[: N - 1]
-    V = x[N - 1 :]
-    
-    d_ij = theta[:, np.newaxis] - theta[np.newaxis, :]
+    """Evaluate the exact analytical Jacobian H = dh/dx."""
+    n = G.shape[0]
+    x = np.asarray(x, dtype=float)
+    if x.size != 2 * n - 1:
+        raise ValueError(f"State dimension mismatch: expected {2*n-1}, got {x.size}")
+
+    theta = np.zeros(n)
+    theta[1:] = x[: n - 1]
+    v = x[n - 1 :]
+
+    d_ij = theta[:, None] - theta[None, :]
     cos_d = np.cos(d_ij)
     sin_d = np.sin(d_ij)
-    
-    # 1. H_V blocks
-    H_V_theta = np.zeros((N, N - 1))
-    H_V_V = np.eye(N)
-    
-    # 2. H_P_theta and H_Q_theta (size N x N before slicing col 1:)
-    V_outer = V[:, np.newaxis] * V[np.newaxis, :]
-    
-    M_P_theta = V_outer * (G * sin_d - B * cos_d)
-    np.fill_diagonal(M_P_theta, 0.0)
-    diag_P_theta = -np.sum(M_P_theta, axis=1)
-    np.fill_diagonal(M_P_theta, diag_P_theta)
-    H_P_theta = M_P_theta[:, 1:]
-    
-    M_Q_theta = -V_outer * (G * cos_d + B * sin_d)
-    np.fill_diagonal(M_Q_theta, 0.0)
-    diag_Q_theta = -np.sum(M_Q_theta, axis=1)
-    np.fill_diagonal(M_Q_theta, diag_Q_theta)
-    H_Q_theta = M_Q_theta[:, 1:]
-    
-    # 3. H_P_V and H_Q_V (size N x N)
-    H_P_V = V[:, np.newaxis] * (G * cos_d + B * sin_d)
-    np.fill_diagonal(H_P_V, 0.0)
-    diag_P_V = 2 * V * np.diag(G) + np.sum(H_P_V, axis=1)
-    np.fill_diagonal(H_P_V, diag_P_V)
-    
-    H_Q_V = V[:, np.newaxis] * (G * sin_d - B * cos_d)
-    np.fill_diagonal(H_Q_V, 0.0)
-    diag_Q_V = -2 * V * np.diag(B) + np.sum(H_Q_V, axis=1)
-    np.fill_diagonal(H_Q_V, diag_Q_V)
-    
-    H_V = np.hstack([H_V_theta, H_V_V])
-    H_P = np.hstack([H_P_theta, H_P_V])
-    H_Q = np.hstack([H_Q_theta, H_Q_V])
-    
-    return np.vstack([H_V, H_P, H_Q])
+    v_outer = v[:, None] * v[None, :]
+
+    h_v_theta = np.zeros((n, n - 1))
+    h_v_v = np.eye(n)
+
+    m_p_theta = v_outer * (G * sin_d - B * cos_d)
+    np.fill_diagonal(m_p_theta, 0.0)
+    np.fill_diagonal(m_p_theta, -np.sum(m_p_theta, axis=1))
+    h_p_theta = m_p_theta[:, 1:]
+
+    m_q_theta = -v_outer * (G * cos_d + B * sin_d)
+    np.fill_diagonal(m_q_theta, 0.0)
+    np.fill_diagonal(m_q_theta, -np.sum(m_q_theta, axis=1))
+    h_q_theta = m_q_theta[:, 1:]
+
+    h_p_v = v[:, None] * (G * cos_d + B * sin_d)
+    np.fill_diagonal(h_p_v, 0.0)
+    np.fill_diagonal(h_p_v, 2.0 * v * np.diag(G) + np.sum(h_p_v, axis=1))
+
+    h_q_v = v[:, None] * (G * sin_d - B * cos_d)
+    np.fill_diagonal(h_q_v, 0.0)
+    np.fill_diagonal(h_q_v, -2.0 * v * np.diag(B) + np.sum(h_q_v, axis=1))
+
+    h_v = np.hstack([h_v_theta, h_v_v])
+    h_p = np.hstack([h_p_theta, h_p_v])
+    h_q = np.hstack([h_q_theta, h_q_v])
+    return np.vstack([h_v, h_p, h_q])
