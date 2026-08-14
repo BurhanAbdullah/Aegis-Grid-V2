@@ -37,6 +37,9 @@ jobs:
       - name: Run model unit tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
 
+      - name: Run independent physical power-flow sanity check
+        run: python scripts/physical_sanity_check.py
+
       - name: Regenerate independent multi-seed results
         run: python scripts/run_independent_validation.py
 
@@ -48,6 +51,7 @@ jobs:
           path: |
             results/independent_validation_run
             results/tsg_run_003
+            results/current_physical_sanity.csv
 
       - name: Verify benchmark provenance and repository claims
         run: python scripts/validate_reproducibility_contract.py
