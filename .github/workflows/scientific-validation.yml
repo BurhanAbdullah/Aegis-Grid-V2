@@ -43,6 +43,9 @@ jobs:
       - name: Regenerate independent multi-seed results
         run: python scripts/run_independent_validation.py
 
+      - name: Regenerate publication figures from current artifacts
+        run: python scripts/regenerate_publication_figures.py
+
       - name: Upload regenerated validation results
         if: always()
         uses: actions/upload-artifact@v4
