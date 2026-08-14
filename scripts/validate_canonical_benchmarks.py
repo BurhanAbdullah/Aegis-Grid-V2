@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-"""Validate that XMON-Grid uses canonical PYPOWER/MATPOWER benchmark cases."""
+"""Validate canonical PYPOWER/MATPOWER benchmark definitions and Ybus math."""
 
 from pathlib import Path
 import sys
 
 import numpy as np
 
-# Make the repository root importable when this file is executed as
-# ``python scripts/validate_canonical_benchmarks.py`` from CI.
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
@@ -35,27 +33,26 @@ def main() -> int:
                 f"{case_name}: expected {expected_buses} buses/{expected_branches} branches, "
                 f"got {nbus}/{nbranch}"
             )
-
         if case["source"] != "PYPOWER/MATPOWER standard case definition":
             failures.append(f"{case_name}: non-canonical source marker")
-
-        # Canonical MATPOWER branch matrix has the standard 13 columns.
         if np.asarray(case["branch"]).shape[1] < 13:
             failures.append(f"{case_name}: branch metadata is incomplete")
 
-        # Canonical case IDs must be contiguous 1..N for these four cases.
         bus_ids = np.asarray(case["bus"])[:, 0].astype(int)
         if not np.array_equal(bus_ids, np.arange(1, nbus + 1)):
             failures.append(f"{case_name}: unexpected bus numbering")
 
-        # Independent cross-check against PYPOWER's own makeYbus implementation.
         try:
             from pypower.makeYbus import makeYbus
 
+            # PYPOWER's low-level makeYbus expects internal zero-based bus
+            # indices. The case files themselves use canonical 1..N IDs.
+            bus_ref = np.asarray(case["bus"], dtype=float).copy()
+            branch_ref = np.asarray(case["branch"], dtype=float).copy()
+            bus_ref[:, 0] -= 1
+            branch_ref[:, 0:2] -= 1
             y_ref, _, _ = makeYbus(
-                float(case["baseMVA"]),
-                np.asarray(case["bus"], dtype=float),
-                np.asarray(case["branch"], dtype=float),
+                float(case["baseMVA"]), bus_ref, branch_ref
             )
             y_local, _, _ = build_ybus(case)
             err = float(np.max(np.abs(y_local - y_ref.toarray())))
@@ -64,10 +61,7 @@ def main() -> int:
         except Exception as exc:
             failures.append(f"{case_name}: PYPOWER Ybus cross-check failed: {exc}")
 
-        print(
-            f"PASS {case_name}: buses={nbus}, branches={nbranch}, "
-            f"baseMVA={case['baseMVA']:.1f}"
-        )
+        print(f"PASS {case_name}: buses={nbus}, branches={nbranch}, baseMVA={case['baseMVA']:.1f}")
 
     if failures:
         print("\nCANONICAL BENCHMARK VALIDATION: FAIL")
