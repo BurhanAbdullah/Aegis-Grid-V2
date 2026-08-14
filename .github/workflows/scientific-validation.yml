@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - scientific-fix-01-canonical-benchmarks
-      - publication-final-20260814-audit3
+      - publication-final-20260814
   pull_request:
     branches:
       - scientific-fix-01-canonical-benchmarks
-      - publication-final-20260814-audit3
+      - publication-final-20260814
 
 jobs:
   scientific-validation:
