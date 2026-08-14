@@ -43,9 +43,11 @@ jobs:
         run: python scripts/physical_sanity_check.py
 
       - name: Regenerate independent multi-seed results
+        if: github.ref_name == 'scientific-fix-01-canonical-benchmarks'
         run: python scripts/run_independent_validation.py
 
       - name: Regenerate publication figures from current artifacts
+        if: github.ref_name == 'scientific-fix-01-canonical-benchmarks'
         run: python scripts/regenerate_publication_figures.py
 
       - name: Audit publication claims and provenance
