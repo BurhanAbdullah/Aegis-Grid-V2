@@ -39,3 +39,14 @@ jobs:
 
       - name: Verify benchmark provenance and repository claims
         run: python scripts/validate_reproducibility_contract.py
+
+      - name: Regenerate independent multi-seed results
+        run: python scripts/run_independent_validation.py
+
+      - name: Upload regenerated validation results
+        uses: actions/upload-artifact@v4
+        with:
+          name: xmon-grid-regenerated-validation
+          path: |
+            results/independent_validation_run
+            results/tsg_run_003
