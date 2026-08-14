@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - scientific-fix-01-canonical-benchmarks
+      - publication-final-20260814-audit3
   pull_request:
     branches:
       - scientific-fix-01-canonical-benchmarks
+      - publication-final-20260814-audit3
 
 jobs:
   scientific-validation:
@@ -46,15 +48,28 @@ jobs:
       - name: Regenerate publication figures from current artifacts
         run: python scripts/regenerate_publication_figures.py
 
-      - name: Upload regenerated validation results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: xmon-grid-regenerated-validation
-          path: |
-            results/independent_validation_run
-            results/tsg_run_003
-            results/current_physical_sanity.csv
+      - name: Audit publication claims and provenance
+        run: python scripts/publication_release_audit.py
+
+      - name: Install LaTeX publication toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra texlive-publishers
+
+      - name: Compile IEEE manuscript
+        working-directory: paper
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
       - name: Verify benchmark provenance and repository claims
         run: python scripts/validate_reproducibility_contract.py
+
+      - name: Upload publication package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xmon-grid-publication-package
+          path: |
+            paper/main.pdf
+            results/independent_validation_run
+            results/final_validation_20260814
+            results/current_physical_sanity.csv
