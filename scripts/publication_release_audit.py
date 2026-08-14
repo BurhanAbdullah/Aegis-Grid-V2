@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Publication-release audit for the corrected XMON-Grid manuscript.
-
-This audit is deliberately conservative: it checks that the manuscript contains
-only the current validated aggregate values, rejects known stale claims, checks
-that cited reference keys exist, and verifies the required publication files.
-It does not manufacture or overwrite scientific results.
-"""
+"""Conservative publication-release audit for the corrected XMON-Grid paper."""
 from pathlib import Path
 import re
 import sys
@@ -23,11 +17,10 @@ EXPECTED = {
 }
 
 STALE = [
-    "0.9232\\\\pm0.0032",
-    "0.8585\\\\pm0.0048",
-    "0.0058\\\\pm0.0073",
+    r"0.9232\pm0.0032",
+    r"0.8585\pm0.0048",
+    r"0.0058\pm0.0073",
     "192.58",
-    "192.58×",
 ]
 
 
@@ -38,8 +31,9 @@ def main() -> int:
             failures.append(f"missing required publication file: {path.relative_to(ROOT)}")
 
     if not PAPER.exists() or not BIB.exists():
-        for item in failures:
-            print("FAIL:", item)
+        print("PUBLICATION RELEASE AUDIT: FAIL")
+        for failure in failures:
+            print(" -", failure)
         return 1
 
     tex = PAPER.read_text(encoding="utf-8")
@@ -53,14 +47,12 @@ def main() -> int:
         if stale in tex:
             failures.append(f"stale numerical claim remains in paper: {stale}")
 
-    # Every bibliography citation key used by the manuscript must be defined.
-    cited = set(re.findall(r"\\cite(?:t|p)?\{([^}]+)\}", tex))
+    cited_groups = re.findall(r"\\cite(?:t|p)?\{([^}]+)\}", tex)
     keys = set(re.findall(r"^\s*@\w+\{\s*([^,]+),", bib, flags=re.MULTILINE))
-    missing = sorted(k for group in cited for k in group.split(",") if k.strip() not in keys)
+    missing = sorted(k.strip() for group in cited_groups for k in group.split(",") if k.strip() not in keys)
     if missing:
         failures.append("missing bibliography keys: " + ", ".join(sorted(set(missing))))
 
-    # The manuscript must explicitly acknowledge the two main limitations.
     for phrase in ("load-shift", "stealth-drift", "field SCADA data"):
         if phrase not in tex:
             failures.append(f"required limitation statement missing: {phrase}")
