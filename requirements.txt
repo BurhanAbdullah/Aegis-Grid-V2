@@ -1,11 +1,11 @@
-# Scientific runtime dependencies
-numpy>=1.26,<3
-scipy>=1.11,<2
-scikit-learn>=1.4,<2
-matplotlib>=3.8,<4
+# Reproducible scientific runtime dependencies
+numpy==1.26.4
+scipy==1.17.1
+scikit-learn==1.9.0
+matplotlib==3.11.1
 pypower==5.1.19
 
-# Development / notebook dependencies used by the existing workspace
+# Development / notebook dependencies
 anyio==4.11.0
 ipykernel==7.1.0
 jupyterlab==4.5.0
