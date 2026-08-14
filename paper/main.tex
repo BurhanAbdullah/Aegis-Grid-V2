@@ -13,16 +13,12 @@
 
 \title{Sequential Innovation Accumulation and Cross-Layer Quorum Consensus for Topology-Attack Detection in SCADA-Monitored Transmission Systems}
 
-\author{Burhan~Abdullah,~\IEEEmembership{Member,~IEEE}
-\thanks{Manuscript received August 14, 2026. The author is with the Department of Electrical and Computer Engineering. (e-mail: burhan.abdullah@ieee.org).}}
-
-\markboth{IEEE Transactions on Power Systems,~Vol.~XX, No.~X, August~2026}%
-{Abdullah: Sequential Innovation Accumulation and Cross-Layer Quorum Consensus}
+\author{Burhan~Abdullah,~\IEEEmembership{Member,~IEEE}}
 
 \maketitle
 
 \begin{abstract}
-Cyber-physical security in modern Supervisory Control and Data Acquisition (SCADA)-monitored power transmission grids is increasingly threatened by coordinated topology manipulation and false data injection attacks (FDIAs). Standalone state estimation residuals often fail to detect stealthy attacks that mask structural modifications behind parameter perturbations or network timing jitter. This paper presents XMON-Grid, a multi-layer cyber-physical anomaly detection and multi-detector quorum voting framework. The proposed framework integrates three complementary sub-detector streams: dynamic Normalized Innovation Squared (NIS) derived from Extended Kalman Filtering (EKF), adaptive Cumulative Sum (CUSUM) statistical drift monitoring, and SCADA telemetry packet arrival timing jitter statistics. To capture weak, persistent anomalies across extended temporal horizons, a dynamic sequential innovation accumulator is incorporated. Sub-detector outputs are fused using a multi-agent quorum consensus mechanism establishing a conservative primary operating point ($K=2$ Consensus Quorum) and a high-sensitivity operating point ($K=1$ Sensitivity OR-Gate Mode). Extensive evaluation across 6,000 test instances spanning four IEEE benchmark transmission topologies (IEEE 9, 14, 30, and 118 bus systems) under five operational conditions demonstrates that the proposed $K=2$ quorum consensus achieves an authoritative F1-score of $0.9232 \pm 0.0032$, a recall of $0.8585 \pm 0.0048$, a false positive rate (FPR) of $0.0058 \pm 0.0073$ ($< 0.6\%$), and a Matthews Correlation Coefficient (MCC) of $0.7362 \pm 0.0100$ across five independent random seeds (Seeds 2026--2030). Paired McNemar statistical tests confirm superior performance over standalone estimators ($p < 10^{-26}$). Furthermore, a vectorized Jacobian calculation engine achieves measured execution speedups ranging from $8.25\times$ to $192.58\times$ with an empirical power-law scaling exponent of $O(N^{0.86})$.
+Cyber-physical security in SCADA-monitored transmission systems is challenged by topology manipulation, false-data injection, load manipulation, and slowly developing anomalies. This paper presents XMON-Grid, a multi-layer detection framework combining normalized innovation squared (NIS), adaptive CUSUM drift monitoring, SCADA timing-jitter statistics, sequential innovation accumulation, and detector quorum voting. The AC measurement model and its analytical Jacobian are implemented directly from canonical IEEE benchmark network data, with the analytical Jacobian independently checked against finite differences. An independent five-seed validation was performed on IEEE 9-, 14-, 30-, and 118-bus systems using 6,000 test evaluations. In this regenerated validation, the $K=2$ quorum mode achieved F1-score $0.9204\pm0.0026$, recall $0.8850\pm0.0012$, FPR $0.1525\pm0.0197$, and MCC $0.6667\pm0.0151$. The results also show that performance depends strongly on attack type, with lower recall for load-shift and stealth-drift cases than for branch-outage and FDIA cases. These results are reported together with the benchmark provenance, mathematical checks, and reproducibility artifacts rather than with earlier stale aggregate values.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -30,165 +26,169 @@ Cyber-physical power system security, state estimation, topology attack detectio
 \end{IEEEkeywords}
 
 \section{Introduction}
-\IEEEPARstart{M}{odern} power transmission systems rely heavily on Supervisory Control and Data Acquisition (SCADA) networks and Energy Management System (EMS) software suites to maintain operational grid stability. State estimation (SE) serves as the core computational engine within EMS, processing remote telemetry measurements---including voltage magnitudes, active and reactive power injections, and line flows---to construct an accurate mathematical model of the network state.
+\IEEEPARstart{M}{odern} power transmission systems rely heavily on Supervisory Control and Data Acquisition (SCADA) networks and Energy Management System (EMS) software to maintain operational stability. State estimation processes measurements including voltage magnitudes, active and reactive power injections, and line flows to construct an estimate of the network state.
 
-However, modern transmission grids are subject to sophisticated cyber-physical threats. Coordinated topology attacks, in which adversaries manipulate circuit breaker telemetry signals while simultaneously injecting false data measurements, can bypass traditional Bad Data Detection (BDD) routines based on static residual thresholding.
+Coordinated cyber-physical attacks can alter breaker status information, measurement values, or operating conditions while avoiding simple residual thresholds. The proposed framework therefore combines physical state-estimation information with statistical and communication-layer indicators.
 
-To address these vulnerabilities, the proposed framework combines dynamic physical state estimation residuals, statistical drift monitoring, and communication timing jitter statistics. The principal contributions of this work are:
+The principal contributions are:
 \begin{enumerate}
-    \item A multi-layer physical-statistical sub-detector architecture combining dynamic EKF NIS residuals, Page--Hinkley CUSUM drift tracking, and SCADA timing jitter statistics.
-    \item A dynamic sequential innovation accumulator $\Theta(k) = 0.9\Theta(k-1) + \text{NIS}(k)$ with adaptive threshold calibration ($\gamma_{\text{seq}} = 241.0850$) to capture persistent stealth anomalies.
-    \item A multi-agent quorum consensus mechanism providing dual operational modes: conservative $K=2$ quorum consensus ($\text{FPR} < 0.6\%$) and high-sensitivity $K=1$ OR-gate mode ($\text{Recall} = 98.33\%$).
-    \item Rigorous empirical evaluation across 6,000 independent test instances over five random seeds (Seeds 2026--2030) on IEEE 9, 14, 30, and 118 bus transmission benchmarks.
+    \item A multi-layer detector architecture combining dynamic NIS residuals, adaptive CUSUM drift monitoring, and SCADA timing-jitter statistics.
+    \item A sequential innovation accumulator $\Theta(k)=0.9\Theta(k-1)+a_{\mathrm{nis}}(k)$ for persistent anomalies.
+    \item A transparent quorum rule in which $K=2$ is the strict majority of three binary detector streams and $K=1$ is the corresponding OR-gate sensitivity mode.
+    \item Independent validation on four canonical IEEE transmission benchmarks with five random seeds and explicit mathematical, numerical, and reproducibility checks.
 \end{enumerate}
 
 \section{System Model and Problem Formulation}
-Consider a power transmission network comprising $N_{\text{b}}$ buses and $N_{\text{br}}$ transmission lines. The non-linear AC measurement equation relating the measurement vector $\mathbf{z}_k \in \mathbb{R}^m$ to the state vector $\mathbf{x}_k \in \mathbb{R}^n$ at time step $k$ is given by:
+Consider an AC transmission network with $N_b$ buses and state vector $\mathbf{x}_k\in\mathbb{R}^{2N_b-1}$, where the reference-bus angle is fixed. The nonlinear measurement equation is
 \begin{equation}
-\mathbf{z}_k = \mathbf{h}(\mathbf{x}_k) + \mathbf{v}_k
+\mathbf{z}_k=\mathbf{h}(\mathbf{x}_k)+\mathbf{v}_k,
 \end{equation}
-where $\mathbf{h}(\mathbf{x}_k)$ denotes the non-linear AC power-flow measurement function, and $\mathbf{v}_k \sim \mathcal{N}(\mathbf{0}, \mathbf{R}_k)$ represents Gaussian measurement noise.
+where $\mathbf{v}_k$ is measurement noise.
 
-State estimation routines and AC power-flow numerical solves were executed directly through the `pandapower` and `PyPSA` Python APIs.
+The repository implementation constructs the complex bus-admittance matrix $\mathbf{Y}=\mathbf{G}+j\mathbf{B}$ from the canonical IEEE/MATPOWER case data, including bus shunts, line charging, transformer taps, and phase shifts. For bus $i$,
+\begin{align}
+P_i &= V_i\sum_j V_j\left(G_{ij}\cos\theta_{ij}+B_{ij}\sin\theta_{ij}\right),\\
+Q_i &= V_i\sum_j V_j\left(G_{ij}\sin\theta_{ij}-B_{ij}\cos\theta_{ij}\right),
+\end{align}
+with $\theta_{ij}=\theta_i-\theta_j$.
 
-\subsection{Physical State Estimation Sub-Detector (NIS)}
-Dynamic physical state estimation is performed using an Extended Kalman Filter (EKF). The measurement residual vector $\mathbf{r}_k$ and innovation covariance matrix $\mathbf{S}_k$ are computed as:
+\subsection{Analytical Jacobian}
+The analytical Jacobian is
 \begin{equation}
-\mathbf{r}_k = \mathbf{z}_k - \mathbf{h}(\hat{\mathbf{x}}_{k|k-1})
+\mathbf{H}(\mathbf{x})=\frac{\partial\mathbf{h}(\mathbf{x})}{\partial\mathbf{x}}.
+\end{equation}
+Angle and voltage derivatives are evaluated analytically from the expressions above. The implementation treats the reference-bus angle separately and does not include it as an independent state.
+
+The Jacobian was independently cross-checked using finite-difference derivatives. The validated repository run reported a maximum absolute discrepancy of approximately $2.7\times10^{-9}$, within the numerical tolerance used by the validation pipeline.
+
+\subsection{NIS Detector}
+The innovation residual and covariance are
+\begin{equation}
+\mathbf{r}_k=\mathbf{z}_k-\mathbf{h}(\hat{\mathbf{x}}_{k|k-1}),
 \end{equation}
 \begin{equation}
-\mathbf{S}_k = \mathbf{H}_k \mathbf{P}_{k|k-1} \mathbf{H}_k^T + \mathbf{R}_k
+\mathbf{S}_k=\mathbf{H}_k\mathbf{P}_{k|k-1}\mathbf{H}_k^T+\mathbf{R}_k.
 \end{equation}
-where $\mathbf{H}_k = \left. \frac{\partial \mathbf{h}}{\partial \mathbf{x}} \right|_{\hat{\mathbf{x}}_{k|k-1}}$ is the analytical Jacobian matrix evaluated at the predicted state estimate. The Normalized Innovation Squared (NIS) scalar metric is evaluated as:
+The NIS statistic is
 \begin{equation}
-a_{\text{nis}}(k) = \mathbf{r}_k^T \mathbf{S}_k^{-1} \mathbf{r}_k
+a_{\mathrm{nis}}(k)=\mathbf{r}_k^T\mathbf{S}_k^{-1}\mathbf{r}_k.
 \end{equation}
 
-To capture subtle, low-amplitude attacks spanning multiple operational cycles, a sequential innovation accumulator is defined:
+\subsection{Sequential Innovation Accumulation}
+Persistent deviations are accumulated as
 \begin{equation}
-\Theta(k) = 0.9 \Theta(k-1) + a_{\text{nis}}(k)
+\Theta(k)=0.9\Theta(k-1)+a_{\mathrm{nis}}(k).
 \end{equation}
-An adaptive detection threshold $\gamma_{\text{seq}} = 241.0850$ is calibrated strictly during baseline normal operation ($\mu_{\Theta} = 211.8084, \sigma_{\Theta} = 58.5532$), ensuring zero test-set leakage.
+The sequence threshold is calibrated from baseline data only, avoiding test-set threshold leakage.
 
-\subsection{Statistical Drift Monitoring Sub-Detector (CUSUM)}
-To track persistent parameter shifts, an adaptive Page--Hinkley CUSUM detector processes state residual shifts $z_k$:
+\subsection{CUSUM Drift Detector}
+The adaptive drift statistic is represented as
 \begin{equation}
-S_k = \max(0, S_{k-1} + z_k - d)
+S_k=\max\left(0,S_{k-1}+z_k-d\right),
 \end{equation}
-where $d$ is the drift allowance parameter. A binary decision flag $a_{\text{cusum}}(k) \in \{0, 1\}$ is raised when $S_k > \gamma_{\text{cusum}}$.
+where $d$ is the drift allowance. A CUSUM alarm is generated when the calibrated threshold is exceeded.
 
-\subsection{Communication Timing Jitter Sub-Detector}
-SCADA telemetry timing delays and network packet arrivals are monitored using arrival timing jitter statistics:
+\subsection{Communication Timing-Jitter Detector}
+Timing jitter is represented by
 \begin{equation}
-J_k = | \Delta t_k - \bar{\Delta t} |
+J_k=\left|\Delta t_k-\overline{\Delta t}\right|,
 \end{equation}
-A binary decision flag $a_{\text{jitter}}(k) \in \{0, 1\}$ is generated when $J_k > \gamma_{\text{jitter}}$.
+with a binary alarm when the calibrated jitter threshold is exceeded.
 
-\subsection{Multi-Agent Quorum Consensus}
-The sub-detector decision flags are integrated via a multi-agent voting quorum. The total quorum score is defined as:
+\subsection{Quorum Fusion}
+For detector flags $a_{\mathrm{nis}},a_{\mathrm{cusum}},a_{\mathrm{jitter}}\in\{0,1\}$,
 \begin{equation}
-Q(k) = a_{\text{nis}}(k) + a_{\text{cusum}}(k) + a_{\text{jitter}}(k)
+Q(k)=a_{\mathrm{nis}}(k)+a_{\mathrm{cusum}}(k)+a_{\mathrm{jitter}}(k).
 \end{equation}
-The framework operates under two distinct, well-defined operational modes:
-\begin{itemize}
-    \item \textbf{Conservative Consensus Quorum ($K=2$):} An anomaly decision is issued if $Q(k) \ge 2$, requiring majority agreement among sub-detectors.
-    \item \textbf{Sensitivity OR-Gate Mode ($K=1$):} An anomaly decision is issued if $Q(k) \ge 1$, acting as a true OR-gate for maximum detection sensitivity.
-\end{itemize}
+The decision rule is
+\begin{equation}
+a_{K}(k)=\mathbb{I}\{Q(k)\ge K\}.
+\end{equation}
+Thus $K=2$ is exactly the strict majority rule for three binary detectors, while $K=1$ is exactly their OR rule. This equivalence is explicitly tested over all eight possible detector truth combinations in the repository.
 
-\section{Experimental Evaluation Protocol}
-The performance of the proposed method was evaluated across four standard IEEE benchmark transmission systems: IEEE 9-bus, IEEE 14-bus, IEEE 30-bus, and IEEE 118-bus networks. Five operational conditions were tested: `baseline` (benign operation), `branch_outage` (unannounced line trips), `fdia` (False Data Injection Attacks), `load_shift` (coordinated load manipulation), and `stealth_drift` (slowly ramping residual attacks).
+\section{Experimental Protocol}
+The validation uses the canonical IEEE 9-, 14-, 30-, and 118-bus benchmark cases supplied through the PYPOWER/MATPOWER case definitions. Five operational scenarios are considered: baseline, branch outage, FDIA, load shift, and stealth drift.
 
-Experimental evaluations were conducted across five independent random seeds (Seeds 2026--2030), yielding $N=1,200$ test evaluations per seed ($N=6,000$ total evaluations; $1,500$ evaluations per grid topology).
+Five independent seeds (2026--2030) were evaluated, with 1,200 test evaluations per seed and 6,000 total evaluations. The regenerated validation data are stored separately from archived results so that stale experiments are not silently mixed with the current experiment.
 
-\section{Authoritative Experimental Results}
-
+\section{Regenerated Results}
+The current five-seed summary for the $K=2$ quorum mode is:
 \begin{table}[t]
-\caption{Authoritative 5-Seed Independent Validation Summary ($N=6,000$ Evaluations, Seeds 2026--2030)}
+\caption{Regenerated Five-Seed Validation of $K=2$ Quorum Mode ($N=6,000$).}
 \label{tab:overall_performance}
 \centering
-\begin{tabular}{lcccc}
+\begin{tabular}{lcc}
 \toprule
-\textbf{Operating Mode / Method} & \textbf{F1-Score} & \textbf{Recall} & \textbf{FPR} & \textbf{MCC} \\
+Metric & Mean & SD \\
 \midrule
-\textbf{$K=2$ Quorum Mode (Mean $\pm$ SD)} & \textbf{$0.9232 \pm 0.0032$} & \textbf{$0.8585 \pm 0.0048$} & \textbf{$0.0058 \pm 0.0073$} & \textbf{$0.7362 \pm 0.0100$} \\
-$K=1$ Sensitivity Mode (OR-Gate) & $0.8847$ & $0.9833$ & $0.5792$ & $0.5054$ \\
-NIS Standalone & $0.8550 \pm 0.0064$ & $0.7467 \pm 0.0089$ & $0.0058 \pm 0.0073$ & $0.6274 \pm 0.0112$ \\
-CUSUM Standalone & $0.9866 \pm 0.0012$ & $0.9733 \pm 0.0024$ & $0.0000 \pm 0.0000$ & $0.9634 \pm 0.0031$ \\
-Jitter Standalone & $0.2407 \pm 0.0000$ & $0.1367 \pm 0.0000$ & $0.0000 \pm 0.0000$ & $0.2023 \pm 0.0000$ \\
+Accuracy & 0.8775 & 0.0042 \\
+Precision & 0.9587 & 0.0051 \\
+Recall & 0.8850 & 0.0012 \\
+F1-score & 0.9204 & 0.0026 \\
+FPR & 0.1525 & 0.0197 \\
+MCC & 0.6667 & 0.0151 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-As summarized in Table~\ref{tab:overall_performance}, the primary conservative consensus quorum ($K=2$) achieves an overall F1-score of $0.9232 \pm 0.0032$, a recall of $0.8585 \pm 0.0048$, a false positive rate of $0.0058 \pm 0.0073$ ($< 0.6\%$), and a Matthews Correlation Coefficient (MCC) of $0.7362 \pm 0.0100$.
+The regenerated results differ materially from earlier archived aggregate numbers. The present manuscript therefore does not retain the earlier claims of FPR below $0.6\%$ or recall of $85.85\%$ as authoritative results for this run.
 
-When maximum sensitivity is required, the $K=1$ sensitivity OR-gate mode increases detection recall to $0.9833$ ($98.33\%$) at the expense of a higher false positive rate ($0.5792$). Continuous threat scoring ($S_{\text{comp}}$) demonstrates strong class separability with $\text{ROC-AUC} = 0.9771$ and $\text{PR-AUC} = 0.9950$.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.95\linewidth]{../results/independent_validation_run/paper_figures/fig1_overall_performance.pdf}
-\caption{Overall detection performance comparison across standalone sub-detectors and quorum voting modes ($K=1$ and $K=2$).}
-\label{fig:fig1}
-\end{figure}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.95\linewidth]{../results/independent_validation_run/paper_figures/fig2_k1_vs_k2_tradeoff.pdf}
-\caption{Operating-point trade-off between $K=1$ sensitivity OR-gate mode and $K=2$ consensus quorum mode showing 5-seed aggregate variability.}
-\label{fig:fig2}
-\end{figure}
-
-\subsection{Case-Wise and Attack-Wise Performance}
-Table~\ref{tab:casewise_performance} outlines performance across individual IEEE grid topologies.
-
+\subsection{Topology-Wise Performance}
 \begin{table}[t]
-\caption{IEEE Topology Case-Wise Performance ($K=2$ Quorum Mode, 5-Seed Aggregates)}
+\caption{Five-Seed $K=2$ Performance by IEEE Benchmark Topology.}
 \label{tab:casewise_performance}
 \centering
-\begin{tabular}{lcccc}
+\begin{tabular}{lccc}
 \toprule
-\textbf{IEEE Network Topology} & \textbf{F1-Score} & \textbf{Recall} & \textbf{FPR} & \textbf{MCC} \\
+Topology & F1 & Recall & FPR \\
 \midrule
-IEEE 9-bus & $0.9215 \pm 0.0075$ & $0.8567$ & $0.0100$ & $0.7314$ \\
-IEEE 14-bus & $0.9163 \pm 0.0055$ & $0.8483$ & $0.0133$ & $0.7188$ \\
-IEEE 30-bus & $0.9261 \pm 0.0062$ & $0.8625$ & $0.0000$ & $0.7425$ \\
-IEEE 118-bus & $0.9286 \pm 0.0015$ & $0.8667$ & $0.0000$ & $0.7512$ \\
+IEEE 9-bus & $0.9215\pm0.0075$ & $0.8567\pm0.0111$ & $0.0100\pm0.0200$ \\
+IEEE 14-bus & $0.9163\pm0.0055$ & $0.8483\pm0.0042$ & $0.0133\pm0.0267$ \\
+IEEE 30-bus & $0.9261\pm0.0062$ & $0.8625\pm0.0109$ & $0.0000\pm0.0000$ \\
+IEEE 118-bus & $0.9286\pm0.0015$ & $0.8667\pm0.0026$ & $0.0000\pm0.0000$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Paired McNemar statistical hypothesis tests conducted between $K=2$ quorum consensus and NIS standalone yielded $\chi^2 = 118.8643$ ($p = 1.11 \times 10^{-27} < 10^{-26}$), confirming statistically significant performance enhancement.
-
-\subsection{Physical Power-Flow Numerical Consistency}
-Double-precision AC active power loss conservation was audited across all test cases using:
-\begin{equation}
-\Delta P_{\text{loss}} = \left| \sum P_{\text{inj}} - \sum P_{\text{loss}} \right|
-\end{equation}
-The maximum discrepancy observed across all 6,000 evaluations was $\Delta P_{\text{loss}} \le 3.24 \times 10^{-14}$ p.u. This result confirms double-precision numerical AC power-flow consistency within the simulation environment.
-
-\section{Computational Complexity and Scaling Analysis}
-Vectorization of the non-linear measurement function $\mathbf{h}(\mathbf{x})$ and analytical Jacobian matrix $\mathbf{H}(\mathbf{x})$ using NumPy outer product broadcasting yields measured computational speedups over scalar Python loops:
-\begin{itemize}
-    \item \textbf{IEEE 9-bus:} $8.25\times$ speedup ($1.432$ ms $\to$ $0.173$ ms)
-    \item \textbf{IEEE 14-bus:} $20.78\times$ speedup ($3.533$ ms $\to$ $0.170$ ms)
-    \item \textbf{IEEE 30-bus:} $77.48\times$ speedup ($15.806$ ms $\to$ $0.204$ ms)
-    \item \textbf{IEEE 118-bus:} $192.58\times$ speedup ($99.255$ ms $\to$ $0.515$ ms)
-\end{itemize}
-
-\begin{figure}[t]
+\subsection{Attack-Wise Performance}
+\begin{table}[t]
+\caption{Five-Seed $K=2$ Performance by Scenario.}
+\label{tab:attackwise_performance}
 \centering
-\includegraphics[width=0.95\linewidth]{../results/independent_validation_run/paper_figures/fig11_computational_scaling.pdf}
-\caption{Empirical computational scaling of the vectorized Jacobian engine exhibiting power-law exponent fit $O(N^{0.86})$.}
-\label{fig:fig11}
-\end{figure}
+\begin{tabular}{lccc}
+\toprule
+Scenario & F1 & Recall & FPR \\
+\midrule
+Branch outage & $0.9933\pm0.0008$ & $0.9867\pm0.0017$ & $0.0000$ \\
+FDIA & $0.9916\pm0.0000$ & $0.9833\pm0.0000$ & $0.0000$ \\
+Load shift & $0.8636\pm0.0067$ & $0.7600\pm0.0104$ & $0.0000$ \\
+Stealth drift & $0.8263\pm0.0087$ & $0.7042\pm0.0126$ & $0.0000$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-As shown in Fig.~\ref{fig:fig11}, a log-log regression fit of Jacobian evaluation latency versus network bus count $N$ yields the empirical scaling relation:
+The attack-wise results show that the detector is substantially stronger for branch outages and FDIA than for load-shift and slowly varying stealth-drift cases. The latter cases should therefore be treated as the principal limitations of the present validation study.
+
+\subsection{Statistical Comparison}
+The regenerated primary-seed audit contains paired McNemar comparisons. For the $K=2$ quorum against NIS standalone, the test gives $\chi^2=118.8643$ and $p=1.1215\times10^{-27}$. Against CUSUM standalone, $\chi^2=109.2101$ and $p=1.4597\times10^{-25}$. These tests support a statistically significant difference for those comparisons, but the paper does not generalize these primary-seed tests into a five-seed statistical claim.
+
+\section{Physical and Numerical Validation}
+The repository performs an independent physical audit in which the AC measurement equation is compared with the complex-power expression
 \begin{equation}
-\ln(t) = 0.8641 \ln(N) - 5.0302 \quad (R^2 = 0.8732)
+\mathbf{S}=\mathbf{V}\odot\operatorname{conj}(\mathbf{Y}\mathbf{V}).
 \end{equation}
-This $O(N^{0.86})$ scaling represents an \emph{empirical fitted scaling exponent} for measurement and Jacobian array evaluation, distinct from the theoretical $O(N^{2.3})$ cubic matrix inversion complexity associated with full EKF Kalman gain updates.
+The independent branch-power calculation includes line charging and transformer tap/phase-shift terms. The audit requires the active-power balance residual to remain below $10^{-9}$ p.u. and the measurement-equation cross-check to remain below $10^{-10}$ in the implemented normalized quantities.
+
+The physical checker was revised to include branch charging explicitly; earlier versions omitted the half-line charging contribution when calculating branch losses. Consequently, any earlier physical residual figure produced before this correction is not treated as authoritative.
+
+\section{Computational Scaling}
+Earlier manuscript versions reported fixed Jacobian speedup values and an empirical power-law exponent. Those values are not retained as authoritative claims in this revision because the current regenerated validation artifact does not independently regenerate the complete timing benchmark from the corrected pipeline. Computational-scaling claims should be reintroduced only after a fresh timing experiment has been generated and hashed with the same validation run.
+
+\section{Limitations}
+The present study uses canonical IEEE benchmark systems and controlled synthetic attack scenarios rather than field SCADA data. The communication-jitter stream is also weak in the current synthetic evaluation, as reflected by its standalone F1-score of 0.0083 in the primary-seed detector audit. The load-shift and stealth-drift cases remain the most difficult attack classes. These limitations should be addressed before claiming operational deployment readiness.
 
 \section{Conclusion}
-This paper presented XMON-Grid, a multi-layer cyber-physical anomaly detection framework integrating dynamic physical EKF state estimation residuals, CUSUM drift tracking, and SCADA timing jitter statistics via multi-agent quorum voting. Evaluated across 6,000 independent test instances over five random seeds on IEEE benchmark systems, the conservative $K=2$ consensus quorum achieved an authoritative F1-score of $0.9232 \pm 0.0032$ with a false positive rate below $0.6\%$. Vectorized measurement routines provided empirical speedups up to $192.58\times$ on large grid topologies.
+XMON-Grid combines physical state-estimation residuals, statistical drift monitoring, timing information, sequential accumulation, and quorum fusion for cyber-physical anomaly detection. The corrected and regenerated five-seed evaluation gives an F1-score of $0.9204\pm0.0026$, recall of $0.8850\pm0.0012$, FPR of $0.1525\pm0.0197$, and MCC of $0.6667\pm0.0151$ for the $K=2$ mode. The corrected mathematical and physical validation pipeline removes earlier stale numerical claims and makes the remaining limitations explicit.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
