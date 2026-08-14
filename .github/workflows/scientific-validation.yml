@@ -31,6 +31,9 @@ jobs:
       - name: Validate canonical IEEE benchmark cases
         run: python scripts/validate_canonical_benchmarks.py
 
+      - name: Cross-validate current mathematical and data pipeline
+        run: python scripts/validate_current_pipeline.py
+
       - name: Run model unit tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
 
