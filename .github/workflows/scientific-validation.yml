@@ -53,14 +53,12 @@ jobs:
       - name: Audit publication claims and provenance
         run: python scripts/publication_release_audit.py
 
-      - name: Install LaTeX publication toolchain
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra texlive-publishers
-
       - name: Compile IEEE manuscript
-        working-directory: paper
-        run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          working_directory: paper
+          latexmk_use_xelatex: false
 
       - name: Verify benchmark provenance and repository claims
         run: python scripts/validate_reproducibility_contract.py
