@@ -1,0 +1,144 @@
+# PHASE 4D — FINAL GIT PROVENANCE AUDIT REPORT
+
+**Repository**: XMON-Grid  
+**Audit Date**: August 12, 2026  
+**Audit Type**: READ-ONLY Git & Provenance Forensic Audit  
+**Auditor**: Antigravity AI (Advanced Agentic Coding / Provenance Audit Unit)
+
+---
+
+## 1. GIT REPOSITORY STATUS & COMMIT HISTORY
+
+### A. Repository Head & Branch State
+- **Current Branch**: `tsg-clean-reproduction`
+- **Current HEAD Full SHA**: `17a70f20957f0d0733a92adcf96f51976fd329b4`
+- **Git Working Tree Status**: **UNCLEAN (Uncommitted Modifications Present)**
+  - Modified tracked files:
+    - `core/xmon_model.py`
+    - `scripts/run_authoritative_experiment.py`
+    - `scripts/run_comparative_ablation_analysis.py`
+    - `tests/test_xmon_model.py`
+  - Untracked audit files:
+    - `PHASE_4A_CODE_LEVEL_SCIENTIFIC_AUDIT.md`
+    - `PHASE_4B_CORRECTIVE_IMPLEMENTATION_PLAN.md`
+    - `PHASE_4C_FINAL_EXPERIMENT_AUDIT.md`
+    - `PHASE_4C_POST_PROCESS_AUDIT.md`
+
+### B. Latest 10 Commits
+1. `17a70f20957f0d0733a92adcf96f51976fd329b4` — `feat: finalize physical XMON-Grid benchmark and comparative evaluation`
+2. `395d4cf1ab22f4061f49de23fa9b1e4c48407df2` — `chore(repo): finalize professional research repository structure`
+3. `1b889ec128795dbdd9f8efcfc0f3d61b369c0d11` — `repro: freeze authoritative TSG experiment and figures`
+4. `f7cfbb2843efc609c1fae7e651bf29ebed8a02c9` — `refactor(repo): perform safe research repository cleanup`
+5. `97c8117a3a91e5d7df9d94943f29b417eef9c0d4` — `Merge pull request #3 from BurhanAbdullah/advanced-validation-upgrade`
+6. `1d13305417ab7709a8964d4b1a437a346e96fa42` — `feat(advanced): add ROC comparison, threshold sensitivity, confidence intervals, and complexity analysis`
+7. `4ece997cfd901bc09e99a224eb69dfb6cb0db7a9` — `fix(delay): remove scientifically invalid baseline detection delay computation`
+8. `edb91f658fb695d733cf9f1bc41f9e2365287f3b` — `fix(advanced): generate real-data advanced evaluation metrics from final labeled dataset`
+9. `e4fda0af593717df3cdfb6233d4ebaeefbfdb990` — `fix(advanced): replace synthetic evaluation metrics with real pipeline-derived detector analysis`
+10. `4562185265fd843e9812dd90938ff5d564cf9659` — `feat(advanced): add baselines, ablations, monte carlo statistics, delay analysis, and consensus sensitivity evaluation`
+
+### C. Git Tags
+- `v1.0-experimental-freeze` $\rightarrow$ `1bb9c8ae513115704c8ca9121b2cd43649642f58`
+- `Aegis-Grid-V2.0-FINAL` $\rightarrow$ `e7f111fc09bbcad097a44daaca70e645fd6496d4`
+- `ieee-tx-submission-candidate-v1` $\rightarrow$ `c9703383c6dedd50858560c0ebbd70b68c78dd90`
+- `v2.4-paper-final` $\rightarrow$ `a29414ee2d79080eaba8dc19758db52aa09f9631`
+
+### D. Relevant Remote Branches
+- `origin/tsg-clean-reproduction`
+- `origin/xmon-main`
+- `origin/main`
+- `origin/ieee-clean`
+- `origin/ieee-paper-final`
+- `origin/research-main`
+
+---
+
+## 2. PROVENANCE ANALYSIS & SOURCE FILE CORRESPONDENCE
+
+### A. Commit Identification for Core Source Files
+The committed state at HEAD (`17a70f20957f0d0733a92adcf96f51976fd329b4`) contains:
+- `core/xmon_model.py`
+- `core/data_pipeline.py`
+- `scripts/run_authoritative_experiment.py`
+- `scripts/run_comparative_ablation_analysis.py`
+- `tests/test_xmon_model.py`
+
+### B. Verification of Phase 4B Corrections in Working Tree vs. HEAD Commit
+
+| Correction Requirement | Present in Committed HEAD (`17a70f2`)? | Present in Working Tree (Uncommitted)? |
+|---|---|---|
+| `PowerSystemStateEstimator.reset()` | **NO** | **YES** (`core/xmon_model.py` L55–L60) |
+| `XMONGridModel.reset()` | **NO** | **YES** (`core/xmon_model.py` L353–L361) |
+| Scenario-Boundary State Reset | **NO** | **YES** (`scripts/run_authoritative_experiment.py` L98–L101) |
+| Corrected B/C/D 2-of-2 Quorum ($K=2/2$, AND gate) | **NO** (had OR gate `>= 1`) | **YES** (`scripts/run_comparative_ablation_analysis.py` L188–L190) |
+| Memoryless CUSUM for Ablation E (`a_cusum_inst`) | **NO** (dropped CUSUM entirely) | **YES** (`core/xmon_model.py` L380–L383) |
+| Benign-Calibrated $\tau_{\text{comp}}$ for Ablation F | **NO** (had hardcoded 0.50) | **YES** (`core/xmon_model.py` L345, $\tau_{\text{comp}} = 0.4838$) |
+
+*Crucial Finding*: The committed HEAD (`17a70f2`) does **NOT** contain the Phase 4B corrections. The Phase 4B corrections exist **only as uncommitted modifications in the working tree**.
+
+---
+
+## 3. EXPERIMENTAL RESULT PACKAGE PROVENANCE (`results/tsg_run_002/`)
+
+### A. Metadata & Signature Analysis
+- **`results/tsg_run_002/run_metadata.txt`**:
+  - Recorded Commit Hash: `395d4cf1ab22f4061f49de23fa9b1e4c48407df2` (Commit date: Aug 11, 2026, 15:29:40).
+  - Random Seed: `42`.
+- **`results/tsg_run_002/SHA256SUMS.txt`**:
+  - Timestamp: August 12, 2026, 11:00:11 AM.
+  - Signature Count: 28 file entries.
+  - Internal Self-Consistency: **100% SELF-CONSISTENT**. Re-computing SHA256 hashes for all 28 files in `results/tsg_run_002/` yields **28 of 28 exact matches** (0 mismatches).
+
+### B. Classification of `results/tsg_run_002/` Provenance
+- `results/tsg_run_002/` was **generated by the Phase 4B corrected code currently residing in the uncommitted working tree**.
+- Recalculating metrics directly from `results/tsg_run_002/metrics/detector_outputs.csv` yields the exact verified Phase 4C state-reset metrics:
+  - **XMON $K=2$**: $\text{TN}=238, \text{FP}=2, \text{FN}=117, \text{TP}=843$ (Precision = 0.9976, Recall = 0.8781, F1 = 0.9341, FPR = 0.0083)
+  - **XMON $K=1$**: $\text{TN}=107, \text{FP}=133, \text{FN}=0, \text{TP}=960$ (Precision = 0.8783, Recall = 1.0000, F1 = 0.9352, FPR = 0.5542)
+  - **CUSUM Standalone**: $\text{TN}=237, \text{FP}=3, \text{FN}=3, \text{TP}=957$ (F1 = 0.9969, FPR = 0.0125)
+  - **Sequential-Only**: $\text{TN}=240, \text{FP}=0, \text{FN}=14, \text{TP}=946$ (F1 = 0.9927, FPR = 0.0000)
+- **Provenance Discrepancy**: While the data files inside `results/tsg_run_002/` are scientifically verified and reflect the Phase 4B state-reset code, they **do not match the commit hash `395d4cf` recorded in `run_metadata.txt`**, because they were overwritten on Aug 12 by the uncommitted Phase 4B working tree changes.
+
+---
+
+## 4. TIMELINE AND TIMESTAMP COMPARISON
+
+```
+2026-08-11 15:29:40  - Commit 395d4cf (chore: finalize repo structure)
+2026-08-11 18:35:00  - Tag v1.0-experimental-freeze created at 1bb9c8a (Old Phase 3 code)
+2026-08-11 18:41:00  - Commit 17a70f2 (HEAD of tsg-clean-reproduction)
+2026-08-12 10:55:00  - Phase 4B corrective code changes created in working tree
+2026-08-12 10:59:44  - results/tsg_run_002/ raw & metrics CSVs written by Phase 4B code
+2026-08-12 11:00:11  - results/tsg_run_002/SHA256SUMS.txt signed (28 signatures)
+2026-08-12 11:04:15  - results/tsg_run_003/ subdirectories checked (0 data files, empty)
+```
+
+---
+
+## 5. AUDIT QUESTIONS CHECKLIST
+
+1. **Current Branch & HEAD SHA**: `tsg-clean-reproduction` @ `17a70f20957f0d0733a92adcf96f51976fd329b4`.
+2. **Commit containing source files**: `17a70f20957f0d0733a92adcf96f51976fd329b4`.
+3. **Phase 4B corrections in working tree**: **PRESENT in working tree**, but **ABSENT in committed HEAD**.
+4. **Source code commit for `results/tsg_run_002/`**: Written by uncommitted working tree code; `run_metadata.txt` lists older commit `395d4cf`.
+5. **Metadata & Signatures**: Inspected. `SHA256SUMS.txt` contains 28 signatures matching current files.
+6. **SHA256SUMS.txt Self-Consistency**: **100% SELF-CONSISTENT** (28/28 matches).
+7. **Classification of `results/tsg_run_002`**: Generated by **corrected Phase 4B code** (uncommitted in working tree).
+8. **Timestamps**: Verified. `results/tsg_run_002` data files are newer (Aug 12 10:59) than HEAD commit (Aug 11 18:41).
+9. **`results/tsg_run_003` check**: Contains **0 non-empty scientific files** (only empty subdirectories).
+10. **Tag `v1.0-experimental-freeze` check**: Points to `1bb9c8ae513115704c8ca9121b2cd43649642f58` (**old Phase 3 code**, lacking state resets).
+11. **Git Working Tree Cleanliness**: **UNCLEAN** (4 modified tracked files, 4 untracked audit markdown files).
+
+---
+
+## 6. PROVENANCE DEFICIT EXPLANATION
+
+Although the experimental data currently inside `results/tsg_run_002/` is scientifically valid and correctly reflects the Phase 4B state-reset implementation (yielding verified metrics XMON $K=2$ F1 = 0.9341, CUSUM F1 = 0.9969), Git provenance in committed history is **NOT ESTABLISHED** because:
+
+1. The source code containing `model.reset()`, per-scenario resets, and 2-of-2 quorum ablations exists **only in the uncommitted working tree** and has not been committed to Git.
+2. The Git tag `v1.0-experimental-freeze` points to an old commit (`1bb9c8a`) containing the flawed, non-reset code.
+3. `results/tsg_run_002/run_metadata.txt` lists commit `395d4cf`, creating a metadata mismatch with the actual code that produced the files on Aug 12.
+
+To establish authoritative committed provenance in the future, the Phase 4B working tree changes must be committed to Git, `run_metadata.txt` updated to reflect the new commit SHA, and a new git tag assigned.
+
+---
+
+AUTHORITATIVE STATE = NOT ESTABLISHED — DO NOT MODIFY PAPER

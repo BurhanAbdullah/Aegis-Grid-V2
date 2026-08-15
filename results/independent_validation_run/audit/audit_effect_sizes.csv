@@ -1,0 +1,5 @@
+Comparison,Cohens_d,Interpretation
+K=2 Quorum vs NIS Standalone,-0.2621,Moderate effect
+K=2 Quorum vs CUSUM Standalone,-0.2269,Low/Moderate effect
+K=2 Quorum vs Jitter Standalone,2.0746,Very large positive effect
+K=2 Quorum vs Sequential Only,0.0161,Negligible/Small effect

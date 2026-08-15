@@ -318,22 +318,23 @@ csv_path = (
     "experiments/results/macpr_results.csv"
 )
 
-with open(
-    csv_path,
-    "w",
-    newline=""
-) as f:
+if rows:
+    with open(
+        csv_path,
+        "w",
+        newline=""
+    ) as f:
 
-    writer = csv.DictWriter(
-        f,
-        fieldnames=rows[0].keys()
-    )
+        writer = csv.DictWriter(
+            f,
+            fieldnames=rows[0].keys()
+        )
 
-    writer.writeheader()
+        writer.writeheader()
 
-    writer.writerows(rows)
+        writer.writerows(rows)
 
-print("\nSaved:", csv_path)
+    print("\nSaved:", csv_path)
 
 print("Rows:", len(rows))
 

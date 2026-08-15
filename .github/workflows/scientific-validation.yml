@@ -1,0 +1,75 @@
+name: Scientific Validation
+
+on:
+  push:
+    branches:
+      - scientific-fix-01-canonical-benchmarks
+      - publication-final-20260814
+  pull_request:
+    branches:
+      - scientific-fix-01-canonical-benchmarks
+      - publication-final-20260814
+
+jobs:
+  scientific-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install scientific dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+
+      - name: Compile Python sources
+        run: python -m compileall -q core scripts tests
+
+      - name: Validate canonical IEEE benchmark cases
+        run: python scripts/validate_canonical_benchmarks.py
+
+      - name: Cross-validate current mathematical and data pipeline
+        run: python scripts/validate_current_pipeline.py
+
+      - name: Run model unit tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Run independent physical power-flow sanity check
+        run: python scripts/physical_sanity_check.py
+
+      - name: Regenerate independent multi-seed results
+        if: github.ref_name == 'scientific-fix-01-canonical-benchmarks'
+        run: python scripts/run_independent_validation.py
+
+      - name: Regenerate publication figures from current artifacts
+        if: github.ref_name == 'scientific-fix-01-canonical-benchmarks'
+        run: python scripts/regenerate_publication_figures.py
+
+      - name: Audit publication claims and provenance
+        run: python scripts/publication_release_audit.py
+
+      - name: Compile IEEE manuscript
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          working_directory: paper
+          latexmk_use_xelatex: false
+
+      - name: Verify benchmark provenance and repository claims
+        run: python scripts/validate_reproducibility_contract.py
+
+      - name: Upload publication package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xmon-grid-publication-package
+          path: |
+            paper/main.pdf
+            results/independent_validation_run
+            results/final_validation_20260814
+            results/current_physical_sanity.csv

@@ -16,48 +16,49 @@ paper/figures \
 results/csv
 
 # -------------------------------------------------
-# MAIN EXPERIMENTS
+# DATASET GENERATION (AUTHORITATIVE DETERMINISTIC)
 # -------------------------------------------------
 
 echo
-echo "[1/8] Running core experiments..."
+echo "[1/8] Generating deterministic realistic dataset..."
 
-python3 scripts/run_experiments.py
+python3 scripts/generate_realistic_dataset.py
+cp data/full_experiment_table.csv results/final_dataset.csv
 
 # -------------------------------------------------
-# MONTE CARLO
+# MONTE CARLO (LEGACY / NON-AUTHORITATIVE DEMO)
 # -------------------------------------------------
 
 echo
-echo "[2/8] Running Monte Carlo..."
+echo "[2/8] Running Monte Carlo (legacy demo)..."
 
 python3 experiments/run_monte_carlo.py
 python3 experiments/analyze_monte_carlo.py
 
 # -------------------------------------------------
-# STEALTH SWEEP
+# STEALTH SWEEP (LEGACY / NON-AUTHORITATIVE DEMO)
 # -------------------------------------------------
 
 echo
-echo "[3/8] Running stealth sweep..."
+echo "[3/8] Running stealth sweep (legacy demo)..."
 
 python3 experiments/run_stealth_sweep.py
 
 # -------------------------------------------------
-# SCALING
+# SCALING (LEGACY / NON-AUTHORITATIVE DEMO)
 # -------------------------------------------------
 
 echo
-echo "[4/8] Running scalability benchmarks..."
+echo "[4/8] Running scalability benchmarks (legacy demo)..."
 
 python3 experiments/benchmark_scaling.py
 
 # -------------------------------------------------
-# EXPORT PAPER DATA
+# EXPORT PAPER DATA (AUTHORITATIVE K=1 & K=2 METRICS)
 # -------------------------------------------------
 
 echo
-echo "[5/8] Exporting paper datasets..."
+echo "[5/8] Exporting paper datasets & metrics..."
 
 python3 scripts/export_paper_data.py
 
@@ -95,3 +96,4 @@ echo
 echo "================================================="
 echo "FINAL REPRODUCTION COMPLETE"
 echo "================================================="
+

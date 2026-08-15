@@ -1,0 +1,26 @@
+Authoritative Reproduction Metadata
+====================================
+Timestamp: 2026-08-11T09:07:00.272903+00:00
+Git Baseline Commit: f7cfbb2843efc609c1fae7e651bf29ebed8a02c9 (f7cfbb2)
+Git Branch: main
+Reproduction Driver: scripts/run_isolated_reproduction.py
+Reproduction Command: python3 scripts/run_isolated_reproduction.py
+Isolated Output Directory: results/tsg_run_001/
+
+Experimental Configuration:
+- Random Seed: 42
+- Total Dataset Samples: 960 rows
+- IEEE Test Case Grids: case9, case14, case30, case118 (4 cases)
+- Attack Scenarios: baseline, branch1_out, branch2_out, branch3_out (4 scenarios)
+- Repetitions: 60 runs per grid/scenario tuple (4 x 4 x 60 = 960)
+
+Quorum Decision Definitions:
+- K=2 Strict Majority Quorum (Primary Conservative): votes >= 2
+  Result: TN=239, FP=1, FN=174, TP=546 | Acc=0.8177, Prec=0.9982, Rec=0.7583, F1=0.8619
+- K=1 OR Mode Quorum (Sensitivity Mode): votes >= 1
+  Result: TN=219, FP=21, FN=48, TP=672 | Acc=0.9281, Prec=0.9697, Rec=0.9333, F1=0.9512
+
+Software Environment:
+- Python Version: 3.12.3
+- Operating System: Windows (MSYS2 / Git Bash shell environment)
+- Libraries: numpy, pandas, scikit-learn, matplotlib

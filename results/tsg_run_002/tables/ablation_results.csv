@@ -1,0 +1,7 @@
+configuration,TN,FP,FN,TP,precision,recall,F1,FPR,specificity,balanced_accuracy,roc_auc,pr_auc
+A. Full XMON-Grid (K=2 Quorum),238,2,117,843,0.9976,0.8781,0.9341,0.0083,0.9917,0.9349,0.9924,0.9981
+B. XMON-Grid without NIS,237,3,3,957,0.9969,0.9969,0.9969,0.0125,0.9875,0.9922,N/A,N/A
+C. XMON-Grid without CUSUM,108,132,114,846,0.865,0.8812,0.8731,0.55,0.45,0.6656,N/A,N/A
+D. XMON-Grid without Jitter,107,133,0,960,0.8783,1.0,0.9352,0.5542,0.4458,0.7229,N/A,N/A
+E. XMON-Grid without Sequential Accumulator,98,142,0,960,0.8711,1.0,0.9311,0.5917,0.4083,0.7042,0.9924,0.9981
+F. XMON-Grid without Quorum Fusion,235,5,92,868,0.9943,0.9042,0.9471,0.0208,0.9792,0.9417,0.9924,0.9981

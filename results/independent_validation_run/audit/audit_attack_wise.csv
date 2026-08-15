@@ -1,0 +1,26 @@
+scenario,method,samples,TN,FP,FN,TP,Accuracy,Precision,Recall,F1,FPR,Specificity,Balanced_Accuracy,MCC,ROC_AUC,PR_AUC
+baseline,XMON-Grid K=2,240,236,4,0,0,0.9833,0.0,0.0,0.0,0.0167,0.9833,0.4917,0.0,N/A,N/A
+baseline,XMON-Grid K=1,240,101,139,0,0,0.4208,0.0,0.0,0.0,0.5792,0.4208,0.2104,0.0,N/A,N/A
+baseline,NIS Standalone,240,103,137,0,0,0.4292,0.0,0.0,0.0,0.5708,0.4292,0.2146,0.0,N/A,N/A
+baseline,CUSUM Standalone,240,234,6,0,0,0.975,0.0,0.0,0.0,0.025,0.975,0.4875,0.0,N/A,N/A
+baseline,Jitter Standalone,240,240,0,0,0,1.0,0.0,0.0,0.0,0.0,1.0,0.5,0.0,N/A,N/A
+branch_outage,XMON-Grid K=2,240,0,0,4,236,0.9833,1.0,0.9833,0.9916,0.0,0.0,0.4917,0.0,N/A,N/A
+branch_outage,XMON-Grid K=1,240,0,0,3,237,0.9875,1.0,0.9875,0.9937,0.0,0.0,0.4938,0.0,N/A,N/A
+branch_outage,NIS Standalone,240,0,0,3,237,0.9875,1.0,0.9875,0.9937,0.0,0.0,0.4938,0.0,N/A,N/A
+branch_outage,CUSUM Standalone,240,0,0,4,236,0.9833,1.0,0.9833,0.9916,0.0,0.0,0.4917,0.0,N/A,N/A
+branch_outage,Jitter Standalone,240,0,0,240,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,N/A,N/A
+fdia,XMON-Grid K=2,240,0,0,4,236,0.9833,1.0,0.9833,0.9916,0.0,0.0,0.4917,0.0,N/A,N/A
+fdia,XMON-Grid K=1,240,0,0,3,237,0.9875,1.0,0.9875,0.9937,0.0,0.0,0.4938,0.0,N/A,N/A
+fdia,NIS Standalone,240,0,0,3,237,0.9875,1.0,0.9875,0.9937,0.0,0.0,0.4938,0.0,N/A,N/A
+fdia,CUSUM Standalone,240,0,0,4,236,0.9833,1.0,0.9833,0.9916,0.0,0.0,0.4917,0.0,N/A,N/A
+fdia,Jitter Standalone,240,0,0,240,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,N/A,N/A
+load_shift,XMON-Grid K=2,240,0,0,59,181,0.7542,1.0,0.7542,0.8599,0.0,0.0,0.3771,0.0,N/A,N/A
+load_shift,XMON-Grid K=1,240,0,0,4,236,0.9833,1.0,0.9833,0.9916,0.0,0.0,0.4917,0.0,N/A,N/A
+load_shift,NIS Standalone,240,0,0,58,182,0.7583,1.0,0.7583,0.8626,0.0,0.0,0.3792,0.0,N/A,N/A
+load_shift,CUSUM Standalone,240,0,0,5,235,0.9792,1.0,0.9792,0.9895,0.0,0.0,0.4896,0.0,N/A,N/A
+load_shift,Jitter Standalone,240,0,0,240,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,N/A,N/A
+stealth_drift,XMON-Grid K=2,240,0,0,71,169,0.7042,1.0,0.7042,0.8264,0.0,0.0,0.3521,0.0,N/A,N/A
+stealth_drift,XMON-Grid K=1,240,0,0,6,234,0.975,1.0,0.975,0.9873,0.0,0.0,0.4875,0.0,N/A,N/A
+stealth_drift,NIS Standalone,240,0,0,71,169,0.7042,1.0,0.7042,0.8264,0.0,0.0,0.3521,0.0,N/A,N/A
+stealth_drift,CUSUM Standalone,240,0,0,8,232,0.9667,1.0,0.9667,0.9831,0.0,0.0,0.4833,0.0,N/A,N/A
+stealth_drift,Jitter Standalone,240,0,0,236,4,0.0167,1.0,0.0167,0.0328,0.0,0.0,0.0083,0.0,N/A,N/A

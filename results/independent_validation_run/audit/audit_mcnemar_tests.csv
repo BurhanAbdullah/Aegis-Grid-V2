@@ -1,0 +1,6 @@
+Comparison,a_both_correct,b_k2_only,c_base_only,d_both_wrong,statistic,p_value,Interpretation
+K=2 Quorum vs NIS Standalone,923,135,5,137,118.8643,1.1215e-27,Statistically significant difference (p < 0.001)
+K=2 Quorum vs CUSUM Standalone,1056,2,117,25,109.2101,1.4597e-25,Statistically significant difference (p < 0.001)
+K=2 Quorum vs Jitter Standalone,240,818,4,138,804.0985,6.9337e-177,Statistically significant difference (p < 0.001)
+K=2 Quorum vs Sequential Accumulator,950,108,107,35,0.0,1.0000,No statistically significant difference (p >= 0.05)
+K=2 Quorum vs XMON-Grid K=1 (Sensitivity Mode),923,135,122,20,0.5603,0.4541,No statistically significant difference (p >= 0.05)
