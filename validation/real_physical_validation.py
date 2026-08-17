@@ -10,14 +10,22 @@ from __future__ import annotations
 
 import importlib
 import sys
+from pathlib import Path
+
+# Allow direct execution as `python validation/real_physical_validation.py`
+# from a clean checkout, matching the CI invocation.
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 import numpy as np
 from pypower.api import runpf
 from pypower.ppoption import ppoption
-from pypower.idx_bus import VM, VA, PD, QD, BUS_I, BUS_TYPE
-from pypower.idx_gen import GEN_BUS, PG, QG
+from pypower.idx_bus import VM, VA, PD, QD
+from pypower.idx_gen import PG, QG
 from pypower.idx_brch import F_BUS, T_BUS, BR_R, BR_X, BR_B, TAP, SHIFT, BR_STATUS
 
-from core.grid_topology import compute_h_x, compute_jacobian_H, get_ieee_case_data, build_ybus
+from core.grid_topology import compute_h_x, compute_jacobian_H, get_ieee_case_data
 
 CASES = ["case9", "case14", "case30", "case118"]
 
