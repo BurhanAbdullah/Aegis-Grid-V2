@@ -22,9 +22,12 @@ if str(ROOT) not in sys.path:
 import numpy as np
 from pypower.api import runpf
 from pypower.ppoption import ppoption
-from pypower.idx_bus import VM, VA, PD, QD
+from pypower.idx_bus import VM, VA, PD, QD, GS, BS
 from pypower.idx_gen import PG, QG
-from pypower.idx_brch import F_BUS, T_BUS, BR_R, BR_X, BR_B, TAP, SHIFT, BR_STATUS, PF, PT, QF, QT
+from pypower.idx_brch import (
+    F_BUS, T_BUS, BR_R, BR_X, BR_B, TAP, SHIFT, BR_STATUS,
+    PF, PT, QF, QT,
+)
 
 from core.grid_topology import compute_h_x, compute_jacobian_H, get_ieee_case_data
 
@@ -37,9 +40,19 @@ def load_pypower_case(name: str):
 
 
 def canonical_ybus(ppc):
-    """Build Ybus directly from canonical branch data, including tap/phase shift."""
+    """Build the canonical Ybus directly from branch and bus data.
+
+    Includes series branches, line charging, transformer tap/phase shift, and
+    the canonical bus shunts Gs/Bs.  Gs/Bs are specified in MW/MVAr at V=1 pu,
+    so their admittance contribution is divided by baseMVA.
+    """
     nb = ppc["bus"].shape[0]
+    base_mva = float(ppc["baseMVA"])
     Y = np.zeros((nb, nb), dtype=complex)
+
+    # Canonical bus shunts: S_sh = (Gs + j Bs) |V|^2 in MW/MVAr.
+    Y += np.diag((ppc["bus"][:, GS] + 1j * ppc["bus"][:, BS]) / base_mva)
+
     for row in ppc["branch"]:
         if row[BR_STATUS] == 0:
             continue
@@ -81,11 +94,9 @@ def run_case(name):
     assert np.all(np.isfinite(vm)) and np.all(np.isfinite(va))
     assert float(vm.min()) > 0.80 and float(vm.max()) < 1.20, (name, vm.min(), vm.max())
 
-    # Independent nodal power-balance audit. We intentionally do not use the
-    # solved branch PF/PT columns for the release gate because those are solver
-    # output fields rather than an independent physical calculation. Instead,
-    # reconstruct the canonical Ybus from branch parameters and evaluate
-    # S_i = V_i * conj((Y V)_i) directly at the solved AC state.
+    # Independent nodal power-balance audit. Reconstruct Ybus from canonical
+    # branch parameters AND bus shunts, then evaluate S_i = V_i conj(YV)_i.
+    # This independently accounts for branch losses and shunt consumption.
     Y = canonical_ybus(solved)
     V = vm * np.exp(1j * np.deg2rad(va))
     S_inj = V * np.conj(Y @ V) * solved["baseMVA"]
@@ -100,29 +111,34 @@ def run_case(name):
     assert abs(p_balance) < 1e-6, (name, total_pg, total_pd, p_nodal, p_balance)
     assert abs(q_balance) < 1e-6, (name, total_qg, total_qd, q_nodal, q_balance)
 
-    # Retain the solver-reported branch-loss values as a diagnostic only. They
-    # are compared against the independently reconstructed real-power loss so
-    # any discrepancy remains visible without weakening the independent gate.
+    # Explicit independent shunt accounting: PG-PD equals branch loss plus
+    # shunt consumption, while QG-QD follows the corresponding reactive sign.
+    vm2 = vm * vm
+    shunt_p = float(np.sum(bus[:, GS] * vm2))
+    shunt_q = float(np.sum(bus[:, BS] * vm2))
+    branch_p_loss = p_nodal - shunt_p
+    branch_q_loss = q_nodal - shunt_q
+    assert abs((total_pg - total_pd) - (branch_p_loss + shunt_p)) < 1e-6
+    assert abs((total_qg - total_qd) - (branch_q_loss + shunt_q)) < 1e-6
+
+    # Solver-reported branch losses remain diagnostics only; they are not used
+    # for the independent release gate.
     reported_p_loss = float(np.sum(solved["branch"][:, PF] + solved["branch"][:, PT]))
     reported_q_loss = float(np.sum(solved["branch"][:, QF] + solved["branch"][:, QT]))
-    independent_p_loss = p_nodal
-    independent_q_loss = q_nodal
 
-    N = len(bus)
-    # Use solved physical state; reference-bus angle is excluded from x.
     x = np.concatenate([np.deg2rad(va[1:]), vm])
     G, B = Y.real, Y.imag
     err_abs, err_rel = max_fd_jacobian_error(x, G, B)
     assert err_abs < 2e-5, (name, err_abs, err_rel)
 
-    # Compare repository loader against canonical case dimensions/topology.
     repo = get_ieee_case_data(name)
     canonical_branch_count = int(np.sum(solved["branch"][:, BR_STATUS] != 0))
-    topology_match = repo["num_buses"] == N and repo["num_branches"] == canonical_branch_count
+    topology_match = repo["num_buses"] == len(bus) and repo["num_branches"] == canonical_branch_count
 
     print(f"{name}: PF=PASS Vm=[{vm.min():.5f},{vm.max():.5f}] "
           f"Pbalance={p_balance:+.2e} Qbalance={q_balance:+.2e} "
-          f"Ybus_loss=(P={independent_p_loss:.6f},Q={independent_q_loss:.6f}) "
+          f"branch_loss=(P={branch_p_loss:.6f},Q={branch_q_loss:.6f}) "
+          f"shunt=(P={shunt_p:.6f},Q={shunt_q:.6f}) "
           f"reported_branch_loss=(P={reported_p_loss:.6f},Q={reported_q_loss:.6f}) "
           f"Jacobian maxerr={err_abs:.2e} relerr={err_rel:.2e} "
           f"repo_topology_match={topology_match}")
