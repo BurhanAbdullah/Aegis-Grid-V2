@@ -3,8 +3,9 @@
 
 This script intentionally does not trust XMON-Grid's case loader. It loads the
 canonical IEEE 9/14/30/118 cases from PYPOWER, runs AC power flow, checks
-physical operating ranges and power balance, then independently checks the
-analytic h(x) Jacobian implementation by finite differences.
+physical operating ranges and nodal power balance independently from the
+reported branch-flow columns, then independently checks the analytic h(x)
+Jacobian implementation by finite differences.
 """
 from __future__ import annotations
 
@@ -23,7 +24,7 @@ from pypower.api import runpf
 from pypower.ppoption import ppoption
 from pypower.idx_bus import VM, VA, PD, QD
 from pypower.idx_gen import PG, QG
-from pypower.idx_brch import F_BUS, T_BUS, BR_R, BR_X, BR_B, TAP, SHIFT, BR_STATUS
+from pypower.idx_brch import F_BUS, T_BUS, BR_R, BR_X, BR_B, TAP, SHIFT, BR_STATUS, PF, PT, QF, QT
 
 from core.grid_topology import compute_h_x, compute_jacobian_H, get_ieee_case_data
 
@@ -80,22 +81,37 @@ def run_case(name):
     assert np.all(np.isfinite(vm)) and np.all(np.isfinite(va))
     assert float(vm.min()) > 0.80 and float(vm.max()) < 1.20, (name, vm.min(), vm.max())
 
-    # Canonical system power balance: generation - load - branch losses ~= 0.
+    # Independent nodal power-balance audit. We intentionally do not use the
+    # solved branch PF/PT columns for the release gate because those are solver
+    # output fields rather than an independent physical calculation. Instead,
+    # reconstruct the canonical Ybus from branch parameters and evaluate
+    # S_i = V_i * conj((Y V)_i) directly at the solved AC state.
+    Y = canonical_ybus(solved)
+    V = vm * np.exp(1j * np.deg2rad(va))
+    S_inj = V * np.conj(Y @ V) * solved["baseMVA"]
     total_pg = float(np.sum(solved["gen"][:, PG]))
     total_qg = float(np.sum(solved["gen"][:, QG]))
     total_pd = float(np.sum(bus[:, PD]))
     total_qd = float(np.sum(bus[:, QD]))
-    pf = solved["branch"]
-    p_loss = float(np.sum(pf[:, 13] + pf[:, 15]))
-    q_loss = float(np.sum(pf[:, 14] + pf[:, 16]))
-    assert abs(total_pg - total_pd - p_loss) < 1e-6, (name, total_pg, total_pd, p_loss)
-    assert abs(total_qg - total_qd - q_loss) < 1e-6, (name, total_qg, total_qd, q_loss)
+    p_nodal = float(np.sum(S_inj.real))
+    q_nodal = float(np.sum(S_inj.imag))
+    p_balance = total_pg - total_pd - p_nodal
+    q_balance = total_qg - total_qd - q_nodal
+    assert abs(p_balance) < 1e-6, (name, total_pg, total_pd, p_nodal, p_balance)
+    assert abs(q_balance) < 1e-6, (name, total_qg, total_qd, q_nodal, q_balance)
 
-    Y = canonical_ybus(solved)
-    G, B = Y.real, Y.imag
+    # Retain the solver-reported branch-loss values as a diagnostic only. They
+    # are compared against the independently reconstructed real-power loss so
+    # any discrepancy remains visible without weakening the independent gate.
+    reported_p_loss = float(np.sum(solved["branch"][:, PF] + solved["branch"][:, PT]))
+    reported_q_loss = float(np.sum(solved["branch"][:, QF] + solved["branch"][:, QT]))
+    independent_p_loss = p_nodal
+    independent_q_loss = q_nodal
+
     N = len(bus)
-    # Use solved physical state; reference angle is bus 1 in the canonical cases.
+    # Use solved physical state; reference-bus angle is excluded from x.
     x = np.concatenate([np.deg2rad(va[1:]), vm])
+    G, B = Y.real, Y.imag
     err_abs, err_rel = max_fd_jacobian_error(x, G, B)
     assert err_abs < 2e-5, (name, err_abs, err_rel)
 
@@ -105,8 +121,9 @@ def run_case(name):
     topology_match = repo["num_buses"] == N and repo["num_branches"] == canonical_branch_count
 
     print(f"{name}: PF=PASS Vm=[{vm.min():.5f},{vm.max():.5f}] "
-          f"Pbalance={total_pg-total_pd-p_loss:+.2e} "
-          f"Qbalance={total_qg-total_qd-q_loss:+.2e} "
+          f"Pbalance={p_balance:+.2e} Qbalance={q_balance:+.2e} "
+          f"Ybus_loss=(P={independent_p_loss:.6f},Q={independent_q_loss:.6f}) "
+          f"reported_branch_loss=(P={reported_p_loss:.6f},Q={reported_q_loss:.6f}) "
           f"Jacobian maxerr={err_abs:.2e} relerr={err_rel:.2e} "
           f"repo_topology_match={topology_match}")
     return topology_match
