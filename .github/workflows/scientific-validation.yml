@@ -48,6 +48,8 @@ jobs:
         run: python scripts/validate_authoritative_package.py
       - name: Regenerate all retained publication figures from authoritative data
         run: python scripts/generate_paper_figures.py
+      - name: Harden IEEE Transactions manuscript figure captions
+        run: python scripts/harden_transaction_manuscript.py
       - name: Audit publication claims, paths, and provenance
         run: python scripts/publication_release_audit.py
       - name: Compile IEEE manuscript
