@@ -58,6 +58,8 @@ jobs:
           latexmk_use_xelatex: false
       - name: Verify reproducibility contract
         run: python scripts/validate_reproducibility_contract.py
+      - name: Verify publication snapshot
+        run: python scripts/verify_release_snapshot.py
       - name: Run independent canonical physical validator
         run: python validation/real_physical_validation.py
       - name: Commit refreshed authoritative artifacts
