@@ -4,8 +4,11 @@
 {
   "detector_rows": 1200,
   "figure_design": {
+    "annotation_policy": "no overlapping data labels; no rotated scientific-notation bar labels",
     "format": "PDF + 400 dpi PNG",
-    "legends": "explicit metric/source definitions",
+    "legend_policy": "outside data region where practical",
+    "scientific_values_changed": false,
+    "titles_inside_axes": false,
     "uncertainty": "authoritative CSV CI/SD"
   },
   "k1_primary": {
