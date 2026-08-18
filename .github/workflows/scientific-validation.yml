@@ -1,5 +1,6 @@
 name: Scientific Validation and Publication Freeze
 
+# Release gate: every PR-head push must execute the full scientific/publication validation chain.
 on:
   push:
     branches:
@@ -78,12 +79,3 @@ jobs:
             git commit -m "chore: freeze validated publication artifacts [skip ci]"
             git push origin HEAD:v2.5-scientific-cleanup-20260815
           fi
-      - name: Upload validation package
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: xmon-grid-v2.5-scientific-cleanup
-          path: |
-            paper/main.pdf
-            results/authoritative_validation_20260815/
-            results/current_physical_sanity.csv
