@@ -23,9 +23,9 @@ REPLACEMENTS = {
         "Topology-wise $K=2$ F1-score across IEEE 9-, 14-, 30-, and 118-bus benchmarks. Bars are five-seed means; error bars are the authoritative 95\\% confidence intervals. Each topology contributes 1,500 evaluations (300 per seed).",
     "Five-seed mean F1 and recall across the validated attack scenarios.":
         "Attack-wise $K=2$ performance for branch outage, FDIA, load shift, and stealth drift. F1 bars use authoritative 95\\% confidence intervals; recall bars use five-seed standard deviations. Each scenario contributes 1,200 evaluations (240 per seed); the benign baseline is excluded from the attack comparison.",
-    "Detection robustness across attack severity tiers.":
+    "Detection robustness across the validated attack-severity tiers.":
         "Detection robustness of the $K=2$ quorum rule across the empirical attack-severity tiers in the authoritative detector trace. Bar labels report detection rate and the panel reports the number of positive evaluations contributing to each tier.",
-    "AC power-flow numerical consistency across the canonical benchmark systems.":
+    "Independent AC power-flow numerical consistency audit for the canonical benchmark cases.":
         "Independent AC power-flow consistency check for the canonical IEEE benchmark systems. The plotted quantities are the maximum absolute active-power residual, maximum absolute reactive-power residual, and absolute network power-balance residual reconstructed from the canonical admittance model; values are shown on a logarithmic scale in per-unit.",
 }
 
