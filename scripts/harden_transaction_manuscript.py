@@ -32,24 +32,29 @@ REPLACEMENTS = {
 
 def main() -> None:
     text = PAPER.read_text(encoding="utf-8")
-    changed = 0
+    applied = 0
     already = 0
     missing = []
     for old, new in REPLACEMENTS.items():
         if old in text:
             text = text.replace(old, new)
-            changed += 1
+            applied += 1
         elif new in text:
             already += 1
         else:
             missing.append(old)
-    if missing:
+
+    total = applied + already
+    expected = len(REPLACEMENTS)
+    if total != expected:
         raise SystemExit(
-            f"Caption hardening incomplete: missing {len(missing)} expected captions: {missing}"
+            f"Caption hardening incomplete: {applied} applied, {already} already hardened, total {total} of {expected}"
         )
-    if changed:
+
+    if applied:
         PAPER.write_text(text, encoding="utf-8")
-    print(f"Caption hardening verified: replaced={changed}, already_hardened={already}, total={len(REPLACEMENTS)}")
+
+    print(f"Caption hardening success: {applied} applied, {already} already hardened, total {total} of {expected}")
 
 
 if __name__ == "__main__":
