@@ -58,6 +58,8 @@ jobs:
           root_file: main.tex
           working_directory: paper
           latexmk_use_xelatex: false
+      - name: Validate Transactions figure quality
+        run: python scripts/validate_transaction_figures.py
       - name: Verify reproducibility contract
         run: python scripts/validate_reproducibility_contract.py
       - name: Verify publication snapshot
