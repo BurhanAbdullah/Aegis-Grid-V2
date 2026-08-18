@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Harden the manuscript's retained figure captions for IEEE Transactions review.
+"""Idempotently harden retained figure captions for IEEE Transactions review.
 
-The script only replaces known generic captions with captions that state the
-metric, population, uncertainty convention, and data source. It does not alter
-scientific values or results.
+Only known generic captions are replaced. If a caption is already hardened,
+the script verifies the hardened text is present and makes no further change.
+It never changes scientific values or results.
 """
 from pathlib import Path
 
@@ -33,15 +33,23 @@ REPLACEMENTS = {
 def main() -> None:
     text = PAPER.read_text(encoding="utf-8")
     changed = 0
+    already = 0
+    missing = []
     for old, new in REPLACEMENTS.items():
         if old in text:
             text = text.replace(old, new)
             changed += 1
-    if changed != len(REPLACEMENTS):
-        missing = [k for k in REPLACEMENTS if k not in text and REPLACEMENTS[k] not in text]
-        raise SystemExit(f"Expected {len(REPLACEMENTS)} caption replacements, applied {changed}; missing={missing}")
-    PAPER.write_text(text, encoding="utf-8")
-    print(f"Hardened {changed} IEEE Transactions figure captions in {PAPER.relative_to(ROOT)}")
+        elif new in text:
+            already += 1
+        else:
+            missing.append(old)
+    if missing:
+        raise SystemExit(
+            f"Caption hardening incomplete: missing {len(missing)} expected captions: {missing}"
+        )
+    if changed:
+        PAPER.write_text(text, encoding="utf-8")
+    print(f"Caption hardening verified: replaced={changed}, already_hardened={already}, total={len(REPLACEMENTS)}")
 
 
 if __name__ == "__main__":
