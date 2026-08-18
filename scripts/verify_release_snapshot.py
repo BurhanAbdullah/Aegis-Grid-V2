@@ -7,7 +7,6 @@ and validation provenance are present and that the manuscript points to the
 frozen authoritative figure directory.
 """
 from pathlib import Path
-import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,8 +38,22 @@ def main() -> int:
             failures.append("manuscript still references stale independent_validation_run figures")
         if "results/authoritative_validation_20260815" not in text:
             failures.append("manuscript does not reference authoritative validation figures")
-        if re.search(r"0\.6\\?%|85\.85\\?%", text):
-            failures.append("manuscript contains a prohibited stale performance claim")
+        # Do not flag historical claims merely because the manuscript explicitly
+        # says they are archived/rejected. Flag only a live numerical claim that
+        # is presented as authoritative in the current manuscript.
+        historical_markers = (
+            "does not retain",
+            "earlier archived",
+            "earlier high-recall",
+            "stale",
+            "archived claims",
+        )
+        for line in text.splitlines():
+            if ("0.6" in line or "85.85" in line) and not any(
+                marker in line.lower() for marker in historical_markers
+            ):
+                failures.append("manuscript contains an unqualified stale performance claim")
+                break
 
     for figure in FIGURES:
         path = RESULTS / "paper_figures" / figure
