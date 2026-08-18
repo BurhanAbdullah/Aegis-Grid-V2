@@ -156,7 +156,7 @@ The regenerated results differ materially from earlier archived aggregate number
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig1_overall_performance.pdf}
-\caption{Overall detection-performance comparison for the primary validation set.}
+\caption{Overall detector comparison computed from the authoritative detector trace ($N=6,000$ evaluations; 2,400 positive and 3,600 negative labels). Bars report F1-score, recall, and false-positive rate for each detector stream and quorum mode; numerical labels give the corresponding point estimates.}
 \label{fig:overall}
 \end{figure}
 
@@ -166,7 +166,7 @@ The $K=1$ mode is deliberately treated as a sensitivity-oriented OR rule rather 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig2_k1_vs_k2_tradeoff.pdf}
-\caption{$K=1$ versus $K=2$ operating-point trade-off using the validated detector outputs and five-seed aggregate summary.}
+\caption{$K=1$ versus $K=2$ operating-point trade-off. The diamond is the primary-trace $K=1$ OR rule; individual circles are the five independent $K=2$ seeds; the larger point and error bars show the five-seed mean $\pm$ sample standard deviation. $K=2$ is the strict majority of the three binary detector streams.}
 \label{fig:tradeoff}
 \end{figure}
 
@@ -176,14 +176,14 @@ The continuous composite threat score provides a threshold-independent view of s
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig3_roc_curve.pdf}
-\caption{ROC curve for the continuous composite threat score.}
+\caption{Receiver-operating-characteristic curve for the continuous composite threat score $S_{\mathrm{comp}}$, evaluated over all 6,000 authoritative test evaluations. The legend reports ROC-AUC; the dashed diagonal denotes chance discrimination. Class counts are stated in the panel.}
 \label{fig:roc}
 \end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig4_pr_curve.pdf}
-\caption{Precision--recall curve for the continuous composite threat score.}
+\caption{Precision--recall curve for the continuous composite threat score $S_{\mathrm{comp}}$, evaluated over all 6,000 authoritative test evaluations. The legend reports PR-AUC and the dashed horizontal line gives the positive-class prevalence baseline.}
 \label{fig:pr}
 \end{figure}
 
@@ -208,7 +208,7 @@ IEEE 118-bus & $0.9286\pm0.0015$ & $0.8667\pm0.0026$ & $0.0000\pm0.0000$ \\
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig5_casewise_performance.pdf}
-\caption{Five-seed mean F1 performance across the four IEEE benchmark topologies.}
+\caption{Topology-wise $K=2$ F1-score across IEEE 9-, 14-, 30-, and 118-bus benchmarks. Bars are five-seed means; error bars are the authoritative 95\% confidence intervals. Each topology contributes 1,500 evaluations (300 per seed).}
 \label{fig:casewise}
 \end{figure}
 
@@ -236,7 +236,7 @@ The attack-wise results show that the detector is substantially stronger for bra
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig6_attackwise_performance.pdf}
-\caption{Five-seed mean F1 and recall across the validated attack scenarios.}
+\caption{Attack-wise $K=2$ performance for branch outage, FDIA, load shift, and stealth drift. F1 bars use authoritative 95\% confidence intervals; recall bars use five-seed standard deviations. Each scenario contributes 1,200 evaluations (240 per seed); the benign baseline is excluded from the attack comparison.}
 \label{fig:attackwise}
 \end{figure}
 
@@ -249,7 +249,7 @@ The severity sweep shows how detection performance changes across the controlled
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig10_severity_robustness.pdf}
-\caption{Detection robustness across the validated attack-severity tiers.}
+\caption{Detection robustness of the $K=2$ quorum rule across the empirical attack-severity tiers in the authoritative detector trace. Bar labels report detection rate and the panel reports the number of positive evaluations contributing to each tier.}
 \label{fig:severity}
 \end{figure}
 
@@ -267,7 +267,7 @@ The physical checker was revised to include branch charging explicitly; earlier 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig12_ac_powerflow_consistency.pdf}
-\caption{Independent AC power-flow numerical consistency audit for the canonical benchmark cases.}
+\caption{Independent AC power-flow consistency check for the canonical IEEE benchmark systems. The plotted quantities are the maximum absolute active-power residual, maximum absolute reactive-power residual, and absolute network power-balance residual reconstructed from the canonical admittance model; values are shown on a logarithmic scale in per-unit.}
 \label{fig:physical}
 \end{figure}
 
