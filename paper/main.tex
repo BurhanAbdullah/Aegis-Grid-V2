@@ -33,7 +33,7 @@ Coordinated cyber-physical attacks can alter breaker status information, measure
 The principal contributions are:
 \begin{enumerate}
     \item A multi-layer detector architecture combining dynamic NIS residuals, adaptive CUSUM drift monitoring, and SCADA timing-jitter statistics.
-    \item A sequential innovation accumulator $\Theta(k)=0.9\Theta(k-1)+a_{\mathrm{nis}}(k)$ for persistent anomalies.
+    \item A sequential threat accumulator $\Theta_k=\alpha\Theta_{k-1}+S_{\mathrm{comp},k}$ for persistent composite anomalies.
     \item A transparent quorum rule in which $K=2$ is the strict majority of three binary detector streams and $K=1$ is the corresponding OR-gate sensitivity mode.
     \item Independent validation on four canonical IEEE transmission benchmarks with five random seeds and explicit mathematical, numerical, and reproducibility checks.
 \end{enumerate}
@@ -82,18 +82,37 @@ Persistent deviations are accumulated as
 The sequence threshold is calibrated from baseline data only, avoiding test-set threshold leakage.
 
 \subsection{CUSUM Drift Detector}
-The adaptive drift statistic is represented by
+The NIS-based CUSUM first standardizes the innovation statistic using the benign calibration distribution,
 \begin{equation}
-S_k=\max\left(0,S_{k-1}+z_k-d\right),
+z_k=\frac{\mathrm{NIS}_k-\mu_0}{\sigma_0},
 \end{equation}
-where $d$ is the drift allowance. A CUSUM alarm is generated when the calibrated threshold is exceeded.
+and then applies the one-sided recursion
+\begin{equation}
+g_k=\max\left(0,g_{k-1}+z_k-\kappa\right),
+\end{equation}
+where $\kappa$ is the drift allowance and the alarm is $a_{\mathrm{cusum},k}=\mathbb{I}\{g_k>\tau_{\mathrm{cusum}}\}$. The baseline mean $\mu_0$, standard deviation $\sigma_0$, and alarm threshold are calibrated from benign data only.
 
 \subsection{Communication Timing-Jitter Detector}
-Timing jitter is represented by
+Timing jitter is represented by the standardized instantaneous deviation
 \begin{equation}
-J_k=\left|\Delta t_k-\overline{\Delta t}\right|,
+J_k=\frac{|\Delta t_k-\mu_T|}{\sigma_T},
 \end{equation}
-with a binary alarm when the calibrated jitter threshold is exceeded.
+with a sliding-window mean
+\begin{equation}
+\overline{J}_k=\frac{1}{W_k}\sum_{i=k-W_k+1}^{k}J_i,\qquad W_k=\min(k,W).
+\end{equation}
+The binary jitter alarm is
+\begin{equation}
+a_{\mathrm{jitter},k}=\mathbb{I}\{J_k>\eta_\sigma\;\wedge\;\overline{J}_k>\eta_\mu\},
+\end{equation}
+where $\mu_T$ and $\sigma_T$ are estimated from benign inter-arrival times and $\eta_\sigma,\eta_\mu$ are fixed detector limits.
+
+\subsection{Continuous Composite Threat Score}
+The three detector streams are also mapped to a bounded continuous score. With normalized component scores $S_{\mathrm{NIS},k}$, $S_{\mathrm{CUSUM},k}$, and $S_{\mathrm{JITTER},k}$,
+\begin{equation}
+S_{\mathrm{comp},k}=w_1S_{\mathrm{NIS},k}+w_2S_{\mathrm{CUSUM},k}+w_3S_{\mathrm{JITTER},k},\qquad \sum_i w_i=1,
+\end{equation}
+where the implementation uses $(w_1,w_2,w_3)=(0.50,0.30,0.20)$ and clips each component and the final score to $[0,1]$.
 
 \subsection{Quorum Fusion}
 For detector flags $a_{\mathrm{nis}},a_{\mathrm{cusum}},a_{\mathrm{jitter}}\in\{0,1\}$,
@@ -132,11 +151,11 @@ MCC & 0.6667 & 0.0151 \\
 \end{tabular}
 \end{table}
 
-The regenerated results differ materially from earlier archived aggregate numbers. The present manuscript therefore does not retain the earlier claims of FPR below $0.6\%$ or recall of $85.85\%$ as authoritative results for this run.
+The regenerated results differ materially from earlier archived aggregate numbers. The present manuscript does not retain the earlier archived claims of sub-$0.6\%$ FPR or the earlier high-recall aggregate as authoritative results for this run.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig1_overall_performance.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig1_overall_performance.pdf}
 \caption{Overall detection-performance comparison for the primary validation set.}
 \label{fig:overall}
 \end{figure}
@@ -146,7 +165,7 @@ The $K=1$ mode is deliberately treated as a sensitivity-oriented OR rule rather 
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig2_k1_vs_k2_tradeoff.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig2_k1_vs_k2_tradeoff.pdf}
 \caption{$K=1$ versus $K=2$ operating-point trade-off using the validated detector outputs and five-seed aggregate summary.}
 \label{fig:tradeoff}
 \end{figure}
@@ -156,14 +175,14 @@ The continuous composite threat score provides a threshold-independent view of s
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig3_roc_curve.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig3_roc_curve.pdf}
 \caption{ROC curve for the continuous composite threat score.}
 \label{fig:roc}
 \end{figure}
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig4_pr_curve.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig4_pr_curve.pdf}
 \caption{Precision--recall curve for the continuous composite threat score.}
 \label{fig:pr}
 \end{figure}
@@ -188,7 +207,7 @@ IEEE 118-bus & $0.9286\pm0.0015$ & $0.8667\pm0.0026$ & $0.0000\pm0.0000$ \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig5_casewise_performance.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig5_casewise_performance.pdf}
 \caption{Five-seed mean F1 performance across the four IEEE benchmark topologies.}
 \label{fig:casewise}
 \end{figure}
@@ -216,7 +235,7 @@ The attack-wise results show that the detector is substantially stronger for bra
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig6_attackwise_performance.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig6_attackwise_performance.pdf}
 \caption{Five-seed mean F1 and recall across the validated attack scenarios.}
 \label{fig:attackwise}
 \end{figure}
@@ -229,7 +248,7 @@ The severity sweep shows how detection performance changes across the controlled
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig10_severity_robustness.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig10_severity_robustness.pdf}
 \caption{Detection robustness across the validated attack-severity tiers.}
 \label{fig:severity}
 \end{figure}
@@ -247,7 +266,7 @@ The physical checker was revised to include branch charging explicitly; earlier 
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig12_ac_powerflow_consistency.pdf}
+\includegraphics[width=\columnwidth]{../results/authoritative_validation_20260815/paper_figures/fig12_ac_powerflow_consistency.pdf}
 \caption{Independent AC power-flow numerical consistency audit for the canonical benchmark cases.}
 \label{fig:physical}
 \end{figure}
