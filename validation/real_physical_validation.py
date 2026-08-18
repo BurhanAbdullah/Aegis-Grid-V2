@@ -35,8 +35,20 @@ CASES = ["case9", "case14", "case30", "case118"]
 
 
 def load_pypower_case(name: str):
+    """Load a canonical PYPOWER case with floating-point numeric matrices.
+
+    Some PYPOWER case files are constructed with integer-valued NumPy literals.
+    If those integer arrays are passed directly into the in-place power-flow
+    solver, the solved slack-generator output can be truncated to an integer
+    (e.g. IEEE-9), producing a false physical power-balance failure.  The
+    canonical case definition is unchanged; only the solver working copy is
+    promoted to float so the AC solution is represented without quantization.
+    """
     mod = importlib.import_module(f"pypower.{name}")
-    return getattr(mod, name)()
+    ppc = getattr(mod, name)()
+    for key in ("bus", "gen", "branch"):
+        ppc[key] = np.asarray(ppc[key], dtype=float).copy()
+    return ppc
 
 
 def canonical_ybus(ppc):
