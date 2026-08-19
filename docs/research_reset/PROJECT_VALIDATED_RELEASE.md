@@ -1,8 +1,5 @@
 # XMON-Grid Project Validation Release
 
-## Frozen commit
-`c0ad960bcf8996df63cafd35546a22de6e63bc6c`
-
 ## Validation scope
 - Canonical PYPOWER/MATPOWER benchmark definitions for IEEE 9-, 14-, 30-, and 118-bus cases.
 - Independent Ybus cross-validation against PYPOWER.
@@ -10,10 +7,15 @@
 - Model/unit tests and cross-case regression tests.
 - Physical AC network consistency audit.
 - Seeded reproducibility and release-artifact checks.
-- Existing manuscript deliberately excluded from project-only release gate.
 
-## Paper-data provenance
-The paper-facing numerical artifacts currently associated with the validated project are under `results/independent_validation_run/`, including the five-seed summary, comparative results, ablations, figures, and SHA256 manifest.
+## Current publication-data provenance
+The single current paper-facing numerical authority is:
+
+`results/authoritative_validation_20260815/`
+
+This package is generated from the corrected five-seed experiment and contains the detector trace, regenerated tables, retained figures, figure manifest, physical-sanity data, and SHA256 manifest.
+
+Historical validation directories remain available for provenance but must not be used as current publication data.
 
 ## Important scope limitation
-The tag identifies a validated computational project state. It does not imply hardware, HIL, field, or real-world validation.
+This identifies a validated computational benchmark state. It does not imply hardware, HIL, field, or real-world operational validation.

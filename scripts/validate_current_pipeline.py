@@ -14,9 +14,10 @@ from core.grid_topology import build_ybus, compute_h_x, compute_jacobian, get_ie
 
 CASES = ("case9", "case14", "case30", "case118")
 SCENARIOS = {"baseline", "branch_outage", "fdia", "load_shift", "stealth_drift"}
+EXPECTED_PROVENANCE = "canonical PYPOWER IEEE topology; synthetic seeded measurements/attacks"
 
 
-def finite_difference_check(case_name="case9"):
+def finite_difference_check(case_name: str) -> float:
     case = get_ieee_case_data(case_name)
     _, G, B = build_ybus(case)
     n = case["num_buses"]
@@ -38,16 +39,16 @@ def finite_difference_check(case_name="case9"):
     return err
 
 
-def main():
-    jac_err = finite_difference_check()
-    print(f"PASS Jacobian finite-difference cross-check: max error={jac_err:.3e}")
-
+def main() -> None:
     for case in CASES:
+        jac_err = finite_difference_check(case)
+        print(f"PASS {case}: Jacobian finite-difference cross-check max error={jac_err:.3e}")
+
         d1 = generate_physical_dataset(case, 20, 10, 4, seed=31415)
         d2 = generate_physical_dataset(case, 20, 10, 4, seed=31415)
         if not np.array_equal(d1["calibration"]["z"], d2["calibration"]["z"]):
             raise AssertionError(f"{case}: seeded calibration is not reproducible")
-        if d1["benchmark_provenance"] != "canonical PYPOWER IEEE topology; synthetic seeded measurements/attacks":
+        if d1["benchmark_provenance"] != EXPECTED_PROVENANCE:
             raise AssertionError(f"{case}: provenance marker mismatch")
         scenarios = {m["scenario"] for m in d1["test"]["metadata"]}
         if scenarios != SCENARIOS:

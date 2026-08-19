@@ -1,75 +1,81 @@
-name: Scientific Validation
+name: Scientific Validation and Publication Freeze
 
+# Release gate: every PR-head push must execute the full scientific/publication validation chain.
 on:
   push:
     branches:
-      - scientific-fix-01-canonical-benchmarks
-      - publication-final-20260814
+      - v2.5-scientific-cleanup-20260815
   pull_request:
     branches:
-      - scientific-fix-01-canonical-benchmarks
-      - publication-final-20260814
+      - xmon-main
+
+permissions:
+  contents: write
 
 jobs:
   scientific-validation:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: false
-
+          fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
+          cache: pip
       - name: Install scientific dependencies
         run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
-
       - name: Compile Python sources
         run: python -m compileall -q core scripts tests
-
+      - name: Apply audited manuscript/code consistency patch
+        run: python scripts/apply_publication_math_patch.py
       - name: Validate canonical IEEE benchmark cases
         run: python scripts/validate_canonical_benchmarks.py
-
       - name: Cross-validate current mathematical and data pipeline
         run: python scripts/validate_current_pipeline.py
-
-      - name: Run model unit tests
+      - name: Run repository unit and cross-case tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
-
-      - name: Run independent physical power-flow sanity check
+      - name: Run independent physical AC audit
         run: python scripts/physical_sanity_check.py
-
-      - name: Regenerate independent multi-seed results
-        if: github.ref_name == 'scientific-fix-01-canonical-benchmarks'
+      - name: Copy current physical audit into authoritative package
+        run: cp results/current_physical_sanity.csv results/authoritative_validation_20260815/physical_sanity.csv
+      - name: Regenerate authoritative five-seed validation package
         run: python scripts/run_independent_validation.py
-
-      - name: Regenerate publication figures from current artifacts
-        if: github.ref_name == 'scientific-fix-01-canonical-benchmarks'
-        run: python scripts/regenerate_publication_figures.py
-
-      - name: Audit publication claims and provenance
+      - name: Validate authoritative result package
+        run: python scripts/validate_authoritative_package.py
+      - name: Regenerate all retained publication figures from authoritative data
+        run: python scripts/generate_paper_figures.py
+      - name: Harden IEEE Transactions manuscript figure captions
+        run: python scripts/harden_transaction_manuscript.py
+      - name: Audit publication claims, paths, and provenance
         run: python scripts/publication_release_audit.py
-
       - name: Compile IEEE manuscript
         uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
           working_directory: paper
           latexmk_use_xelatex: false
-
-      - name: Verify benchmark provenance and repository claims
+      - name: Validate Transactions figure quality
+        run: python scripts/validate_transaction_figures.py
+      - name: Verify reproducibility contract
         run: python scripts/validate_reproducibility_contract.py
-
-      - name: Upload publication package
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: xmon-grid-publication-package
-          path: |
-            paper/main.pdf
-            results/independent_validation_run
-            results/final_validation_20260814
-            results/current_physical_sanity.csv
+      - name: Verify publication snapshot
+        run: python scripts/verify_release_snapshot.py
+      - name: Run independent canonical physical validator
+        run: python validation/real_physical_validation.py
+      - name: Commit refreshed authoritative artifacts
+        if: github.ref_name == 'v2.5-scientific-cleanup-20260815' && github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper/main.tex paper/main.pdf results/authoritative_validation_20260815 results/current_physical_sanity.csv
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "chore: freeze validated publication artifacts [skip ci]"
+            git push origin HEAD:v2.5-scientific-cleanup-20260815
+          fi
