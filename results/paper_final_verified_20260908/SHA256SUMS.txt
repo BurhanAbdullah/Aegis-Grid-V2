@@ -1,3 +1,6 @@
+# Hashes supplied in the independent verification bundle.
+# The original paths below refer to the source verification bundle layout;
+# they are retained as provenance records and are not claims about paths in this directory.
 97999f8c6d530c56d080a60c5a5b0c0be05671b092e7a6c57a7b6f9e3b439e72  tables/ablation_results.csv
 cb76de2fc745785bd50b8a949ecf79250ca109f4f0ba8eb3c8daa43fb4d5bfa5  tables/comparative_results.csv
 2cd2eb0406e10d6055d13a8ce232369c550ae7a85a1ddbe61ccaea006241bd30  tables/multi_seed_summary.csv
