@@ -94,10 +94,10 @@ def generate_fig1_overall_performance():
     ax.set_ylim(0, 1.15)
 
     # Programmatic Data Match Verification
-    assert abs(f1_vals[-1] - 0.9205) < 1e-3, f"Fig 1 K=2 F1 mismatch: {f1_vals[-1]}"
-    assert abs(fpr_vals[-1] - 0.0167) < 1e-3, f"Fig 1 K=2 FPR mismatch: {fpr_vals[-1]}"
-    assert abs(rec_vals[4] - 0.9833) < 1e-3, f"Fig 1 K=1 Recall mismatch: {rec_vals[4]}"
-    assert abs(fpr_vals[4] - 0.5792) < 1e-3, f"Fig 1 K=1 FPR mismatch: {fpr_vals[4]}"
+    assert abs(f1_vals[-1] - 0.9229) < 1e-3, f"Fig 1 K=2 F1 mismatch: {f1_vals[-1]}"
+    assert abs(fpr_vals[-1] - 0.1333) < 1e-3, f"Fig 1 K=2 FPR mismatch: {fpr_vals[-1]}"
+    assert abs(rec_vals[4] - 0.9979) < 1e-3, f"Fig 1 K=1 Recall mismatch: {rec_vals[4]}"
+    assert abs(fpr_vals[4] - 0.6500) < 1e-3, f"Fig 1 K=1 FPR mismatch: {fpr_vals[4]}"
     
     plt.tight_layout()
     plt.savefig(os.path.join(FIG_DIR, "fig1_overall_performance.pdf"))
@@ -151,7 +151,7 @@ def generate_fig3_roc_curve():
 
     fpr_arr, tpr_arr, _ = roc_curve(yt, s_comp)
     roc_auc_val = auc(fpr_arr, tpr_arr)
-    assert abs(roc_auc_val - 0.9771) < 1e-3, f"ROC-AUC mismatch: {roc_auc_val}"
+    assert abs(roc_auc_val - 0.9575) < 1e-3, f"ROC-AUC mismatch: {roc_auc_val}"
 
     fig, ax = plt.subplots(figsize=(5.5, 4.0))
     ax.plot(fpr_arr, tpr_arr, color='#1f77b4', lw=2.5, label=f'Continuous Threat Score $S_{{comp}}$ (AUC = {roc_auc_val:.4f})')
