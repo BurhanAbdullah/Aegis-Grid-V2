@@ -9,6 +9,8 @@
 \usepackage{multirow}
 \usepackage{url}
 
+\graphicspath{{../results/paper_final_verified_20260908/figures/}}
+
 \begin{document}
 
 \title{Sequential Innovation Accumulation and Cross-Layer Quorum Consensus for Topology-Attack Detection in SCADA-Monitored Transmission Systems}
@@ -136,7 +138,7 @@ The regenerated results differ materially from earlier archived aggregate number
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig1_overall_performance.pdf}
+\includegraphics[width=\columnwidth]{fig1_overall_performance.pdf}
 \caption{Overall detection-performance comparison for the primary validation set.}
 \label{fig:overall}
 \end{figure}
@@ -146,7 +148,7 @@ The $K=1$ mode is deliberately treated as a sensitivity-oriented OR rule rather 
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig2_k1_vs_k2_tradeoff.pdf}
+\includegraphics[width=\columnwidth]{fig2_k1_vs_k2_tradeoff.pdf}
 \caption{$K=1$ versus $K=2$ operating-point trade-off using the validated detector outputs and five-seed aggregate summary.}
 \label{fig:tradeoff}
 \end{figure}
@@ -156,14 +158,14 @@ The continuous composite threat score provides a threshold-independent view of s
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig3_roc_curve.pdf}
+\includegraphics[width=\columnwidth]{fig3_roc_curve.pdf}
 \caption{ROC curve for the continuous composite threat score.}
 \label{fig:roc}
 \end{figure}
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig4_pr_curve.pdf}
+\includegraphics[width=\columnwidth]{fig4_pr_curve.pdf}
 \caption{Precision--recall curve for the continuous composite threat score.}
 \label{fig:pr}
 \end{figure}
@@ -188,7 +190,7 @@ IEEE 118-bus & $0.9286\pm0.0015$ & $0.8667\pm0.0026$ & $0.0000\pm0.0000$ \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig5_casewise_performance.pdf}
+\includegraphics[width=\columnwidth]{fig5_casewise_performance.pdf}
 \caption{Five-seed mean F1 performance across the four IEEE benchmark topologies.}
 \label{fig:casewise}
 \end{figure}
@@ -216,7 +218,7 @@ The attack-wise results show that the detector is substantially stronger for bra
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig6_attackwise_performance.pdf}
+\includegraphics[width=\columnwidth]{fig6_attackwise_performance.pdf}
 \caption{Five-seed mean F1 and recall across the validated attack scenarios.}
 \label{fig:attackwise}
 \end{figure}
@@ -229,7 +231,7 @@ The severity sweep shows how detection performance changes across the controlled
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig10_severity_robustness.pdf}
+\includegraphics[width=\columnwidth]{fig10_severity_robustness.pdf}
 \caption{Detection robustness across the validated attack-severity tiers.}
 \label{fig:severity}
 \end{figure}
@@ -241,13 +243,13 @@ The repository performs an independent physical audit in which the AC measuremen
 \end{equation}
 The independent branch-power calculation includes line charging and transformer tap/phase-shift terms. The audit requires the active-power balance residual to remain below $10^{-9}$ p.u. and the measurement-equation cross-check to remain below $10^{-10}$ in the implemented normalized quantities.
 
-The corrected audit gives maximum measurement-equation discrepancies of $1.04\times10^{-14}$ p.u. for active power and $2.91\times10^{-14}$ p.u. for reactive power across the IEEE 9-, 14-, 30-, and 118-bus cases. The corresponding active-power balance residual remains below $3\times10^{-14}$ p.u.
+The final verification CSV reports maximum absolute measurement-equation discrepancies of $3.09\times10^{-14}$ p.u. for active power and $2.46\times10^{-14}$ p.u. for reactive power across the IEEE 9-, 14-, 30-, and 118-bus cases. The maximum absolute active-power balance residual is $2.04\times10^{-14}$ p.u. These values are taken directly from the frozen verification artifact rather than from an earlier audit directory.
 
 The physical checker was revised to include branch charging explicitly; earlier versions omitted the half-line charging contribution when calculating branch losses. Consequently, any earlier physical residual figure produced before this correction is not treated as authoritative.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../results/independent_validation_run/paper_figures/fig12_ac_powerflow_consistency.pdf}
+\includegraphics[width=\columnwidth]{fig12_ac_powerflow_consistency.pdf}
 \caption{Independent AC power-flow numerical consistency audit for the canonical benchmark cases.}
 \label{fig:physical}
 \end{figure}
